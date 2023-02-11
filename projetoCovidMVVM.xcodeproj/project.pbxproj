@@ -11,6 +11,15 @@
 		E1099F022997D6CE00A098BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F012997D6CE00A098BF /* ContentView.swift */; };
 		E1099F042997D6D000A098BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1099F032997D6D000A098BF /* Assets.xcassets */; };
 		E1099F072997D6D000A098BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1099F062997D6D000A098BF /* Preview Assets.xcassets */; };
+		E1099F142997D8F800A098BF /* EstatisticasTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F132997D8F800A098BF /* EstatisticasTotalView.swift */; };
+		E1099F162997D91200A098BF /* PaisListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F152997D91200A098BF /* PaisListaView.swift */; };
+		E1099F182997D96800A098BF /* MapaMundiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F172997D96800A098BF /* MapaMundiView.swift */; };
+		E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F192997DB2100A098BF /* PaisModel.swift */; };
+		E1099F1C2997DB7D00A098BF /* MundialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F1B2997DB7D00A098BF /* MundialModel.swift */; };
+		E1099F1E2997DC5000A098BF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F1D2997DC5000A098BF /* NetworkService.swift */; };
+		E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F1F2997DE8D00A098BF /* APIConstants.swift */; };
+		E1099F222997DF9300A098BF /* URLEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F212997DF9300A098BF /* URLEndPoint.swift */; };
+		E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F232997E19F00A098BF /* MundialViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,15 @@
 		E1099F012997D6CE00A098BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E1099F032997D6D000A098BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1099F062997D6D000A098BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E1099F132997D8F800A098BF /* EstatisticasTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstatisticasTotalView.swift; sourceTree = "<group>"; };
+		E1099F152997D91200A098BF /* PaisListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaisListaView.swift; sourceTree = "<group>"; };
+		E1099F172997D96800A098BF /* MapaMundiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaMundiView.swift; sourceTree = "<group>"; };
+		E1099F192997DB2100A098BF /* PaisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaisModel.swift; sourceTree = "<group>"; };
+		E1099F1B2997DB7D00A098BF /* MundialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialModel.swift; sourceTree = "<group>"; };
+		E1099F1D2997DC5000A098BF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E1099F1F2997DE8D00A098BF /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		E1099F212997DF9300A098BF /* URLEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEndPoint.swift; sourceTree = "<group>"; };
+		E1099F232997E19F00A098BF /* MundialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,8 @@
 		E1099EFE2997D6CE00A098BF /* projetoCovidMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				E1099F0E2997D78D00A098BF /* Features */,
+				E1099F0D2997D78300A098BF /* Base */,
 				E1099EFF2997D6CE00A098BF /* projetoCovidMVVMApp.swift */,
 				E1099F012997D6CE00A098BF /* ContentView.swift */,
 				E1099F032997D6D000A098BF /* Assets.xcassets */,
@@ -65,6 +85,61 @@
 				E1099F062997D6D000A098BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E1099F0D2997D78300A098BF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F1F2997DE8D00A098BF /* APIConstants.swift */,
+				E1099F212997DF9300A098BF /* URLEndPoint.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E1099F0E2997D78D00A098BF /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F122997D7FF00A098BF /* Service */,
+				E1099F112997D7DD00A098BF /* ViewModel */,
+				E1099F102997D7A200A098BF /* View */,
+				E1099F0F2997D79800A098BF /* Model */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		E1099F0F2997D79800A098BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F192997DB2100A098BF /* PaisModel.swift */,
+				E1099F1B2997DB7D00A098BF /* MundialModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1099F102997D7A200A098BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F132997D8F800A098BF /* EstatisticasTotalView.swift */,
+				E1099F152997D91200A098BF /* PaisListaView.swift */,
+				E1099F172997D96800A098BF /* MapaMundiView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1099F112997D7DD00A098BF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F232997E19F00A098BF /* MundialViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1099F122997D7FF00A098BF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F1D2997DC5000A098BF /* NetworkService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +212,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1099F222997DF9300A098BF /* URLEndPoint.swift in Sources */,
+				E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */,
 				E1099F022997D6CE00A098BF /* ContentView.swift in Sources */,
+				E1099F1E2997DC5000A098BF /* NetworkService.swift in Sources */,
+				E1099F1C2997DB7D00A098BF /* MundialModel.swift in Sources */,
+				E1099F142997D8F800A098BF /* EstatisticasTotalView.swift in Sources */,
+				E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */,
 				E1099F002997D6CE00A098BF /* projetoCovidMVVMApp.swift in Sources */,
+				E1099F182997D96800A098BF /* MapaMundiView.swift in Sources */,
+				E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */,
+				E1099F162997D91200A098BF /* PaisListaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
