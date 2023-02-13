@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MundialModel: Decodable, Hashable
+struct MundialModel: Codable, Hashable
 {
     let population: Int
     let cases: Int

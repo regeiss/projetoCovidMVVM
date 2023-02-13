@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-struct PaisModel: Decodable, Hashable
+struct PaisModel: Codable, Hashable
 {
     let country: String
     let countryInfo: PaisInfo

@@ -20,7 +20,7 @@ final class MundialViewModelImpl: MundialViewModel
     {
         case na
         case loading
-        case success(data: [PaisModel])
+        case success(data: [MundialModel])
         case failed(error: Error)
     }
 
@@ -48,7 +48,7 @@ final class MundialViewModelImpl: MundialViewModel
         
         do
         {
-            let data = try await service.fetch(model: PaisModel)
+            let data = try await service.fetch()
             self.state = .success(data: data)
             self.carregando = false
         }

@@ -20,6 +20,7 @@
 		E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F1F2997DE8D00A098BF /* APIConstants.swift */; };
 		E1099F222997DF9300A098BF /* URLEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F212997DF9300A098BF /* URLEndPoint.swift */; };
 		E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F232997E19F00A098BF /* MundialViewModel.swift */; };
+		E1099F26299A7ACA00A098BF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F25299A7ACA00A098BF /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		E1099F1F2997DE8D00A098BF /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		E1099F212997DF9300A098BF /* URLEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEndPoint.swift; sourceTree = "<group>"; };
 		E1099F232997E19F00A098BF /* MundialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialViewModel.swift; sourceTree = "<group>"; };
+		E1099F25299A7ACA00A098BF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				E1099F132997D8F800A098BF /* EstatisticasTotalView.swift */,
 				E1099F152997D91200A098BF /* PaisListaView.swift */,
 				E1099F172997D96800A098BF /* MapaMundiView.swift */,
+				E1099F25299A7ACA00A098BF /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				E1099F022997D6CE00A098BF /* ContentView.swift in Sources */,
 				E1099F1E2997DC5000A098BF /* NetworkService.swift in Sources */,
 				E1099F1C2997DB7D00A098BF /* MundialModel.swift in Sources */,
+				E1099F26299A7ACA00A098BF /* LoadingView.swift in Sources */,
 				E1099F142997D8F800A098BF /* EstatisticasTotalView.swift in Sources */,
 				E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */,
 				E1099F002997D6CE00A098BF /* projetoCovidMVVMApp.swift in Sources */,
