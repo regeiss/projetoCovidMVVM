@@ -21,6 +21,11 @@
 		E1099F222997DF9300A098BF /* URLEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F212997DF9300A098BF /* URLEndPoint.swift */; };
 		E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F232997E19F00A098BF /* MundialViewModel.swift */; };
 		E1099F26299A7ACA00A098BF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F25299A7ACA00A098BF /* LoadingView.swift */; };
+		E1099F29299DB1BD00A098BF /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F28299DB1BD00A098BF /* EndPoint.swift */; };
+		E1099F2B299DB1D500A098BF /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F2A299DB1D500A098BF /* HTTPClient.swift */; };
+		E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F2C299DB1E900A098BF /* HTTPMethod.swift */; };
+		E1099F2F299DB24200A098BF /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F2E299DB24200A098BF /* RequestError.swift */; };
+		E1099F33299DB45100A098BF /* MundialEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F32299DB45100A098BF /* MundialEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,11 @@
 		E1099F212997DF9300A098BF /* URLEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEndPoint.swift; sourceTree = "<group>"; };
 		E1099F232997E19F00A098BF /* MundialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialViewModel.swift; sourceTree = "<group>"; };
 		E1099F25299A7ACA00A098BF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E1099F28299DB1BD00A098BF /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		E1099F2A299DB1D500A098BF /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		E1099F2C299DB1E900A098BF /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E1099F2E299DB24200A098BF /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		E1099F32299DB45100A098BF /* MundialEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +111,7 @@
 		E1099F0E2997D78D00A098BF /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				E1099F122997D7FF00A098BF /* Service */,
+				E1099F122997D7FF00A098BF /* Network */,
 				E1099F112997D7DD00A098BF /* ViewModel */,
 				E1099F102997D7A200A098BF /* View */,
 				E1099F0F2997D79800A098BF /* Model */,
@@ -137,12 +147,41 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		E1099F122997D7FF00A098BF /* Service */ = {
+		E1099F122997D7FF00A098BF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F31299DB31600A098BF /* Endpoints */,
+				E1099F30299DB25500A098BF /* Services */,
+				E1099F27299DB1A200A098BF /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E1099F27299DB1A200A098BF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F28299DB1BD00A098BF /* EndPoint.swift */,
+				E1099F2A299DB1D500A098BF /* HTTPClient.swift */,
+				E1099F2C299DB1E900A098BF /* HTTPMethod.swift */,
+				E1099F2E299DB24200A098BF /* RequestError.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E1099F30299DB25500A098BF /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				E1099F1D2997DC5000A098BF /* NetworkService.swift */,
 			);
-			path = Service;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E1099F31299DB31600A098BF /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F32299DB45100A098BF /* MundialEndpoint.swift */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,15 +254,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1099F2F299DB24200A098BF /* RequestError.swift in Sources */,
+				E1099F29299DB1BD00A098BF /* EndPoint.swift in Sources */,
 				E1099F222997DF9300A098BF /* URLEndPoint.swift in Sources */,
 				E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */,
 				E1099F022997D6CE00A098BF /* ContentView.swift in Sources */,
+				E1099F33299DB45100A098BF /* MundialEndpoint.swift in Sources */,
 				E1099F1E2997DC5000A098BF /* NetworkService.swift in Sources */,
 				E1099F1C2997DB7D00A098BF /* MundialModel.swift in Sources */,
 				E1099F26299A7ACA00A098BF /* LoadingView.swift in Sources */,
 				E1099F142997D8F800A098BF /* EstatisticasTotalView.swift in Sources */,
+				E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */,
 				E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */,
 				E1099F002997D6CE00A098BF /* projetoCovidMVVMApp.swift in Sources */,
+				E1099F2B299DB1D500A098BF /* HTTPClient.swift in Sources */,
 				E1099F182997D96800A098BF /* MapaMundiView.swift in Sources */,
 				E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */,
 				E1099F162997D91200A098BF /* PaisListaView.swift in Sources */,

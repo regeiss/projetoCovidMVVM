@@ -9,31 +9,25 @@ import Foundation
 
 struct MundialModel: Codable, Hashable
 {
-    let population: Int
+    let updated: Double
     let cases: Int
-    let active: Int
+    let todayCases: Int
     let deaths: Int
     let recovered: Int
+    let todayRecovered: Int
+    let active: Int
+    let critical: Int
+    let casesPerOneMillion: Int
+    let deathsPerOneMillion: Double
+    let tests: Int
+    let testsPerOneMillion: Double
+    let population: Int
+    let oneCasePerPeople: Int
+    let oneDeathPerPeople: Int
+    let oneTestPerPeople: Int
+    let activePerOneMillion: Double
+    let recoveredPerOneMillion: Double
+    let criticalPerOneMillion: Double
+    let affectedCountries: Int
 }
-//covidAll{
-//updated    number
-//cases    number
-//todayCases    number
-//deaths    number
-//recovered    number
-//todayRecovered    number
-//active    number
-//critical    number
-//casesPerOneMillion    number
-//deathsPerOneMillion    number
-//tests    number
-//testsPerOneMillion    number
-//population    number
-//oneCasePerPeople    number
-//oneDeathPerPeople    number
-//oneTestPerPeople    number
-//activePerOneMillion    number
-//recoveredPerOneMillion    number
-//criticalPerOneMillion    number
-//affectedCountries    number
-//}
+

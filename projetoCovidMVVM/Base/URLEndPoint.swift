@@ -32,7 +32,7 @@ extension NetworkAPI: APIBuilder
         switch self
         {
         case .total:
-            return URL(string: "https://disease.sh/v3/")!
+            return URL(string: "https://disease.sh/v3/covid-19/")!
         case .pais:
             return URL(string: "https://disease.sh/v3/")!
         case .lista:

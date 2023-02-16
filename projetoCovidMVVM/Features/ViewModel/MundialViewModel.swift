@@ -43,7 +43,6 @@ final class MundialViewModelImpl: MundialViewModel
         self.carregando = true
         
         let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
-        logger.debug("Start network call")
         logger.trace("Iniciando fetch")
         
         do
@@ -57,6 +56,7 @@ final class MundialViewModelImpl: MundialViewModel
             self.state = .failed(error: error)
             self.hasError = true
             self.carregando = false
+            print(String(describing: error))
             logger.error("\(error.localizedDescription, privacy: .public)")
         }
         logger.trace("Finalizando fetch")
