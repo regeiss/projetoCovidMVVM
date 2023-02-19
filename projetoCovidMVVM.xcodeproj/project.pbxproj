@@ -26,6 +26,7 @@
 		E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F2C299DB1E900A098BF /* HTTPMethod.swift */; };
 		E1099F2F299DB24200A098BF /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F2E299DB24200A098BF /* RequestError.swift */; };
 		E1099F33299DB45100A098BF /* MundialEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F32299DB45100A098BF /* MundialEndpoint.swift */; };
+		E1099F3529A1041700A098BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F3429A1041700A098BF /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		E1099F2C299DB1E900A098BF /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E1099F2E299DB24200A098BF /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		E1099F32299DB45100A098BF /* MundialEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialEndpoint.swift; sourceTree = "<group>"; };
+		E1099F3429A1041700A098BF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				E1099F1F2997DE8D00A098BF /* APIConstants.swift */,
 				E1099F212997DF9300A098BF /* URLEndPoint.swift */,
+				E1099F3429A1041700A098BF /* Extensions.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1099F2F299DB24200A098BF /* RequestError.swift in Sources */,
+				E1099F3529A1041700A098BF /* Extensions.swift in Sources */,
 				E1099F29299DB1BD00A098BF /* EndPoint.swift in Sources */,
 				E1099F222997DF9300A098BF /* URLEndPoint.swift in Sources */,
 				E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */,

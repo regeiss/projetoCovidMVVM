@@ -10,7 +10,7 @@ import SwiftUI
 struct EstatisticasTotalView: View
 {
     @StateObject private var vm = MundialViewModelImpl(service: NetworkServiceImpl())
-    @State private var searchText: String = ""
+  //  
     
     var body: some View
     {
@@ -23,7 +23,13 @@ struct EstatisticasTotalView: View
                     case .loading:
                         LoadingView(text: "Fetching data...")
                     case .success(let data):
-                        Text(String(data[1].population))
+                    VStack
+                    {
+                        Text(String(data.population.numberFormat()))
+                        Text(String(data.updated))
+                        Text(String(data.cases).toQuilometrosFormat())
+                        
+                    }
 //                    List
 //                    {
 //                        ForEach(data, id: \.id)
@@ -51,7 +57,7 @@ struct EstatisticasTotalView: View
             .navigationBarTitleDisplayMode(.large)
             .redacted(reason: vm.carregando ? .placeholder : [])
             .allowsHitTesting(vm.carregando)
-            .searchable(text: $searchText, placement: .automatic, prompt: Text("?????"))
+           // 
         //.refreshable { Task {await vm.getAllQuotes()}}  //?
       }
 }

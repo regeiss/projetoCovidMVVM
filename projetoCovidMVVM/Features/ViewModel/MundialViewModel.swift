@@ -20,7 +20,7 @@ final class MundialViewModelImpl: MundialViewModel
     {
         case na
         case loading
-        case success(data: [MundialModel])
+        case success(data: MundialModel)
         case failed(error: Error)
     }
 

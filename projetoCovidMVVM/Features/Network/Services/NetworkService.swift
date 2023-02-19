@@ -8,15 +8,13 @@
 import Foundation
 
 protocol NetworkService
-{   var mundial: MundialModel? { get }
-    func fetch() async throws -> [MundialModel]
+{
+    func fetch() async throws -> MundialModel
 }
 
 class NetworkServiceImpl: NetworkService
 {
-    var mundial: MundialModel?
-    
-    func fetch() async throws -> mundial
+    func fetch() async throws -> MundialModel
     //func fetch<Model: Decodable>(for country: String?, ifDaily: Bool, completed: @escaping (Model) -> ())
     {
         let urlSession = URLSession.shared

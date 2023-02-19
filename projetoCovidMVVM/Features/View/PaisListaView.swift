@@ -7,9 +7,16 @@
 
 import SwiftUI
 
-struct PaisListaView: View {
-    var body: some View {
-        Text("Lista Pais")
+struct PaisListaView: View
+{
+    @State private var searchText: String = ""
+    
+    var body: some View
+    {
+        NavigationView
+        {
+            Text("Lista Pais")
+        }.searchable(text: $searchText, placement: .automatic, prompt: Text("?????"))
     }
 }
 
