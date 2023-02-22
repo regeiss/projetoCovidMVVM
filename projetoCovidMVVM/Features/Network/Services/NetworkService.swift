@@ -7,19 +7,21 @@
 
 import Foundation
 
-protocol NetworkService
+protocol NetworkServiceable
 {
-    func fetch() async throws -> MundialModel
+    func getEstatisticas() async -> Result<MundialModel, RequestError>
+    func getListaPaises() async -> Result<PaisModel, RequestError>
 }
 
-class NetworkServiceImpl: NetworkService
+class NetworkService: HTTPClient, NetworkServiceable
 {
-    func fetch() async throws -> MundialModel
-    //func fetch<Model: Decodable>(for country: String?, ifDaily: Bool, completed: @escaping (Model) -> ())
+    func getEstatisticas() async -> Result<MundialModel, RequestError>
     {
-        let urlSession = URLSession.shared
-        let url = URL(string: "https://disease.sh/v3/covid-19/all")
-        let (data, _) = try await urlSession.data(from: url!)
-        return try JSONDecoder().decode(MundialModel.self, from: data)
+        return await sendRequest(endpoint: MundialEndpoint.estatisticas, responseModel: MundialModel.self)
+    }
+    
+    func getListaPaises() async -> Result<PaisModel, RequestError>
+    {
+        return await sendRequest(endpoint: MundialEndpoint.estatisticas, responseModel: PaisModel.self)
     }
 }

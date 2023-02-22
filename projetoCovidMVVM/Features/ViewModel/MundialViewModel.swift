@@ -45,14 +45,13 @@ final class MundialViewModelImpl: MundialViewModel
         let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
         logger.trace("Iniciando fetch")
         
-        do
+        let result = await service.getEstatisticas()
+        switch result
         {
-            let data = try await service.fetch()
+        case .success(let data):
             self.state = .success(data: data)
             self.carregando = false
-        }
-        catch
-        {
+        case .failure(let error):
             self.state = .failed(error: error)
             self.hasError = true
             self.carregando = false
@@ -61,4 +60,7 @@ final class MundialViewModelImpl: MundialViewModel
         }
         logger.trace("Finalizando fetch")
     }
+    
+    //
+    
 }

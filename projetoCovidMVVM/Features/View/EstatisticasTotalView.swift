@@ -9,8 +9,7 @@ import SwiftUI
 
 struct EstatisticasTotalView: View
 {
-    @StateObject private var vm = MundialViewModelImpl(service: NetworkServiceImpl())
-  //  
+    @StateObject private var vm = MundialViewModelImpl(service: NetworkService())
     
     var body: some View
     {
@@ -20,9 +19,11 @@ struct EstatisticasTotalView: View
             {
                 switch vm.state
                 {
-                    case .loading:
-                        LoadingView(text: "Fetching data...")
-                    case .success(let data):
+                case .loading:
+                    LoadingView(text: "Fetching")
+                    
+                case .success(let data):
+                    
                     VStack
                     {
                         Text(String(data.population.numberFormat()))
@@ -30,35 +31,13 @@ struct EstatisticasTotalView: View
                         Text(String(data.cases).toQuilometrosFormat())
                         
                     }
-//                    List
-//                    {
-//                        ForEach(data, id: \.id)
-//                        { item in
-//                            HStack
-//                            {
-//                                Image(systemName: "character.bubble.fill")
-//                                    .font(.system(size: 16, weight: .black))
-//                                Text(String(item.population))
-//                            }}
-//                    }
-                default:
-                    Text("sssss")
+                default: LoadingView(text: "Fetching1")
                 }
-                
-            }
+            }.task { await vm.getAllEstatisticas() }
+                .alert("Error", isPresented: $vm.hasError, presenting: vm.state) { detail in Button("Retry", role: .destructive)
+                                    { Task {await vm.getAllEstatisticas()}}}
+                                message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
         }
-        .alert("Error",
-               isPresented: $vm.hasError, presenting: vm.state) { detail in Button("Retry", role: .destructive)
-            { Task {await vm.getAllEstatisticas()}}}
-    message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-            .task
-        { await vm.getAllEstatisticas()}
-            .navigationTitle("Postagens")
-            .navigationBarTitleDisplayMode(.large)
-            .redacted(reason: vm.carregando ? .placeholder : [])
-            .allowsHitTesting(vm.carregando)
-           // 
-        //.refreshable { Task {await vm.getAllQuotes()}}  //?
-      }
+    }
 }
 
