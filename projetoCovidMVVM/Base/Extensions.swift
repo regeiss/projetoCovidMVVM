@@ -143,7 +143,7 @@ extension Double
     
     func getDateFromTimeStamp() -> String
     {
-        let dateFromServer = NSDate(timeIntervalSince1970: self)
+        let dateFromServer = NSDate(timeIntervalSince1970: self / 1000)
         let dateFormatter = DateFormatter()
         
         dateFormatter.doesRelativeDateFormatting = true
