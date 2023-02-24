@@ -9,7 +9,10 @@ import SwiftUI
 
 struct PaisListaView: View
 {
+    @StateObject private var vm = PaisListaViewModelImpl(service: NetworkService())
+    
     @State private var searchText: String = ""
+    @State var isSearching = false
     
     var body: some View
     {

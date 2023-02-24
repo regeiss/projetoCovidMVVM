@@ -7,19 +7,22 @@
 
 import Foundation
 
-enum MundialEndpoint
+enum COVIDEndpoint
 {
     case estatisticas
+    case lista
 }
 
-extension MundialEndpoint: Endpoint
+extension COVIDEndpoint: Endpoint
 {
     var path: String
     {
         switch self
         {
             case .estatisticas:
-                return "/all"
+                return "/v3/covid-19/all"
+            case .lista:
+                return "/v3/covid-19/all"
         }
     }
     
@@ -27,15 +30,16 @@ extension MundialEndpoint: Endpoint
     {
         switch self
         {
-            case .estatisticas:
+        case .estatisticas, .lista:
                 return .get
         }
     }
     
     var header: [String : String]?
     {
-        let accessToken = "token"
-        return ["Authorization": "zero","Content-type":"json;charset=utf-8"]
+//        let accessToken = "token"
+//        return ["Authorization": "zero","Content-type":"json;charset=utf-8"]
+        nil 
     }
     
     var body: [String : String]?

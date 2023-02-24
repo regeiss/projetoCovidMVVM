@@ -21,12 +21,13 @@ extension HTTPClient
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         
-        guard let url = urlComponents.url 
-        else 
+        guard let url = urlComponents.url
+        else
         {
             return .failure(.invalidURL)
         }
         
+        //let url = URL(string: "https://disease.sh/v3/covid-19/all")
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.header

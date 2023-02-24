@@ -9,7 +9,7 @@ import Foundation
 
 struct MundialModel: Codable, Hashable
 {
-    let updated: Int
+    let updated: Double
     let cases: Int
     let todayCases: Int
     let deaths: Int

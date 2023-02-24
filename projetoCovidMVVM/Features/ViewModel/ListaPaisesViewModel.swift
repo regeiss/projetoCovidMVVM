@@ -1,30 +1,30 @@
 //
-//  MundialViewModel.swift
+//  ListaPaisesViewModel.swift
 //  projetoCovidMVVM
 //
-//  Created by Roberto Edgar Geiss on 11/02/23.
+//  Created by Roberto Edgar Geiss on 23/02/23.
 //
 
 import Foundation
 import OSLog
 
-protocol MundialViewModel: ObservableObject
+protocol PaisListaViewModel: ObservableObject
 {
-    func getAllEstatisticas() async
+    func getListaPaises() async
 }
 
 @MainActor
-final class MundialViewModelImpl: MundialViewModel
+final class PaisListaViewModelImpl: PaisListaViewModel
 {
     enum State
     {
         case na
         case loading
-        case success(data: MundialModel)
+        case success(data: PaisModel)
         case failed(error: Error)
     }
 
-    @Published private(set) var mundial: [MundialModel] = []
+    @Published private(set) var paises: [PaisModel] = []
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
     @Published var carregando: Bool = false
@@ -36,7 +36,7 @@ final class MundialViewModelImpl: MundialViewModel
         self.service = service
     }
     
-    func getAllEstatisticas() async
+    func getListaPaises() async
     {
         self.state = .loading
         self.hasError = false
@@ -45,7 +45,7 @@ final class MundialViewModelImpl: MundialViewModel
         let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
         logger.trace("Iniciando fetch")
         
-        let result = await service.getEstatisticas()
+        let result = await service.getListaPaises()
         switch result
         {
         case .success(let data):
@@ -60,4 +60,5 @@ final class MundialViewModelImpl: MundialViewModel
         }
         logger.trace("Finalizando fetch")
     }
+
 }

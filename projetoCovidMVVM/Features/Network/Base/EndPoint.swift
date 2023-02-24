@@ -26,6 +26,6 @@ extension Endpoint
 
     var host: String 
     {
-        return "disease.sh/v3/covid-19"
+        return "disease.sh"
     }
 }

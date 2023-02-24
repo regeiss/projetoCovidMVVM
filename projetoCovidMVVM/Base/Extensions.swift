@@ -146,9 +146,9 @@ extension Double
         let dateFromServer = NSDate(timeIntervalSince1970: self / 1000)
         let dateFormatter = DateFormatter()
         
-        dateFormatter.doesRelativeDateFormatting = true
+        //dateFormatter.doesRelativeDateFormatting = true
         dateFormatter.timeStyle = .short
-        dateFormatter.dateStyle = .short
+        dateFormatter.dateStyle = .full
         
         let string = dateFormatter.string(from: dateFromServer as Date)
         
