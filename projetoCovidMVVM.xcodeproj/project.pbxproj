@@ -28,6 +28,9 @@
 		E1099F33299DB45100A098BF /* COVIDEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F32299DB45100A098BF /* COVIDEndpoint.swift */; };
 		E1099F3529A1041700A098BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F3429A1041700A098BF /* Extensions.swift */; };
 		E1A7FA2129A837F8006A4B97 /* ListaPaisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2029A837F8006A4B97 /* ListaPaisesViewModel.swift */; };
+		E1A7FA2429A98B1D006A4B97 /* CabecalhoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2329A98B1D006A4B97 /* CabecalhoView.swift */; };
+		E1A7FA2629A98B86006A4B97 /* LinhaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */; };
+		E1A7FA2929A98D89006A4B97 /* BarraBuscaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		E1099F32299DB45100A098BF /* COVIDEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDEndpoint.swift; sourceTree = "<group>"; };
 		E1099F3429A1041700A098BF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E1A7FA2029A837F8006A4B97 /* ListaPaisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaPaisesViewModel.swift; sourceTree = "<group>"; };
+		E1A7FA2329A98B1D006A4B97 /* CabecalhoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabecalhoView.swift; sourceTree = "<group>"; };
+		E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinhaDetalheView.swift; sourceTree = "<group>"; };
+		E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarraBuscaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				E1099F1F2997DE8D00A098BF /* APIConstants.swift */,
-				E1099F212997DF9300A098BF /* URLEndPoint.swift */,
 				E1099F3429A1041700A098BF /* Extensions.swift */,
+				E1099F212997DF9300A098BF /* URLEndPoint.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -136,10 +142,8 @@
 		E1099F102997D7A200A098BF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E1099F132997D8F800A098BF /* EstatisticasTotalView.swift */,
-				E1099F152997D91200A098BF /* PaisListaView.swift */,
-				E1099F172997D96800A098BF /* MapaMundiView.swift */,
-				E1099F25299A7ACA00A098BF /* LoadingView.swift */,
+				E1A7FA2729A98C24006A4B97 /* Principal */,
+				E1A7FA2229A98B02006A4B97 /* Componentes */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,8 +151,8 @@
 		E1099F112997D7DD00A098BF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E1099F232997E19F00A098BF /* MundialViewModel.swift */,
 				E1A7FA2029A837F8006A4B97 /* ListaPaisesViewModel.swift */,
+				E1099F232997E19F00A098BF /* MundialViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -188,6 +192,27 @@
 				E1099F32299DB45100A098BF /* COVIDEndpoint.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		E1A7FA2229A98B02006A4B97 /* Componentes */ = {
+			isa = PBXGroup;
+			children = (
+				E1A7FA2329A98B1D006A4B97 /* CabecalhoView.swift */,
+				E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */,
+				E1099F25299A7ACA00A098BF /* LoadingView.swift */,
+				E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */,
+			);
+			path = Componentes;
+			sourceTree = "<group>";
+		};
+		E1A7FA2729A98C24006A4B97 /* Principal */ = {
+			isa = PBXGroup;
+			children = (
+				E1099F132997D8F800A098BF /* EstatisticasTotalView.swift */,
+				E1099F172997D96800A098BF /* MapaMundiView.swift */,
+				E1099F152997D91200A098BF /* PaisListaView.swift */,
+			);
+			path = Principal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,10 +292,12 @@
 				E1099F222997DF9300A098BF /* URLEndPoint.swift in Sources */,
 				E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */,
 				E1099F022997D6CE00A098BF /* ContentView.swift in Sources */,
+				E1A7FA2429A98B1D006A4B97 /* CabecalhoView.swift in Sources */,
 				E1099F33299DB45100A098BF /* COVIDEndpoint.swift in Sources */,
 				E1099F1E2997DC5000A098BF /* NetworkService.swift in Sources */,
 				E1099F1C2997DB7D00A098BF /* MundialModel.swift in Sources */,
 				E1099F26299A7ACA00A098BF /* LoadingView.swift in Sources */,
+				E1A7FA2629A98B86006A4B97 /* LinhaDetalheView.swift in Sources */,
 				E1099F142997D8F800A098BF /* EstatisticasTotalView.swift in Sources */,
 				E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */,
 				E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */,
@@ -278,6 +305,7 @@
 				E1099F2B299DB1D500A098BF /* HTTPClient.swift in Sources */,
 				E1099F182997D96800A098BF /* MapaMundiView.swift in Sources */,
 				E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */,
+				E1A7FA2929A98D89006A4B97 /* BarraBuscaView.swift in Sources */,
 				E1099F162997D91200A098BF /* PaisListaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

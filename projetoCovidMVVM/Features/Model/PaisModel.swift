@@ -10,15 +10,29 @@ import MapKit
 
 struct PaisModel: Codable, Hashable
 {
+    let updated: Double
     let country: String
     let countryInfo: PaisInfo
-    let population: Int
-    let updated: Double
-    let tests: Int
     let cases: Int
-    let active: Int
+    let todayCases: Int
     let deaths: Int
+    let todayDeaths: Int
     let recovered: Int
+    let todayRecovered: Int
+    let active: Int
+    let critical: Int
+    let casesPerOneMillion: Double
+    let deathsPerOneMillion: Double
+    let tests: Int
+    let testsPerOneMillion: Double
+    let population: Int
+    let continent: Int
+    let oneCasePerPeople: Int
+    let oneDeathPerPeople: Int
+    let oneTestPerPeople: Int
+    let activePerOneMillion: Double
+    let recoveredPerOneMillion: Double
+    let criticalPerOneMillion: Double
 
     struct PaisInfo: Codable, Hashable
     {

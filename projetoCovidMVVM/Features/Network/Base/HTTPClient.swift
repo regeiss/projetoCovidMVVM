@@ -20,14 +20,13 @@ extension HTTPClient
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
-        
+        print(urlComponents.url)
         guard let url = urlComponents.url
         else
         {
             return .failure(.invalidURL)
         }
         
-        //let url = URL(string: "https://disease.sh/v3/covid-19/all")
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.header
@@ -49,11 +48,12 @@ extension HTTPClient
             switch response.statusCode 
             {
                 case 200...299:
-                    guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) 
+                    guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data)
                     else 
                     {
                         return .failure(.decode)
                     }
+                print(decodedResponse)
                 return .success(decodedResponse)
 
                 case 401:

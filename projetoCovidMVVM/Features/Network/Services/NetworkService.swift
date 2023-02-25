@@ -22,6 +22,6 @@ class NetworkService: HTTPClient, NetworkServiceable
     
     func getListaPaises() async -> Result<PaisModel, RequestError>
     {
-        return await sendRequest(endpoint: COVIDEndpoint.estatisticas, responseModel: PaisModel.self)
+        return await sendRequest(endpoint: COVIDEndpoint.lista, responseModel: PaisModel.self)
     }
 }

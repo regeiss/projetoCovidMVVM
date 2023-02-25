@@ -60,5 +60,4 @@ final class PaisListaViewModelImpl: PaisListaViewModel
         }
         logger.trace("Finalizando fetch")
     }
-
 }
