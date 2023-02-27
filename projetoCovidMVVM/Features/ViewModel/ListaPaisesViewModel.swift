@@ -24,7 +24,7 @@ final class PaisListaViewModelImpl: PaisListaViewModel
         case failed(error: Error)
     }
 
-    @Published private(set) var paises: [PaisModel] = []
+    @Published private(set) var paises =  [PaisModel]() //= []
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
     @Published var carregando: Bool = false

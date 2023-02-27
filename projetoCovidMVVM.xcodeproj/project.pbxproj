@@ -99,8 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				E1A7FA2A29AA5962006A4B97 /* Info.plist */,
-				E1099F0E2997D78D00A098BF /* Features */,
 				E1099F0D2997D78300A098BF /* Base */,
+				E1099F0E2997D78D00A098BF /* Features */,
 				E1099EFF2997D6CE00A098BF /* projetoCovidMVVMApp.swift */,
 				E1099F012997D6CE00A098BF /* ContentView.swift */,
 				E1099F032997D6D000A098BF /* Assets.xcassets */,
@@ -130,10 +130,11 @@
 		E1099F0E2997D78D00A098BF /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E1099F27299DB1A200A098BF /* Base */,
+				E1099F0F2997D79800A098BF /* Model */,
 				E1099F122997D7FF00A098BF /* Network */,
 				E1099F112997D7DD00A098BF /* ViewModel */,
 				E1099F102997D7A200A098BF /* View */,
-				E1099F0F2997D79800A098BF /* Model */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -170,7 +171,6 @@
 			children = (
 				E1099F31299DB31600A098BF /* Endpoints */,
 				E1099F30299DB25500A098BF /* Services */,
-				E1099F27299DB1A200A098BF /* Base */,
 			);
 			path = Network;
 			sourceTree = "<group>";

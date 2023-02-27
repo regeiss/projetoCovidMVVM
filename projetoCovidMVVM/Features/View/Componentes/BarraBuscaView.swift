@@ -25,9 +25,7 @@ struct BarraBuscaView: View
             .background(Color(.systemGray5))
             .cornerRadius(6)
             .padding(.horizontal)
-            .onTapGesture(perform: {
-                isSearching = true
-            })
+            .onTapGesture(perform: { isSearching = true})
             .overlay(
                 HStack
                 {

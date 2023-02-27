@@ -43,10 +43,10 @@ struct EstatisticasTotalView: View
                 default: LoadingView(text: "Erro")
                 }
             }.task { await vm.getAllEstatisticas() }
-                .alert("Error", isPresented: $vm.hasError, presenting: vm.state) { detail in Button("Retry", role: .destructive)
+             .alert("Error", isPresented: $vm.hasError, presenting: vm.state) { detail in Button("Retry", role: .destructive)
                     { Task { await vm.getAllEstatisticas()}}}
-        message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-                .navigationTitle("Estatisticas mundo")
+                    message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+             .navigationTitle("Estatisticas mundo")
         }
     }
 }
