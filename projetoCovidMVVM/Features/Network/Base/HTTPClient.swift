@@ -20,7 +20,8 @@ extension HTTPClient
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
-        print(urlComponents.url)
+        print(urlComponents.url as Any)
+        
         guard let url = urlComponents.url
         else
         {
@@ -48,13 +49,34 @@ extension HTTPClient
             switch response.statusCode 
             {
                 case 200...299:
-                    guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data)
-                    else 
+                    let decoder = JSONDecoder()
+                    decoder.assumesTopLevelDictionary = true
+                    decoder.dataDecodingStrategy = .deferredToData
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                    print("Status code: ")
+                    print(response.statusCode)
+                    print(data)
+                print("HTTP client")
+                
+                    guard let decodedResponse = try? decoder.decode(responseModel, from: data)
+                    else
                     {
                         return .failure(.decode)
                     }
-                print(decodedResponse)
-                return .success(decodedResponse)
+                
+                    do {
+                        let decodedResponse = try decoder.decode(responseModel, from: data)
+                        print(decodedResponse as Any)
+                        //return .success(decodedResponse!)
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
+                    print("Decode com sucesso")
+                    print(decodedResponse)
+                    return .success(decodedResponse)
 
                 case 401:
                     return .failure(.unauthorized)

@@ -55,6 +55,7 @@ final class PaisListaViewModelImpl: PaisListaViewModel
             self.state = .failed(error: error)
             self.hasError = true
             self.carregando = false
+            print("Erro viewmodel")
             print(String(describing: error))
             logger.error("\(error.localizedDescription, privacy: .public)")
         }

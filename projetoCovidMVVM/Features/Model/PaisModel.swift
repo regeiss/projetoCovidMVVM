@@ -12,7 +12,7 @@ struct PaisModel: Codable, Hashable
 {
     let updated: Double
     let country: String
-    let countryInfo: PaisInfo
+    let countryInfo: countryInfo
     let cases: Int
     let todayCases: Int
     let deaths: Int
@@ -34,7 +34,7 @@ struct PaisModel: Codable, Hashable
     let recoveredPerOneMillion: Double
     let criticalPerOneMillion: Double
 
-    struct PaisInfo: Codable, Hashable
+    struct countryInfo: Codable, Hashable
     {
         let _id: Double?
         let iso2: String?

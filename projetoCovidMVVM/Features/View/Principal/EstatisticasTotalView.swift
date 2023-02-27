@@ -25,17 +25,28 @@ struct EstatisticasTotalView: View
                     
                     VStack
                     {
-                        Text(String(data.population.numberFormat()))
+                        WorldStatsCard(worldData: data)
                         Text(String(data.updated.getDateFromTimeStamp()))
-                        Text(String(data.cases.numberFormat()))
-                        
                     }
+//                    Spacer()
+//                    ScrollView(.horizontal, showsIndicators: false)
+//                    {
+//                        HStack(alignment: .top, spacing: 15)
+//                        {
+//                            ForEach(vm.data, id: \.countryInfo._id) { country in
+//                                CartaoEstatisticasPais(countryData: country)
+//                                   // .onTapGesture { vm.mundial= country }
+//                            }
+//                        }
+//                        .padding(.leading, 15)
+//                    }
                 default: LoadingView(text: "Erro")
                 }
             }.task { await vm.getAllEstatisticas() }
                 .alert("Error", isPresented: $vm.hasError, presenting: vm.state) { detail in Button("Retry", role: .destructive)
-                    { Task {await vm.getAllEstatisticas()}}}
+                    { Task { await vm.getAllEstatisticas()}}}
         message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+                .navigationTitle("Estatisticas mundo")
         }
     }
 }

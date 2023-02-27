@@ -28,6 +28,11 @@ struct ContentView: View
                     Image(systemName: "list.dash")
                     Text("Países")
                 })
+            GraficoView()
+                .tabItem({
+                    Image(systemName: "chart.bar.xaxis")
+                    Text("Gráficos")
+                })
         }
         .edgesIgnoringSafeArea(.top)
         .accentColor(Color.secondary)

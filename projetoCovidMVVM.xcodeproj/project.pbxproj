@@ -31,6 +31,9 @@
 		E1A7FA2429A98B1D006A4B97 /* CabecalhoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2329A98B1D006A4B97 /* CabecalhoView.swift */; };
 		E1A7FA2629A98B86006A4B97 /* LinhaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */; };
 		E1A7FA2929A98D89006A4B97 /* BarraBuscaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */; };
+		E1A7FA2C29AC27C9006A4B97 /* Formas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2B29AC27C9006A4B97 /* Formas.swift */; };
+		E1A7FA2E29AC2CDB006A4B97 /* Botao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2D29AC2CDB006A4B97 /* Botao.swift */; };
+		E1A7FA3029AC3CB1006A4B97 /* GraficoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,10 @@
 		E1A7FA2329A98B1D006A4B97 /* CabecalhoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabecalhoView.swift; sourceTree = "<group>"; };
 		E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinhaDetalheView.swift; sourceTree = "<group>"; };
 		E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarraBuscaView.swift; sourceTree = "<group>"; };
+		E1A7FA2A29AA5962006A4B97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E1A7FA2B29AC27C9006A4B97 /* Formas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formas.swift; sourceTree = "<group>"; };
+		E1A7FA2D29AC2CDB006A4B97 /* Botao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Botao.swift; sourceTree = "<group>"; };
+		E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraficoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +98,7 @@
 		E1099EFE2997D6CE00A098BF /* projetoCovidMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				E1A7FA2A29AA5962006A4B97 /* Info.plist */,
 				E1099F0E2997D78D00A098BF /* Features */,
 				E1099F0D2997D78300A098BF /* Base */,
 				E1099EFF2997D6CE00A098BF /* projetoCovidMVVMApp.swift */,
@@ -201,6 +209,8 @@
 				E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */,
 				E1099F25299A7ACA00A098BF /* LoadingView.swift */,
 				E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */,
+				E1A7FA2B29AC27C9006A4B97 /* Formas.swift */,
+				E1A7FA2D29AC2CDB006A4B97 /* Botao.swift */,
 			);
 			path = Componentes;
 			sourceTree = "<group>";
@@ -211,6 +221,7 @@
 				E1099F132997D8F800A098BF /* EstatisticasTotalView.swift */,
 				E1099F172997D96800A098BF /* MapaMundiView.swift */,
 				E1099F152997D91200A098BF /* PaisListaView.swift */,
+				E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */,
 			);
 			path = Principal;
 			sourceTree = "<group>";
@@ -288,6 +299,7 @@
 				E1099F2F299DB24200A098BF /* RequestError.swift in Sources */,
 				E1099F3529A1041700A098BF /* Extensions.swift in Sources */,
 				E1099F29299DB1BD00A098BF /* EndPoint.swift in Sources */,
+				E1A7FA2E29AC2CDB006A4B97 /* Botao.swift in Sources */,
 				E1A7FA2129A837F8006A4B97 /* ListaPaisesViewModel.swift in Sources */,
 				E1099F222997DF9300A098BF /* URLEndPoint.swift in Sources */,
 				E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */,
@@ -302,11 +314,13 @@
 				E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */,
 				E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */,
 				E1099F002997D6CE00A098BF /* projetoCovidMVVMApp.swift in Sources */,
+				E1A7FA3029AC3CB1006A4B97 /* GraficoView.swift in Sources */,
 				E1099F2B299DB1D500A098BF /* HTTPClient.swift in Sources */,
 				E1099F182997D96800A098BF /* MapaMundiView.swift in Sources */,
 				E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */,
 				E1A7FA2929A98D89006A4B97 /* BarraBuscaView.swift in Sources */,
 				E1099F162997D91200A098BF /* PaisListaView.swift in Sources */,
+				E1A7FA2C29AC27C9006A4B97 /* Formas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +452,7 @@
 				DEVELOPMENT_TEAM = 4DLN7FPJ74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = projetoCovidMVVM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -467,7 +481,7 @@
 				DEVELOPMENT_TEAM = 4DLN7FPJ74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = projetoCovidMVVM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
