@@ -39,35 +39,25 @@ struct PaisListaView: View
                                   fontSize: 22,
                                   fontWeight: .bold)
                     .frame(width: 130, alignment: .leading)
-//                    .onTapGesture {
-//                        vm.sortedBy = "name"
-//                        vm.getCountryListData()
-//                    }
                     Spacer()
                     CabecalhoView(title: "Casos",
                                   fontSize: 22,
                                   fontWeight: .bold)
                     .frame(width: 90, alignment: .trailing)
-//                    .onTapGesture {
-//                        vm.sortedBy = "cases"
-//                        vm.getCountryListData()
-//                    }
                     CabecalhoView(title: "Mortes",
                                   fontSize: 22,
                                   fontWeight: .bold)
                     .frame(width: 90, alignment: .trailing)
-//                    .onTapGesture {
-//                        vm.sortedBy = "deaths"
-//                        vm.getCountryListData()
-                   // }
                 }
                 )
+                // MARK TODO: ajustar foreach
                 {
+                    let lista = [vm.paises]
                     List
                     {
-                        ForEach(searchText.isEmpty ? vm.paises : vm.paises.filter
+                        ForEach(searchText.isEmpty ? lista: lista.filter
                                 {
-                            $0.country.lowercased().contains(searchText.lowercased())
+                            $0.lista.country.lowercased().contains(searchText.lowercased())
                         }, id: \.country) { country in
                             LinhaDetalheView(textOne: country.country,
                                              textTwo: "\(country.cases.numberFormat())",
@@ -82,9 +72,9 @@ struct PaisListaView: View
                     }
                 }
                 .task { await vm.getListaPaises() }
-                    .alert("Error", isPresented: $vm.hasError, presenting: vm.state) { detail in Button("Retry", role: .destructive)
+                .alert("Error", isPresented: $vm.hasError, presenting: vm.state) { detail in Button("Retry", role: .destructive)
                         { Task {await vm.getListaPaises()}}}
-            message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+                          message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
             }
             .navigationBarTitle("Country List", displayMode: .inline)
         }

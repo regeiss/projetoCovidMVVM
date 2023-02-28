@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-struct PaisModel: Codable, Hashable
+struct PaisModelElement: Codable, Hashable
 {
     let updated: Double
     let country: String
@@ -26,7 +26,7 @@ struct PaisModel: Codable, Hashable
     let tests: Int
     let testsPerOneMillion: Double
     let population: Int
-    let continent: Int
+    let continent: String
     let oneCasePerPeople: Int
     let oneDeathPerPeople: Int
     let oneTestPerPeople: Int
@@ -36,7 +36,7 @@ struct PaisModel: Codable, Hashable
 
     struct countryInfo: Codable, Hashable
     {
-        let _id: Double?
+        let _id: Int?
         let iso2: String?
         let iso3: String?
         let lat: Double?
@@ -49,4 +49,7 @@ struct PaisModel: Codable, Hashable
         }
     }
 }
+
+typealias PaisModel = [PaisModelElement]
+
 

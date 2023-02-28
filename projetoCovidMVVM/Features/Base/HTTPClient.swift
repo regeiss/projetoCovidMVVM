@@ -30,7 +30,6 @@ extension HTTPClient
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
-        request.allHTTPHeaderFields = endpoint.header
 
         if let body = endpoint.body 
         {
@@ -50,30 +49,18 @@ extension HTTPClient
             {
                 case 200...299:
                     let decoder = JSONDecoder()
-                    decoder.assumesTopLevelDictionary = true
-                    decoder.dataDecodingStrategy = .deferredToData
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                 
                     print("Status code: ")
                     print(response.statusCode)
                     print(data)
-                print("HTTP client")
-                
+                    print("HTTP client")
                     guard let decodedResponse = try? decoder.decode(responseModel, from: data)
                     else
                     {
                         return .failure(.decode)
                     }
-                
-                    do {
-                        let decodedResponse = try decoder.decode(responseModel, from: data)
-                        print(decodedResponse as Any)
-                        //return .success(decodedResponse!)
-                    }
-                    catch
-                    {
-                        print(error)
-                    }
+ 
                     print("Decode com sucesso")
                     print(decodedResponse)
                     return .success(decodedResponse)

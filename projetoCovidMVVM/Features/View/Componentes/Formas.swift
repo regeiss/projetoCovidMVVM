@@ -84,7 +84,7 @@ struct CartaoEstatisticasMundial: View
 
 struct CartaoEstatisticasPais: View
 {
-    var countryData: PaisModel
+    var countryData: PaisModelElement
 
     var body: some View
     {

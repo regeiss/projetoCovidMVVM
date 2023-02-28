@@ -22,7 +22,7 @@ extension COVIDEndpoint: Endpoint
             case .estatisticas:
                 return "/v3/covid-19/all"
             case .lista:
-                return "/v3/covid-19/countries/Brazil"
+                return "/v3/covid-19/countries"
         }
     }
     
