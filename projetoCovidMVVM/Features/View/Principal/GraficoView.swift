@@ -9,12 +9,30 @@ import SwiftUI
 
 struct GraficoView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    {
+        VStack
+        {
+            HeaderView(nomeView: "Gráficos", nomeMenu: "Menu")
 
-struct GraficoView_Previews: PreviewProvider {
-    static var previews: some View {
-        GraficoView()
+            List
+            {
+                Chart
+                {
+                    BarMark(
+                        x: .value("Mount", "jan/22"),
+                        y: .value("Value", 5)
+                    )
+                    BarMark(
+                        x: .value("Mount", "fev/22"),
+                        y: .value("Value", 4)
+                    )
+                    BarMark(
+                        x: .value("Mount", "mar/22"),
+                        y: .value("Value", 7)
+                    )
+                }
+                .frame(height: 250)
+            }
+        }
     }
 }
