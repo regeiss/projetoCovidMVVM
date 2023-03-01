@@ -30,15 +30,13 @@ struct PaisListaView: View
                 List
                 {
                     ForEach(vm.paises, id: \.self) { pais in
-                    ForEach (lista, id: \.countryInfo._id)
-                    { pais in
-//                        LinhaDetalheView(textOne: String(pais.country),
-//                                         textTwo: "\(pais.cases.numberFormat())",
-//                                         textThree: "\(pais.deaths.numberFormat())",
-//                                         fontSize: 18,
-//                                         fontWeight: .medium,
-//                                         frameWidth: 140)
-                        Text("xxxxxxxxx")
+                   // ForEach (lista, id: \.countryInfo._id)
+                        LinhaDetalheView(textOne: String(pais.country),
+                                         textTwo: "\(pais.cases.numberFormat())",
+                                         textThree: "\(pais.deaths.numberFormat())",
+                                         fontSize: 18,
+                                         fontWeight: .medium,
+                                         frameWidth: 140)
                         .foregroundColor(Color(.secondaryLabel))
                         //.onTapGesture { vm.selectedCountry = country }
                     }
