@@ -29,6 +29,7 @@ struct PaisListaView: View
                 let lista = vm.paises
                 List
                 {
+                    ForEach(vm.paises, id: \.self) { pais in
                     ForEach (lista, id: \.countryInfo._id)
                     { pais in
 //                        LinhaDetalheView(textOne: String(pais.country),
