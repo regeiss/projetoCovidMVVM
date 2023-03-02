@@ -11,6 +11,7 @@ protocol NetworkServiceable
 {
     func getEstatisticas() async -> Result<MundialModel, RequestError>
     func getListaPaises() async -> Result<PaisModel, RequestError>
+    func getInfoContinentes() async -> Result<ContinenteModel, RequestError>
 }
 
 class NetworkService: HTTPClient, NetworkServiceable
@@ -24,4 +25,10 @@ class NetworkService: HTTPClient, NetworkServiceable
     {
         return await sendRequest(endpoint: COVIDEndpoint.lista, responseModel: PaisModel.self)
     }
+
+    func getInfoContinentes() async -> Result<ContinenteModel, RequestError>
+    {
+        return await sendRequest(endpoint: COVIDEndpoint.continente, responseModel: PaiContinenteModelsModel.self)
+    }
+
 }
