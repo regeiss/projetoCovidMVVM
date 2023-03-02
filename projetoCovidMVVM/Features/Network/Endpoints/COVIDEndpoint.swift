@@ -11,6 +11,7 @@ enum COVIDEndpoint
 {
     case estatisticas
     case lista
+    case continente
 }
 
 extension COVIDEndpoint: Endpoint
@@ -23,6 +24,8 @@ extension COVIDEndpoint: Endpoint
                 return "/v3/covid-19/all"
             case .lista:
                 return "/v3/covid-19/countries"
+           case .continente:
+                return "/v3/covid-19/continents"
         }
     }
     
@@ -30,7 +33,7 @@ extension COVIDEndpoint: Endpoint
     {
         switch self
         {
-        case .estatisticas, .lista:
+        case .estatisticas, .lista, .continente:
                 return .get
         }
     }
