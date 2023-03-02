@@ -30,5 +30,6 @@ struct LinhaDetalheView: View
                 .frame(width: (frameWidth-40), alignment: .trailing)
         }
         .frame(height: (fontSize+1), alignment: .center)
+        .padding([.leading, .trailing], 5)
     }
 }

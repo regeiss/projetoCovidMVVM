@@ -35,7 +35,7 @@ struct ContentView: View
                 })
         }
         .edgesIgnoringSafeArea(.top)
-        .accentColor(Color.secondary)
+        //.accentColor(Color.secondary)
     }
 }
 

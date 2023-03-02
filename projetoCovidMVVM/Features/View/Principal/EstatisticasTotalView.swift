@@ -4,11 +4,12 @@
 //
 //  Created by Roberto Edgar Geiss on 11/02/23.
 //
+
 import SwiftUI
 
 struct EstatisticasTotalView: View
 {
-    @StateObject private var vm = MundialViewModelImpl(service: NetworkService())
+    @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
     
     var body: some View
     {
@@ -16,7 +17,7 @@ struct EstatisticasTotalView: View
         {
             Group
             {
-                switch vm.state
+                switch viewModel.state
                 {
                 case .loading:
                     LoadingView(text: "Buscando")
@@ -42,11 +43,11 @@ struct EstatisticasTotalView: View
 //                    }
                 default: LoadingView(text: "Erro")
                 }
-            }.task { await vm.getAllEstatisticas() }
-             .alert("Error", isPresented: $vm.hasError, presenting: vm.state) { detail in Button("Retry", role: .destructive)
-                    { Task { await vm.getAllEstatisticas()}}}
+            }.task { await viewModel.getAllEstatisticas() }
+             .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
+                    { Task { await viewModel.getAllEstatisticas()}}}
                     message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-             .navigationTitle("Estatisticas mundo")
+             .navigationBarTitle("Estatisticas mundo", displayMode: .automatic)
         }
     }
 }

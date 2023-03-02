@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
+import Charts
 
-struct GraficoView: View {
-    var body: some View {
+struct GraficoView: View
+{
+    var body: some View
     {
         VStack
         {
-            HeaderView(nomeView: "Gráficos", nomeMenu: "Menu")
-
             List
             {
                 Chart
