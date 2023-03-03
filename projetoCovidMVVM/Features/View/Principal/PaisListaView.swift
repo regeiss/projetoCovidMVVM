@@ -18,12 +18,6 @@ struct PaisListaView: View
         
         NavigationView
         {
-//            BarraBuscaView(searchText: $searchText, isSearching: $isSearching)
-//                .padding(.vertical, 5)
-//            Divider()
-//                .frame(height: 4)
-//                .background(Color(.systemGray2))
-//                .padding(.bottom, 5)
             Group
             {
                 switch viewModel.state
@@ -35,8 +29,34 @@ struct PaisListaView: View
                     
                     VStack()
                     {
+                        BarraBuscaView(searchText: $searchText, isSearching: $isSearching)
+                            .padding(.vertical, 5)
+                        Divider()
+                            .frame(height: 1)
+                            .background(Color(.systemGray2))
+                            .padding(.bottom, 5)
                         List
                         {
+                            Section(header:
+                                        HStack
+                            {
+                                CabecalhoView(title: "País",
+                                              fontSize: 16,
+                                              fontWeight: .bold)
+                                .frame(width: 130, alignment: .leading)
+                                Spacer()
+                                CabecalhoView(title: "Casos",
+                                              fontSize: 16,
+                                              fontWeight: .bold)
+                                .frame(width: 90, alignment: .trailing)
+                                CabecalhoView(title: "Mortes",
+                                              fontSize: 16,
+                                              fontWeight: .bold)
+                                .frame(width: 90, alignment: .trailing)
+                            }
+                            )
+                            {
+                            
                             ForEach(data, id: \.country) { pais in
                                 LinhaDetalheView(textOne: String(pais.country),
                                                  textTwo: "\(pais.cases.numberFormat())",
@@ -48,7 +68,7 @@ struct PaisListaView: View
                                 //.onTapGesture { vm.selectedCountry = country }
                             }
                         }
-                        
+                        }.listStyle(.inset)
                     }
                 default: LoadingView(text: "Erro")
                 }
@@ -63,22 +83,4 @@ struct PaisListaView: View
 
 
 
-    //                Section(header:
-    //                        HStack
-    //                        {
-    //                            CabecalhoView(title: "País",
-    //                                          fontSize: 22,
-    //                                          fontWeight: .bold)
-    //                            .frame(width: 130, alignment: .leading)
-    //                            Spacer()
-    //                            CabecalhoView(title: "Casos",
-    //                                          fontSize: 22,
-    //                                          fontWeight: .bold)
-    //                            .frame(width: 90, alignment: .trailing)
-    //                            CabecalhoView(title: "Mortes",
-    //                                          fontSize: 22,
-    //                                          fontWeight: .bold)
-    //                            .frame(width: 90, alignment: .trailing)
-    //                        }
-    //                    )
-    //
+ 

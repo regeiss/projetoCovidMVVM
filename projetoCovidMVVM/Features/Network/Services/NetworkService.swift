@@ -28,7 +28,6 @@ class NetworkService: HTTPClient, NetworkServiceable
 
     func getInfoContinentes() async -> Result<ContinenteModel, RequestError>
     {
-        return await sendRequest(endpoint: COVIDEndpoint.continente, responseModel: PaiContinenteModelsModel.self)
+        return await sendRequest(endpoint: COVIDEndpoint.continente, responseModel: ContinenteModel.self)
     }
-
 }
