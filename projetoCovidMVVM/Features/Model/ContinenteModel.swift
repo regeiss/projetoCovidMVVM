@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ContinentElement: Codable
+struct ContinentElement: Codable, Identifiable
 {
     let updated, cases, todayCases, deaths: Int
     let todayDeaths, recovered, todayRecovered, active: Int
@@ -20,6 +20,7 @@ struct ContinentElement: Codable
     let activePerOneMillion, recoveredPerOneMillion, criticalPerOneMillion: Double
     let continentInfo: ContinentInfo
     let countries: [String]
+    var id: String{continent}
 }
 
 // MARK: - ContinentInfo

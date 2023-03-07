@@ -9,8 +9,15 @@ import SwiftUI
 
 struct ContentView: View
 {
-
-    UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
+    init()
+    {
+        let appearance = UITabBarAppearance()
+        appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+        appearance.backgroundColor = UIColor(Color.blue.opacity(0.2))
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
+   
     var body: some View
     {
         TabView
@@ -35,16 +42,11 @@ struct ContentView: View
                     Image(systemName: "chart.bar.xaxis")
                     Text("Gráficos")
                 })
-        }
-        .onAppear {
-            let appearance = UITabBarAppearance()
-            appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-            appearance.backgroundColor = UIColor(Color.orange.opacity(0.2))
-            
-            // Use this appearance when scrolling behind the TabView:
-            UITabBar.appearance().standardAppearance = appearance
-            // Use this appearance when scrolled all the way up:
-            UITabBar.appearance().scrollEdgeAppearance = appearance
+            NoticiasView()
+                .tabItem({
+                    Image(systemName: "newspaper")
+                    Text("Notícias")
+                })
         }
         .edgesIgnoringSafeArea(.top)
     }

@@ -35,6 +35,7 @@
 		E1A7FA2C29AC27C9006A4B97 /* Formas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2B29AC27C9006A4B97 /* Formas.swift */; };
 		E1A7FA2E29AC2CDB006A4B97 /* Botao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2D29AC2CDB006A4B97 /* Botao.swift */; };
 		E1A7FA3029AC3CB1006A4B97 /* GraficoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */; };
+		E1C5390229B6635600707035 /* NoticiasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5390129B6635600707035 /* NoticiasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		E1A7FA2B29AC27C9006A4B97 /* Formas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formas.swift; sourceTree = "<group>"; };
 		E1A7FA2D29AC2CDB006A4B97 /* Botao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Botao.swift; sourceTree = "<group>"; };
 		E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraficoView.swift; sourceTree = "<group>"; };
+		E1C5390129B6635600707035 /* NoticiasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticiasView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 				E1099F172997D96800A098BF /* MapaMundiView.swift */,
 				E1099F152997D91200A098BF /* PaisListaView.swift */,
 				E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */,
+				E1C5390129B6635600707035 /* NoticiasView.swift */,
 			);
 			path = Principal;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1099F2F299DB24200A098BF /* RequestError.swift in Sources */,
+				E1C5390229B6635600707035 /* NoticiasView.swift in Sources */,
 				E1099F3529A1041700A098BF /* Extensions.swift in Sources */,
 				E1099F29299DB1BD00A098BF /* EndPoint.swift in Sources */,
 				E1A7FA2E29AC2CDB006A4B97 /* Botao.swift in Sources */,

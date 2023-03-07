@@ -24,20 +24,14 @@ struct GraficoView: View
                     LoadingView(text: "Buscando")
                     
                 case .success(let data):
-                    Chart
+                    
+                    Chart(data)
                     {
                         BarMark(
-                            x: .value("Mount", "jan/22"),
-                            y: .value("Value", 5)
+                            x: .value("Nome", $0.continent),
+                            y: .value("Mortes", $0.deaths)
                         )
-                        BarMark(
-                            x: .value("Mount", "fev/22"),
-                            y: .value("Value", 4)
-                        )
-                        BarMark(
-                            x: .value("Mount", "mar/22"),
-                            y: .value("Value", 7)
-                        )
+                        .foregroundStyle(by: .value("Nome", $0.continent))
                     }
                     .frame(height: 250)
                     
