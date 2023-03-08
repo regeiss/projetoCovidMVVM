@@ -20,6 +20,10 @@ extension HTTPClient
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
+        urlComponents.queryItems = [
+           URLQueryItem(name: "country", value: "us"),
+           URLQueryItem(name: "format", value: "format")
+        ]
         print(urlComponents.url as Any)
         
         guard let url = urlComponents.url

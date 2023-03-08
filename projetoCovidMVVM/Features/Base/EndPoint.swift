@@ -7,7 +7,13 @@
 
 import Foundation
 
-protocol Endpoint 
+enum HostEndpoint
+{
+    case estatisticas
+    case artigos
+}
+
+protocol Endpoint
 {
     var scheme: String { get }
     var host: String { get }
@@ -17,14 +23,14 @@ protocol Endpoint
     var body: [String: String]? { get }
 }
 
-extension Endpoint 
+extension Endpoint
 {
-    var scheme: String 
+    var scheme: String
     {
         return "https"
     }
-
-    var host: String 
+    
+    var host: String
     {
         return "disease.sh"
     }

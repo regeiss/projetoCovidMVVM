@@ -29,18 +29,6 @@ struct EstatisticasTotalView: View
                         WorldStatsCard(worldData: data)
                         Text(String(data.updated.getDateFromTimeStamp()))
                     }
-//                    Spacer()
-//                    ScrollView(.horizontal, showsIndicators: false)
-//                    {
-//                        HStack(alignment: .top, spacing: 15)
-//                        {
-//                            ForEach(vm.data, id: \.countryInfo._id) { country in
-//                                CartaoEstatisticasPais(countryData: country)
-//                                   // .onTapGesture { vm.mundial= country }
-//                            }
-//                        }
-//                        .padding(.leading, 15)
-//                    }
                 default: LoadingView(text: "Erro")
                 }
             }.task { await viewModel.getAllEstatisticas() }

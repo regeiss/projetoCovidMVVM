@@ -20,12 +20,12 @@ extension COVIDEndpoint: Endpoint
     {
         switch self
         {
-            case .estatisticas:
-                return "/v3/covid-19/all"
-            case .lista:
-                return "/v3/covid-19/countries"
-           case .continente:
-                return "/v3/covid-19/continents"
+        case .estatisticas:
+            return "/v3/covid-19/all"
+        case .lista:
+            return "/v3/covid-19/countries"
+        case .continente:
+            return "/v3/covid-19/continents"
         }
     }
     
@@ -34,21 +34,17 @@ extension COVIDEndpoint: Endpoint
         switch self
         {
         case .estatisticas, .lista, .continente:
-                return .get
+            return .get
         }
     }
     
     var header: [String : String]?
     {
-//        let accessToken = "token"
-//        return ["Authorization": "zero","Content-type":"json;charset=utf-8"]
-        nil 
+        return nil
     }
     
     var body: [String : String]?
     {
         return nil
     }
-    
-    
 }
