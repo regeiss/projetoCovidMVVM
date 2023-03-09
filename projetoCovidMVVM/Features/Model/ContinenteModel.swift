@@ -20,7 +20,7 @@ struct ContinentElement: Codable, Identifiable
     let activePerOneMillion, recoveredPerOneMillion, criticalPerOneMillion: Double
     let continentInfo: ContinentInfo
     let countries: [String]
-    var id: String{continent}
+    var id: String { continent }
 }
 
 // MARK: - ContinentInfo

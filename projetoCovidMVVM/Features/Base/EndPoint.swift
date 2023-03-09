@@ -30,8 +30,8 @@ extension Endpoint
         return "https"
     }
     
-    var host: String
-    {
-        return "disease.sh"
-    }
+//    var host: String
+//    {
+//        return "disease.sh"
+//    }
 }

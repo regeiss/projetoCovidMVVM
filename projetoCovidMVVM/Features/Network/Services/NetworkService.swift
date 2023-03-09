@@ -34,6 +34,6 @@ class NetworkService: HTTPClient, NetworkServiceable
     
     func getAllArtigos() async -> Result<ArtigoModel, RequestError>
     {
-        return await sendRequest(endpoint: ArtigosEndpoint.artigos, responseModel: ArtigoModel.self)
+        return await sendRequest(endpoint: COVIDEndpoint.artigos, responseModel: ArtigoModel.self)
     }
 }

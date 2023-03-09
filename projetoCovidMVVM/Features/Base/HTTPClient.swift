@@ -22,7 +22,7 @@ extension HTTPClient
         urlComponents.path = endpoint.path
         urlComponents.queryItems = [
            URLQueryItem(name: "country", value: "us"),
-           URLQueryItem(name: "format", value: "format")
+           URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")
         ]
         print(urlComponents.url as Any)
         

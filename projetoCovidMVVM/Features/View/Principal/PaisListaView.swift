@@ -70,7 +70,10 @@ struct PaisListaView: View
                         }
                         }.listStyle(.inset)
                     }
-                default: LoadingView(text: "Erro")
+                case .failed(let error):
+                    ErroView(erro: error)
+                    
+                default: BaseView()
                 }
             }.task { await viewModel.getListaPaises() }
                 .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)

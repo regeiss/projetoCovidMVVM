@@ -29,12 +29,15 @@ struct EstatisticasTotalView: View
                         WorldStatsCard(worldData: data)
                         Text(String(data.updated.getDateFromTimeStamp()))
                     }
-                default: LoadingView(text: "Erro")
+                    
+                case .failed(let error):
+                    ErroView(erro: error)
+                    
+                default: BaseView()
                 }
             }.task { await viewModel.getAllEstatisticas() }
              .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
-                    { Task { await viewModel.getAllEstatisticas()}}}
-                    message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+                    { Task { await viewModel.getAllEstatisticas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
              .navigationBarTitle("Estatisticas mundo", displayMode: .automatic)
         }
     }

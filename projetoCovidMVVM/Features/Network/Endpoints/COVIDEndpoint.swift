@@ -12,10 +12,22 @@ enum COVIDEndpoint
     case estatisticas
     case lista
     case continente
+    case artigos
 }
 
 extension COVIDEndpoint: Endpoint
 {
+    var host: String
+    {
+        switch self
+        {
+        case .estatisticas, .lista, .continente:
+            return "disease.sh"
+        case .artigos:
+            return "newsapi.org"
+        }
+    }
+    
     var path: String
     {
         switch self
@@ -26,6 +38,8 @@ extension COVIDEndpoint: Endpoint
             return "/v3/covid-19/countries"
         case .continente:
             return "/v3/covid-19/continents"
+        case .artigos:
+            return "/v2/top-headlines"
         }
     }
     
@@ -33,7 +47,7 @@ extension COVIDEndpoint: Endpoint
     {
         switch self
         {
-        case .estatisticas, .lista, .continente:
+        case .estatisticas, .lista, .continente, .artigos:
             return .get
         }
     }

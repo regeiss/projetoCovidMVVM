@@ -26,15 +26,39 @@ struct NoticiasView: View
                     
                     VStack
                     {
-                        //WorldStatsCard(worldData: data)
-                        Text(String(data.title))
+                        ForEach(data.articles, id: \.id) { artigo in
+//                            Group{
+//                                LinhaDetalheView(textOne: String(artigo.author ?? ""),
+//                                                 textTwo: "\(artigo.title)",
+//                                                 textThree: "\(artigo.description)",
+//                                                 fontSize: 14,
+//                                                 fontWeight: .regular,
+//                                                 frameWidth: 140)
+//                                //.foregroundColor(Color(.black))
+//                                //.onTapGesture { vm.selectedCountry = country }
+//                            }
+                            ArtigoPainelCompacto(artigo: artigo)
+                        }
+//                        List(data.articles)
+//                        { artigo in
+//                            LinhaDetalheView(textOne: String(artigo.author),
+//                                             textTwo: "\(artigo.title)",
+//                                             textThree: "\(artigo.description)",
+//                                             fontSize: 14,
+//                                             fontWeight: .regular,
+//                                             frameWidth: 140)
+//                        }
+                        Text(data.status)
                     }
-                default: LoadingView(text: "Erro")
+                    
+                case .failed(let error):
+                    ErroView(erro: error)
+                    
+                default: BaseView()
                 }
             }.task { await viewModel.getAllArtigos() }
             .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
-                    { Task { await viewModel.getAllArtigos()}}}
-                        message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+                    { Task { await viewModel.getAllArtigos()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
             .navigationBarTitle("Noticias mundo", displayMode: .automatic)
         }
     }

@@ -33,15 +33,18 @@ struct GraficoView: View
                         )
                         .foregroundStyle(by: .value("Nome", $0.continent))
                     }
-                    .frame(height: 250)
+                    .frame(height: 350)
+                    .padding(.leading, 10)
                     
-                default: LoadingView(text: "Erro")
+                case .failed(let error):
+                    ErroView(erro: error)
+                    
+                default: BaseView()
                 }
             }.task { await viewModel.getInfoContinentes() }
-                .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
-                    { Task {await viewModel.getInfoContinentes()}}}
-                      message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-                .navigationBarTitle("Lista países", displayMode: .automatic)
+            .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
+                    { Task {await viewModel.getInfoContinentes()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+            .navigationBarTitle("Lista países", displayMode: .automatic)
         }
     }
 }
