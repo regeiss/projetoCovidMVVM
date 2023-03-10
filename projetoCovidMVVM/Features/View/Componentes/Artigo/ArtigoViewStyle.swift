@@ -12,7 +12,7 @@ struct ArtigoViewStyle: ViewModifier
     func body(content: Content) -> some View
     {
         content
-            .background(Color(UIColor.gray))
+            .background(Color(UIColor.systemBackground))
             .cornerRadius(10)
             .shadow(radius: 1)
     }

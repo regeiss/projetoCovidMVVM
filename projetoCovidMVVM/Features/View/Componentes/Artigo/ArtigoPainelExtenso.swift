@@ -1,32 +1,16 @@
 //
-//  ArtigoPainelCompacto.swift
+//  ArtigoPainelExtenso.swift
 //  projetoCovidMVVM
 //
-//  Created by Roberto Edgar Geiss on 08/03/23.
+//  Created by Roberto Edgar Geiss on 10/03/23.
 //
 
 import SwiftUI
 
-struct ArtigoPainelCompacto: View
+struct ArtigoPainelExtenso: View
 {
-    var defaultLang: String = "en-US"
     var artigo: ArtigoModelElement
-    var mkt: String = "en-US"
-    var localeIdentifier: String { defaultLang.replacingOccurrences(of: "-", with: "_")}
-     
     var relativeTime: String
-    {
-        let relativeDateTimeFormatter = RelativeDateTimeFormatter()
-        relativeDateTimeFormatter.locale = Locale(identifier: localeIdentifier)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        if let safeTime = dateFormatter.date(from: artigo.publishedAt)
-        {
-            return relativeDateTimeFormatter.localizedString(for: safeTime, relativeTo: Date())
-        }
-        return artigo.publishedAt
-    }
     
     var body: some View
     {

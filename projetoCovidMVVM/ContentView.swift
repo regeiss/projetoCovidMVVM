@@ -42,13 +42,13 @@ struct ContentView: View
                     Image(systemName: "chart.bar.xaxis")
                     Text("Gráficos")
                 })
-            NoticiasView()
+            ArtigoView()
                 .tabItem({
                     Image(systemName: "newspaper")
                     Text("Notícias")
                 })
         }
-        .edgesIgnoringSafeArea(.top)
+        //.edgesIgnoringSafeArea(.top)
     }
 }
 
