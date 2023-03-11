@@ -10,6 +10,7 @@ import SwiftUI
 struct ArtigoView: View
 {
     @StateObject private var viewModel = ArtigosViewModelImpl(service: NetworkService())
+    let router = MyRouter.shared
     
     var body: some View
     {
@@ -40,7 +41,7 @@ struct ArtigoView: View
                 }
             }.task { await viewModel.getAllArtigos() }
             .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
-                    { Task { await viewModel.getAllArtigos()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+                { Task { await viewModel.getAllArtigos()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
             .navigationBarTitle("Noticias mundo", displayMode: .automatic)
         }.background(LinearGradient(gradient: Gradient(colors: [Color("adaptiveBlue"),Color("adaptiveBlue"), Color(.systemGray2)]), startPoint: .top, endPoint: .bottom))
     }

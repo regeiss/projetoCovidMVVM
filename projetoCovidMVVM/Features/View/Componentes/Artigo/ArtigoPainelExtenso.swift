@@ -16,12 +16,29 @@ struct ArtigoPainelExtenso: View
     {
         VStack(alignment: .leading)
         {
+            HeaderView(nomeView: "Artigo detalhe", nomeMenu: "Voltar")
+            
             VStack(alignment: .leading)
             {
-                HStack
+                if let urlImagem = artigo.urlToImage
                 {
-                    Spacer()
+                    AsyncImage(url: URL(string: urlImagem)) { phase in
+                        switch phase
+                        {
+                        case .empty:
+                            ProgressView()
+                        case .success(let image):
+                            image.resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: 300, maxHeight: 300)
+                        case .failure:
+                            Image(systemName: "photo")
+                        @unknown default:
+                            BaseView()
+                        }
+                    }
                 }
+                
                 Text(artigo.source.name)
                     .font(.footnote)
                 Text(artigo.title)
@@ -36,13 +53,17 @@ struct ArtigoPainelExtenso: View
                         .lineLimit(nil)
                         .padding(.top, 7)
                 }
+                if let link = URL(string: artigo.url)
+                {
+                    Link(artigo.url, destination: link)
+                }
                 Text(relativeTime)
                     .font(.caption)
                     .padding(.top, 7)
             }
             .padding()
+            Spacer()
         }
-        .artigoPainelViewStyle()
         .padding([.leading, .trailing], 10)
     }
 }

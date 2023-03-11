@@ -45,6 +45,9 @@
 		E1C5391629BA29C300707035 /* TranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391529BA29C300707035 /* TranslateManager.swift */; };
 		E1C5391829BBA21800707035 /* ArtigoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391729BBA21800707035 /* ArtigoHeader.swift */; };
 		E1C5391A29BBBF4F00707035 /* ArtigoPainelExtenso.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391929BBBF4F00707035 /* ArtigoPainelExtenso.swift */; };
+		E1C5391D29BCCE0200707035 /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = E1C5391C29BCCE0200707035 /* NavigationStack */; };
+		E1C5392029BCCFDB00707035 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391F29BCCFDB00707035 /* Router.swift */; };
+		E1C5392329BD30FE00707035 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5392229BD30FE00707035 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +91,8 @@
 		E1C5391529BA29C300707035 /* TranslateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateManager.swift; sourceTree = "<group>"; };
 		E1C5391729BBA21800707035 /* ArtigoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtigoHeader.swift; sourceTree = "<group>"; };
 		E1C5391929BBBF4F00707035 /* ArtigoPainelExtenso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtigoPainelExtenso.swift; sourceTree = "<group>"; };
+		E1C5391F29BCCFDB00707035 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E1C5392229BD30FE00707035 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C5391D29BCCE0200707035 /* NavigationStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +158,7 @@
 		E1099F0E2997D78D00A098BF /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E1C5391E29BCCFCA00707035 /* Router */,
 				E1099F27299DB1A200A098BF /* Base */,
 				E1099F0F2997D79800A098BF /* Model */,
 				E1099F122997D7FF00A098BF /* Network */,
@@ -175,6 +182,7 @@
 		E1099F102997D7A200A098BF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1C5392129BD30E300707035 /* Header */,
 				E1A7FA2729A98C24006A4B97 /* Principal */,
 				E1A7FA2229A98B02006A4B97 /* Componentes */,
 			);
@@ -246,12 +254,12 @@
 		E1A7FA2729A98C24006A4B97 /* Principal */ = {
 			isa = PBXGroup;
 			children = (
+				E1C5390129B6635600707035 /* ArtigoView.swift */,
+				E1C5391229B9638A00707035 /* BaseView.swift */,
 				E1099F132997D8F800A098BF /* EstatisticasTotalView.swift */,
 				E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */,
 				E1099F172997D96800A098BF /* MapaMundiView.swift */,
-				E1C5390129B6635600707035 /* ArtigoView.swift */,
 				E1099F152997D91200A098BF /* PaisListaView.swift */,
-				E1C5391229B9638A00707035 /* BaseView.swift */,
 			);
 			path = Principal;
 			sourceTree = "<group>";
@@ -275,6 +283,22 @@
 			path = Artigo;
 			sourceTree = "<group>";
 		};
+		E1C5391E29BCCFCA00707035 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1C5391F29BCCFDB00707035 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1C5392129BD30E300707035 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E1C5392229BD30FE00707035 /* HeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,6 +315,9 @@
 			dependencies = (
 			);
 			name = projetoCovidMVVM;
+			packageProductDependencies = (
+				E1C5391C29BCCE0200707035 /* NavigationStack */,
+			);
 			productName = projetoCovidMVVM;
 			productReference = E1099EFC2997D6CE00A098BF /* projetoCovidMVVM.app */;
 			productType = "com.apple.product-type.application";
@@ -319,6 +346,9 @@
 				Base,
 			);
 			mainGroup = E1099EF32997D6CE00A098BF;
+			packageReferences = (
+				E1C5391B29BCCE0200707035 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
+			);
 			productRefGroup = E1099EFD2997D6CE00A098BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -353,6 +383,7 @@
 				E1C5390F29B9562800707035 /* ArtigoViewStyle.swift in Sources */,
 				E1A7FA2129A837F8006A4B97 /* ListaPaisesViewModel.swift in Sources */,
 				E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */,
+				E1C5392029BCCFDB00707035 /* Router.swift in Sources */,
 				E1099F022997D6CE00A098BF /* ContentView.swift in Sources */,
 				E1C5391A29BBBF4F00707035 /* ArtigoPainelExtenso.swift in Sources */,
 				E1C5391329B9638A00707035 /* BaseView.swift in Sources */,
@@ -369,6 +400,7 @@
 				E1099F26299A7ACA00A098BF /* LoadingView.swift in Sources */,
 				E1A7FA2629A98B86006A4B97 /* LinhaDetalheView.swift in Sources */,
 				E1099F142997D8F800A098BF /* EstatisticasTotalView.swift in Sources */,
+				E1C5392329BD30FE00707035 /* HeaderView.swift in Sources */,
 				E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */,
 				E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */,
 				E1C5390D29B90AA900707035 /* ErroView.swift in Sources */,
@@ -581,6 +613,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1C5391B29BCCE0200707035 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1C5391C29BCCE0200707035 /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1C5391B29BCCE0200707035 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E1099EF42997D6CE00A098BF /* Project object */;
 }

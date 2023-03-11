@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ArtigoPainelCompacto: View
 {
+    let router = MyRouter.shared
     var defaultLang: String = "en_US"
     var artigo: ArtigoModelElement
-     
     var relativeTime: String
     {
         let relativeDateTimeFormatter = RelativeDateTimeFormatter()
@@ -28,31 +28,34 @@ struct ArtigoPainelCompacto: View
     
     var body: some View
     {
-        //NavigationStack {
-            VStack(alignment: .leading)
+        VStack(alignment: .leading)
+        {
+            HStack
             {
-                HStack
-                {
-                    Spacer()
-                }
-                
-                Text(artigo.source.name)
-                    .font(.footnote)
-                Text(artigo.title)
-                    .font(.system(.headline, design: .serif))
-                    .fontWeight(.bold)
-                    .lineLimit(nil)
-                    .padding(.top, 4)
-//                    .onTapGesture {
-//                        NavigationLink(artigo.title)
-//                        {
-//                            ArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime)}
-//                    }
-                Text(relativeTime)
-                    .font(.caption)
-                    .padding(.top, 7)
-            }.padding()
-                .artigoPainelViewStyle()
+                Spacer()
+            }
             
-        }//}
+            Text(artigo.source.name)
+                .font(.footnote)
+            Text(artigo.title)
+                .font(.system(.headline, design: .serif))
+                .fontWeight(.bold)
+                .lineLimit(nil)
+                .padding(.top, 4)
+                .onTapGesture {
+                    
+                    ArtigoAbreDetalhe(artigo: artigo, relativeTime: relativeTime)
+                    
+                }
+            Text(relativeTime)
+                .font(.caption)
+                .padding(.top, 7)
+        }.padding()
+            .artigoPainelViewStyle()
+    }
+    
+    func ArtigoAbreDetalhe(artigo: ArtigoModelElement, relativeTime: String)
+    {
+        router.toArtigoDetalhe(artigo: artigo, relativeTime: relativeTime)
+    }
 }
