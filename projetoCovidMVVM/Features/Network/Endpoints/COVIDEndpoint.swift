@@ -39,7 +39,7 @@ extension COVIDEndpoint: Endpoint
         case .continente:
             return "/v3/covid-19/continents"
         case .artigos:
-            return "/v2/top-headlines"
+            return "/v2/everything"
         }
     }
     

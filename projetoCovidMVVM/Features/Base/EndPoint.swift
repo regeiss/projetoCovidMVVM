@@ -29,9 +29,4 @@ extension Endpoint
     {
         return "https"
     }
-    
-//    var host: String
-//    {
-//        return "disease.sh"
-//    }
 }
