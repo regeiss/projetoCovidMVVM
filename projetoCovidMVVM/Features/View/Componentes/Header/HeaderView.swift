@@ -12,7 +12,7 @@ import NavigationStack
 struct HeaderView: View
 {
     let router = MyRouter.shared
-    var nomeView: String
+    var nomeViewRetorno: String
     var nomeMenu: String
     
     var body: some View
@@ -26,7 +26,7 @@ struct HeaderView: View
                     .imageScale(.large)
                     .padding([.leading])
                     .onTapGesture {
-                        router.toMenu()
+                        headerRouter(voltarPara: nomeViewRetorno)
                     }
                 
                 Text(nomeMenu).foregroundColor(.blue).font(.system(.title3, design: .rounded))
@@ -39,14 +39,23 @@ struct HeaderView: View
                         router.toMenu()
                     }
             }
-        
-            HStack()
-            {
-                Text(nomeView).font(.system(.largeTitle, design: .rounded))
-                .fontWeight(.bold)
-                .padding([.leading])
-                Spacer()
-            }.padding([.top])
         }
     }
+    
+    func headerRouter(voltarPara: String)
+     {
+         switch voltarPara
+         {
+         case "lstArtigo":
+             //router.toPainelArtigoCompacto(artigo: ArtigoModelElement(from: <#Decoder#>))
+             router.toMenu()
+         case "lstPais":
+             router.toPaisListaView()
+
+         default:
+             router.toMenu()
+         }
+         
+     }
+    
 }

@@ -12,7 +12,6 @@ struct PaisPainelExtenso: View
     var pais: PaisModelElement
     var body: some View
     {
-        HeaderView(nomeView: "Pais detalhe", nomeMenu: "Voltar")
         Text(pais.country)
     }
 }

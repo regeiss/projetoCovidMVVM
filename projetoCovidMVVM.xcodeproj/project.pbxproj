@@ -184,7 +184,6 @@
 		E1099F102997D7A200A098BF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E1C5392129BD30E300707035 /* Header */,
 				E1A7FA2729A98C24006A4B97 /* Principal */,
 				E1A7FA2229A98B02006A4B97 /* Componentes */,
 			);
@@ -242,6 +241,7 @@
 		E1A7FA2229A98B02006A4B97 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
+				E1C5392129BD30E300707035 /* Header */,
 				E1C5392429BE415500707035 /* Pais */,
 				E1C5391429BA0F8A00707035 /* Artigo */,
 				E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */,

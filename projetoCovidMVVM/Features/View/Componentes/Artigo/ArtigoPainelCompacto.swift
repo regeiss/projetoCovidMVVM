@@ -15,7 +15,8 @@ struct ArtigoPainelCompacto: View
     var relativeTime: String
     {
         let relativeDateTimeFormatter = RelativeDateTimeFormatter()
-        relativeDateTimeFormatter.locale = Locale(identifier: "en_US")
+        relativeDateTimeFormatter.locale = Locale(identifier: "pt_BR")
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         

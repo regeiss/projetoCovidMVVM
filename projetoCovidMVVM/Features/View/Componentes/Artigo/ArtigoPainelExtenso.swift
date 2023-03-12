@@ -16,7 +16,7 @@ struct ArtigoPainelExtenso: View
     {
         VStack(alignment: .leading)
         {
-            HeaderView(nomeView: "Artigo detalhe", nomeMenu: "Voltar")
+            HeaderView(nomeViewRetorno: "Artigo detalhe", nomeMenu: "Voltar")
             
             VStack(alignment: .leading)
             {
@@ -30,7 +30,7 @@ struct ArtigoPainelExtenso: View
                         case .success(let image):
                             image.resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(maxWidth: 300, maxHeight: 300)
+                                .frame(maxWidth: 250, maxHeight: 300)
                         case .failure:
                             Image(systemName: "photo")
                         @unknown default:
