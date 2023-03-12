@@ -37,15 +37,14 @@ struct ArtigoPainelCompacto: View
             
             Text(artigo.source.name)
                 .font(.footnote)
+            
             Text(artigo.title)
                 .font(.system(.headline, design: .serif))
                 .fontWeight(.bold)
                 .lineLimit(nil)
                 .padding(.top, 4)
                 .onTapGesture {
-                    
-                    ArtigoAbreDetalhe(artigo: artigo, relativeTime: relativeTime)
-                    
+                    ArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime)
                 }
             Text(relativeTime)
                 .font(.caption)
@@ -54,8 +53,8 @@ struct ArtigoPainelCompacto: View
             .artigoPainelViewStyle()
     }
     
-    func ArtigoAbreDetalhe(artigo: ArtigoModelElement, relativeTime: String)
+    func ArtigoPainelExtenso(artigo: ArtigoModelElement, relativeTime: String)
     {
-        router.toArtigoDetalhe(artigo: artigo, relativeTime: relativeTime)
+        router.toArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime)
     }
 }

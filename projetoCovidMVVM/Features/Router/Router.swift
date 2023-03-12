@@ -26,8 +26,13 @@ final class MyRouter: ObservableObject
         self.navStack.pop(to: .root)
     }
     
-    func toArtigoDetalhe(artigo: ArtigoModelElement, relativeTime: String)
+    func toArtigoPainelExtenso(artigo: ArtigoModelElement, relativeTime: String)
     {
         self.navStack.push(ArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime))
+    }
+    
+    func toPaisPainelExtenso(pais: PaisModelElement)
+    {
+        self.navStack.push(PaisPainelExtenso(pais: pais))
     }
 }

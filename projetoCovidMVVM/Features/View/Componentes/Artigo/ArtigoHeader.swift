@@ -69,7 +69,7 @@ struct ArtigoHeader: View
                                 })
                             }
                         } else {
-                            Text("Translate")
+                            Text("Traduzir")
                                 .foregroundColor(Color(.systemGray))
                         }
                     }) {

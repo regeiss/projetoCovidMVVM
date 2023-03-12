@@ -48,6 +48,7 @@
 		E1C5391D29BCCE0200707035 /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = E1C5391C29BCCE0200707035 /* NavigationStack */; };
 		E1C5392029BCCFDB00707035 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391F29BCCFDB00707035 /* Router.swift */; };
 		E1C5392329BD30FE00707035 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5392229BD30FE00707035 /* HeaderView.swift */; };
+		E1C5392629BE418400707035 /* PaisPainelExtenso.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5392529BE418400707035 /* PaisPainelExtenso.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		E1C5391929BBBF4F00707035 /* ArtigoPainelExtenso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtigoPainelExtenso.swift; sourceTree = "<group>"; };
 		E1C5391F29BCCFDB00707035 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E1C5392229BD30FE00707035 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E1C5392529BE418400707035 /* PaisPainelExtenso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaisPainelExtenso.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 		E1A7FA2229A98B02006A4B97 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
+				E1C5392429BE415500707035 /* Pais */,
 				E1C5391429BA0F8A00707035 /* Artigo */,
 				E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */,
 				E1A7FA2D29AC2CDB006A4B97 /* Botao.swift */,
@@ -297,6 +300,14 @@
 				E1C5392229BD30FE00707035 /* HeaderView.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		E1C5392429BE415500707035 /* Pais */ = {
+			isa = PBXGroup;
+			children = (
+				E1C5392529BE418400707035 /* PaisPainelExtenso.swift */,
+			);
+			path = Pais;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,6 +415,7 @@
 				E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */,
 				E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */,
 				E1C5390D29B90AA900707035 /* ErroView.swift in Sources */,
+				E1C5392629BE418400707035 /* PaisPainelExtenso.swift in Sources */,
 				E1099F002997D6CE00A098BF /* projetoCovidMVVMApp.swift in Sources */,
 				E1A7FA3029AC3CB1006A4B97 /* GraficoView.swift in Sources */,
 				E1099F2B299DB1D500A098BF /* HTTPClient.swift in Sources */,

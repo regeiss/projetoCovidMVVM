@@ -29,7 +29,7 @@ struct ArtigoPainelExtenso: View
                             ProgressView()
                         case .success(let image):
                             image.resizable()
-                                .aspectRatio(contentMode: .fit)
+                                .aspectRatio(contentMode: .fill)
                                 .frame(maxWidth: 300, maxHeight: 300)
                         case .failure:
                             Image(systemName: "photo")
@@ -41,11 +41,13 @@ struct ArtigoPainelExtenso: View
                 
                 Text(artigo.source.name)
                     .font(.footnote)
+                
                 Text(artigo.title)
                     .font(.system(.headline, design: .serif))
                     .fontWeight(.bold)
                     .lineLimit(nil)
                     .padding(.top, 4)
+                
                 if let safeDescription = artigo.description
                 {
                     Text(safeDescription)
@@ -53,13 +55,20 @@ struct ArtigoPainelExtenso: View
                         .lineLimit(nil)
                         .padding(.top, 7)
                 }
+                
                 if let link = URL(string: artigo.url)
                 {
                     Link(artigo.url, destination: link)
+                        .font(.footnote)
+                        .tint(.blue)
+                        .padding(.top, 10)
                 }
+                
                 Text(relativeTime)
                     .font(.caption)
                     .padding(.top, 7)
+                
+                Spacer()
             }
             .padding()
             Spacer()

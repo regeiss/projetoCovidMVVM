@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PaisListaView: View
 {
+    let router = MyRouter.shared
     @StateObject private var viewModel = PaisListaViewModelImpl(service: NetworkService())
     @State var searchText = ""
     @State var isSearching = false
@@ -65,7 +66,7 @@ struct PaisListaView: View
                                                  fontWeight: .regular,
                                                  frameWidth: 140)
                                 .foregroundColor(Color(.black))
-                                //.onTapGesture { vm.selectedCountry = country }
+                                .onTapGesture { PaisPainelDetalhe(pais: pais) }
                             }
                         }
                         }.listStyle(.inset)
@@ -81,6 +82,11 @@ struct PaisListaView: View
                       message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
                 .navigationBarTitle("Lista países", displayMode: .automatic)
         }
+    }
+    
+    func PaisPainelDetalhe(pais: PaisModelElement)
+    {
+        router.toPaisPainelExtenso(pais: pais)
     }
 }
 
