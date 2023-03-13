@@ -9,15 +9,15 @@ import SwiftUI
 
 struct PaisListaView: View
 {
-    let router = MyRouter.shared
     @StateObject private var viewModel = PaisListaViewModelImpl(service: NetworkService())
+    @State private var isShowingSheet = false
     @State var searchText = ""
     @State var isSearching = false
+    @State private var paisSelecionado: PaisModelElement?
     
     var body: some View
     {
-        
-        NavigationView
+        VStack
         {
             Group
             {
@@ -66,7 +66,9 @@ struct PaisListaView: View
                                                  fontWeight: .regular,
                                                  frameWidth: 140)
                                 .foregroundColor(Color(.black))
-                                .onTapGesture { PaisPainelDetalhe(pais: pais) }
+                                .onTapGesture { isShowingSheet = true
+                                    paisSelecionado = pais
+                                }
                             }
                         }
                         }.listStyle(.inset)
@@ -77,16 +79,16 @@ struct PaisListaView: View
                 default: BaseView()
                 }
             }.task { await viewModel.getListaPaises() }
-                .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
-                    { Task {await viewModel.getListaPaises()}}}
-                      message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-                .navigationBarTitle("Lista países", displayMode: .automatic)
-        }
+            .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
+                    { Task {await viewModel.getListaPaises()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+            .navigationBarTitle("Lista países", displayMode: .automatic)
+        }.sheet(item: $paisSelecionado, onDismiss: didDismiss)
+        { paisSelecionado in  PaisPainelExtenso(pais: paisSelecionado)}
     }
     
-    func PaisPainelDetalhe(pais: PaisModelElement)
+    func didDismiss()
     {
-        router.toPaisPainelExtenso(pais: pais)
+        
     }
 }
 

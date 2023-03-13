@@ -31,18 +31,15 @@ final class MyRouter: ObservableObject
         self.navStack.push(ArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime))
     }
     
-    func toPaisPainelExtenso(pais: PaisModelElement)
-    {
-        self.navStack.push(PaisPainelExtenso(pais: pais))
-    }
+//    func toPaisPainelExtenso(pais: PaisModelElement)
+//    {
+//        self.navStack.push(PaisPainelExtenso())
+//    }
     
     func toPainelArtigoCompacto(artigo: ArtigoModelElement)
     {
         self.navStack.push(ArtigoPainelCompacto(artigo: artigo))
     }
     
-    func toPaisListaView()
-    {
-        self.navStack.push(PaisListaView())
-    }
+
 }

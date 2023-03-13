@@ -9,9 +9,12 @@ import SwiftUI
 
 struct ArtigoPainelCompacto: View
 {
+    @State private var isShowingSheet = false
+    @State private var artigoSelecionado: ArtigoModelElement?
+    var artigo: ArtigoModelElement
     let router = MyRouter.shared
     var defaultLang: String = "en_US"
-    var artigo: ArtigoModelElement
+    
     var relativeTime: String
     {
         let relativeDateTimeFormatter = RelativeDateTimeFormatter()
@@ -29,33 +32,40 @@ struct ArtigoPainelCompacto: View
     
     var body: some View
     {
-        VStack(alignment: .leading)
+        VStack
         {
-            HStack
+            VStack(alignment: .leading)
             {
-                Spacer()
-            }
-            
-            Text(artigo.source.name)
-                .font(.footnote)
-            
-            Text(artigo.title)
-                .font(.system(.headline, design: .serif))
-                .fontWeight(.bold)
-                .lineLimit(nil)
-                .padding(.top, 4)
-                .onTapGesture {
-                    ArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime)
+                HStack
+                {
+                    Spacer()
                 }
-            Text(relativeTime)
-                .font(.caption)
-                .padding(.top, 7)
-        }.padding()
+                
+                Text(artigo.source.name)
+                    .font(.footnote)
+                
+                Text(artigo.title)
+                    .font(.system(.headline, design: .serif))
+                    .fontWeight(.bold)
+                    .lineLimit(nil)
+                    .padding(.top, 4)
+                    .onTapGesture {
+                        isShowingSheet = true
+                        artigoSelecionado = artigo
+                    }
+                Text(relativeTime)
+                    .font(.caption)
+                    .padding(.top, 7)
+            }
+            .padding()
             .artigoPainelViewStyle()
+            
+        }.sheet(isPresented: $isShowingSheet, onDismiss: didDismiss)
+        { ArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime)}
     }
     
-    func ArtigoPainelExtenso(artigo: ArtigoModelElement, relativeTime: String)
+    func didDismiss()
     {
-        router.toArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime)
+        
     }
 }

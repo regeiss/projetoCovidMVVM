@@ -49,8 +49,6 @@ struct HeaderView: View
          case "lstArtigo":
              //router.toPainelArtigoCompacto(artigo: ArtigoModelElement(from: <#Decoder#>))
              router.toMenu()
-         case "lstPais":
-             router.toPaisListaView()
 
          default:
              router.toMenu()

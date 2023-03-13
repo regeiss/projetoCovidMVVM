@@ -9,10 +9,17 @@ import SwiftUI
 
 struct PaisPainelExtenso: View
 {
+    @Environment(\.dismiss) var dismiss
     var pais: PaisModelElement
+    
     var body: some View
     {
-        Text(pais.country)
+        VStack
+        {
+            Button("Fechar") { dismiss()}
+            Text(pais.country)
+            Text(pais.continent)
+        }
     }
 }
 

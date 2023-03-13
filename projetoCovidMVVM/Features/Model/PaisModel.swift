@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-struct PaisModelElement: Codable, Hashable
+struct PaisModelElement: Codable, Hashable, Identifiable
 {
     let updated: Double
     let country: String
@@ -48,6 +48,8 @@ struct PaisModelElement: Codable, Hashable
             CLLocationCoordinate2D(latitude: lat ?? 0, longitude: long ?? 0)
         }
     }
+    
+    var id: String {country}
 }
 
 typealias PaisModel = [PaisModelElement]

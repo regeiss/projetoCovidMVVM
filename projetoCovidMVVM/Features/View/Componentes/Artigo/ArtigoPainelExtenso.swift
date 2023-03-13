@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ArtigoPainelExtenso: View
 {
+    @Environment(\.dismiss) var dismiss
     var artigo: ArtigoModelElement
     var relativeTime: String
     
@@ -16,7 +17,12 @@ struct ArtigoPainelExtenso: View
     {
         VStack(alignment: .leading)
         {
-            HeaderView(nomeViewRetorno: "Artigo detalhe", nomeMenu: "Voltar")
+            HStack
+            {
+                Spacer()
+                Image(systemName: "xmark.circle").onTapGesture
+                    { dismiss()}
+            }.padding()
             
             VStack(alignment: .leading)
             {
