@@ -16,3 +16,11 @@ struct PlaceCardStyle: ViewModifier
             .cornerRadius(10)
     }
 }
+
+extension View
+{
+    func placeCardStyle() -> some View
+    {
+        self.modifier(PlaceCardStyle())
+    }
+}

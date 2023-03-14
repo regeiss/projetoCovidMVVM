@@ -26,8 +26,7 @@ struct MundialView: View
                     
                     VStack
                     {
-                        MundialPainel(worldData: data)
-                        Text(String(data.updated.getDateFromTimeStamp()))
+                        MundialPainelView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
                     }
                     
                 case .failed(let error):
@@ -38,7 +37,7 @@ struct MundialView: View
             }.task { await viewModel.getAllEstatisticas() }
              .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                     { Task { await viewModel.getAllEstatisticas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-             .navigationBarTitle("Estatisticas mundo", displayMode: .automatic)
+             .navigationBarTitle("Estatísticas mundo", displayMode: .automatic)
         }
     }
 }
