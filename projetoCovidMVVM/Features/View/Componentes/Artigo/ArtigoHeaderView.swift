@@ -1,5 +1,5 @@
 //
-//  ArtigoHeader.swift
+//  ArtigoHeaderView.swift
 //  projetoCovidMVVM
 //
 //  Created by Roberto Edgar Geiss on 10/03/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtigoHeader: View
+struct ArtigoHeaderView: View
 {
     @State private var translate: Bool = false
     @State var noResults: Bool = false

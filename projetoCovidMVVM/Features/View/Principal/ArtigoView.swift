@@ -16,7 +16,7 @@ struct ArtigoView: View
     {
         VStack
         {
-            ArtigoHeader()
+            ArtigoHeaderView()
             
             ScrollView(.vertical)
             {
@@ -30,7 +30,7 @@ struct ArtigoView: View
                     VStack
                     {
                         ForEach(data.articles, id: \.id) { artigo in
-                            ArtigoPainelCompacto(artigo: artigo)
+                            ArtigoPainelCompactoView(artigo: artigo)
                         }
                     }.padding()
                     

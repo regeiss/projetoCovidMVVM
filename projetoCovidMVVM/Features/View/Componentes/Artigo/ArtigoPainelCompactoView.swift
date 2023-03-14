@@ -1,5 +1,5 @@
 //
-//  ArtigoPainelCompacto.swift
+//  ArtigoPainelCompactoView.swift
 //  projetoCovidMVVM
 //
 //  Created by Roberto Edgar Geiss on 08/03/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtigoPainelCompacto: View
+struct ArtigoPainelCompactoView: View
 {
     @State private var isShowingSheet = false
     @State private var artigoSelecionado: ArtigoModelElement?
@@ -61,7 +61,7 @@ struct ArtigoPainelCompacto: View
             .artigoPainelViewStyle()
             
         }.sheet(isPresented: $isShowingSheet, onDismiss: didDismiss)
-        { ArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime)}
+        { ArtigoPainelExtensoView(artigo: artigo, relativeTime: relativeTime)}
     }
     
     func didDismiss()

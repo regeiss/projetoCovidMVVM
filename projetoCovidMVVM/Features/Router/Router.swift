@@ -28,7 +28,7 @@ final class MyRouter: ObservableObject
     
     func toArtigoPainelExtenso(artigo: ArtigoModelElement, relativeTime: String)
     {
-        self.navStack.push(ArtigoPainelExtenso(artigo: artigo, relativeTime: relativeTime))
+        self.navStack.push(ArtigoPainelExtensoView(artigo: artigo, relativeTime: relativeTime))
     }
     
 //    func toPaisPainelExtenso(pais: PaisModelElement)
@@ -38,7 +38,7 @@ final class MyRouter: ObservableObject
     
     func toPainelArtigoCompacto(artigo: ArtigoModelElement)
     {
-        self.navStack.push(ArtigoPainelCompacto(artigo: artigo))
+        self.navStack.push(ArtigoPainelCompactoView(artigo: artigo))
     }
     
 

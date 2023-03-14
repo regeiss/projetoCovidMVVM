@@ -1,5 +1,5 @@
 //
-//  PaisPainelExtenso.swift
+//  PaisPainelExtensoView.swift
 //  projetoCovidMVVM
 //
 //  Created by Roberto Edgar Geiss on 12/03/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PaisPainelExtenso: View
+struct PaisPainelExtensoView: View
 {
     @Environment(\.dismiss) var dismiss
     var pais: PaisModelElement

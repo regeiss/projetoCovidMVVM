@@ -83,7 +83,7 @@ struct PaisListaView: View
                     { Task {await viewModel.getListaPaises()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
             .navigationBarTitle("Lista países", displayMode: .automatic)
         }.sheet(item: $paisSelecionado, onDismiss: didDismiss)
-        { paisSelecionado in  PaisPainelExtenso(pais: paisSelecionado)}
+        { paisSelecionado in  PaisPainelExtensoView(pais: paisSelecionado)}
     }
     
     func didDismiss()

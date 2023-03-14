@@ -1,5 +1,5 @@
 //
-//  ArtigoPainelExtenso.swift
+//  ArtigoPainelExtensoView.swift
 //  projetoCovidMVVM
 //
 //  Created by Roberto Edgar Geiss on 10/03/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtigoPainelExtenso: View
+struct ArtigoPainelExtensoView: View
 {
     @Environment(\.dismiss) var dismiss
     var artigo: ArtigoModelElement

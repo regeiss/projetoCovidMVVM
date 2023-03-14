@@ -27,7 +27,7 @@ struct ContentView: View
         {
             TabView
             {
-                EstatisticasTotalView()
+                MundialView()
                     .tabItem({
                         Image(systemName: "person.3.fill")
                         Text("Estatísticas")

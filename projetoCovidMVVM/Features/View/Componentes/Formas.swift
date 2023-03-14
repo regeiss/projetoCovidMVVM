@@ -7,7 +7,7 @@
 
 import SwiftUI
         
-struct WorldStatsCard: View
+struct MundialPainel: View
 {
     var worldData: MundialModel
     

@@ -1,5 +1,5 @@
 //
-//  EstatisticasTotalView.swift
+//  MundialView.swift
 //  projetoCovidMVVM
 //
 //  Created by Roberto Edgar Geiss on 11/02/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EstatisticasTotalView: View
+struct MundialView: View
 {
     @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
     
@@ -26,7 +26,7 @@ struct EstatisticasTotalView: View
                     
                     VStack
                     {
-                        WorldStatsCard(worldData: data)
+                        MundialPainel(worldData: data)
                         Text(String(data.updated.getDateFromTimeStamp()))
                     }
                     
