@@ -53,6 +53,9 @@
 		E1C5392C29BFEEFE00707035 /* MundialPainelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5392B29BFEEFE00707035 /* MundialPainelView.swift */; };
 		E1C5392E29BFF02E00707035 /* MundialPainelDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5392D29BFF02E00707035 /* MundialPainelDetalheView.swift */; };
 		E1C5393129C0E31700707035 /* MapaPaisPainelDetalhe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5393029C0E31700707035 /* MapaPaisPainelDetalhe.swift */; };
+		E1C5393329C2218000707035 /* AjustesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5393229C2218000707035 /* AjustesView.swift */; };
+		E1C5393529C23F3A00707035 /* ContinentePainelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5393429C23F3A00707035 /* ContinentePainelView.swift */; };
+		E1C5393829C287B300707035 /* ContinenteListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5393729C287B200707035 /* ContinenteListaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +106,9 @@
 		E1C5392B29BFEEFE00707035 /* MundialPainelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialPainelView.swift; sourceTree = "<group>"; };
 		E1C5392D29BFF02E00707035 /* MundialPainelDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialPainelDetalheView.swift; sourceTree = "<group>"; };
 		E1C5393029C0E31700707035 /* MapaPaisPainelDetalhe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaPaisPainelDetalhe.swift; sourceTree = "<group>"; };
+		E1C5393229C2218000707035 /* AjustesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustesView.swift; sourceTree = "<group>"; };
+		E1C5393429C23F3A00707035 /* ContinentePainelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentePainelView.swift; sourceTree = "<group>"; };
+		E1C5393729C287B200707035 /* ContinenteListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinenteListaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,17 +255,18 @@
 		E1A7FA2229A98B02006A4B97 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
-				E1C5392F29C0E2C100707035 /* Mapas */,
-				E1C5392A29BFEED400707035 /* Mundial */,
-				E1C5392729BFED6900707035 /* Estilos */,
 				E1C5391429BA0F8A00707035 /* Artigo */,
 				E1A7FA2829A98D89006A4B97 /* BarraBuscaView.swift */,
 				E1A7FA2D29AC2CDB006A4B97 /* Botao.swift */,
 				E1A7FA2329A98B1D006A4B97 /* CabecalhoView.swift */,
+				E1C5393629C2854B00707035 /* Continente */,
+				E1C5392729BFED6900707035 /* Estilos */,
 				E1A7FA2B29AC27C9006A4B97 /* Formas.swift */,
 				E1C5392129BD30E300707035 /* Header */,
 				E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */,
 				E1099F25299A7ACA00A098BF /* LoadingView.swift */,
+				E1C5392F29C0E2C100707035 /* Mapas */,
+				E1C5392A29BFEED400707035 /* Mundial */,
 				E1C5392429BE415500707035 /* Pais */,
 			);
 			path = Componentes;
@@ -268,11 +275,13 @@
 		E1A7FA2729A98C24006A4B97 /* Principal */ = {
 			isa = PBXGroup;
 			children = (
+				E1C5393229C2218000707035 /* AjustesView.swift */,
 				E1C5390129B6635600707035 /* ArtigoView.swift */,
 				E1C5391229B9638A00707035 /* BaseView.swift */,
-				E1099F132997D8F800A098BF /* MundialView.swift */,
+				E1C5393729C287B200707035 /* ContinenteListaView.swift */,
 				E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */,
 				E1099F172997D96800A098BF /* MapaMundiView.swift */,
+				E1099F132997D8F800A098BF /* MundialView.swift */,
 				E1099F152997D91200A098BF /* PaisListaView.swift */,
 			);
 			path = Principal;
@@ -344,6 +353,14 @@
 				E1C5393029C0E31700707035 /* MapaPaisPainelDetalhe.swift */,
 			);
 			path = Mapas;
+			sourceTree = "<group>";
+		};
+		E1C5393629C2854B00707035 /* Continente */ = {
+			isa = PBXGroup;
+			children = (
+				E1C5393429C23F3A00707035 /* ContinentePainelView.swift */,
+			);
+			path = Continente;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +448,7 @@
 				E1C5390F29B9562800707035 /* ArtigoViewStyle.swift in Sources */,
 				E1A7FA2129A837F8006A4B97 /* ListaPaisesViewModel.swift in Sources */,
 				E1C5392E29BFF02E00707035 /* MundialPainelDetalheView.swift in Sources */,
+				E1C5393829C287B300707035 /* ContinenteListaView.swift in Sources */,
 				E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */,
 				E1C5392029BCCFDB00707035 /* Router.swift in Sources */,
 				E1099F022997D6CE00A098BF /* ContentView.swift in Sources */,
@@ -440,6 +458,8 @@
 				E18762B329B1682B009B75F7 /* ContinenteModel.swift in Sources */,
 				E1C5391129B958CE00707035 /* ArtigoPainelCompactoView.swift in Sources */,
 				E1C5391829BBA21800707035 /* ArtigoHeaderView.swift in Sources */,
+				E1C5393329C2218000707035 /* AjustesView.swift in Sources */,
+				E1C5393529C23F3A00707035 /* ContinentePainelView.swift in Sources */,
 				E1C5390429B7796A00707035 /* ArtigoModel.swift in Sources */,
 				E1A7FA2429A98B1D006A4B97 /* CabecalhoView.swift in Sources */,
 				E1099F33299DB45100A098BF /* COVIDEndpoint.swift in Sources */,

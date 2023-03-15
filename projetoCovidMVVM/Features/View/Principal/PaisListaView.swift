@@ -62,7 +62,7 @@ struct PaisListaView: View
                                 LinhaDetalheView(textOne: String(pais.country),
                                                  textTwo: "\(pais.cases.numberFormat())",
                                                  textThree: "\(pais.deaths.numberFormat())",
-                                                 fontSize: 14,
+                                                 fontSize: 12,
                                                  fontWeight: .light,
                                                  frameWidth: 140)
                                 .foregroundColor(Color(.systemBlue))

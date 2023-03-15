@@ -80,13 +80,13 @@ struct PaisPainelExtensoView: View
                     
                     VStack(alignment: .trailing)
                     {
-                        Text("\(pais.cases)")
+                        Text(String((pais.cases).numberFormat()))
                             .font(.system(size: 28))
                             .fontWeight(.light)
                         Text("in total")
                             .font(.system(size: 12))
                             .fontWeight(.light)
-                        Text("\(pais.casesPerOneMillion)")
+                        Text(String(pais.active).toNumberFormat())
                             .font(.system(size: 22))
                             .fontWeight(.light)
                         Text("new cases")
@@ -182,7 +182,7 @@ struct PaisPainelExtensoView: View
             
             VStack
             {
-                MapaPaisPainelDetalhe(mapRegion: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pais.countryInfo.lat ?? 37.334_900, longitude: pais.countryInfo.long ?? -122.009_020), latitudinalMeters: 100000, longitudinalMeters: 100000))
+                MapaPaisPainelDetalhe(mapRegion: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pais.countryInfo.lat ?? 37.334_900, longitude: pais.countryInfo.long ?? -122.009_020), latitudinalMeters: 400_000, longitudinalMeters: 400_000))
             }
         }
         .placeCardStyle()

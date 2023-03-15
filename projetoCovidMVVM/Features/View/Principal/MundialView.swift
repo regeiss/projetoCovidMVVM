@@ -10,10 +10,11 @@ import SwiftUI
 struct MundialView: View
 {
     @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
+    @State private var goToSettings = false
     
     var body: some View
     {
-        NavigationView
+        NavigationStack
         {
             Group
             {
@@ -27,8 +28,13 @@ struct MundialView: View
                     VStack
                     {
                         MundialPainelView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
+                        //}
+                        
+                        ScrollView
+                        {
+                            ContinenteListaView()
+                        }
                     }
-                    
                 case .failed(let error):
                     ErroView(erro: error)
                     
@@ -37,7 +43,12 @@ struct MundialView: View
             }.task { await viewModel.getAllEstatisticas() }
              .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                     { Task { await viewModel.getAllEstatisticas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-             .navigationBarTitle("Estatísticas mundo", displayMode: .automatic)
+             .navigationBarTitle("Estatísticas mundo", displayMode: .inline)
+             .toolbar {
+                Button(role: .destructive, action: { goToSettings = true})
+                 { Label("Settings", systemImage: "gearshape.fill").foregroundColor(.blue)}
+             }
+             .navigationDestination(isPresented: $goToSettings, destination: { AjustesView()})
         }
     }
 }
