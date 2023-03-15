@@ -63,9 +63,9 @@ struct PaisListaView: View
                                                  textTwo: "\(pais.cases.numberFormat())",
                                                  textThree: "\(pais.deaths.numberFormat())",
                                                  fontSize: 14,
-                                                 fontWeight: .regular,
+                                                 fontWeight: .light,
                                                  frameWidth: 140)
-                                .foregroundColor(Color(.black))
+                                .foregroundColor(Color(.systemBlue))
                                 .onTapGesture { isShowingSheet = true
                                     paisSelecionado = pais
                                 }

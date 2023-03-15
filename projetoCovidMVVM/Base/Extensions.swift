@@ -22,7 +22,7 @@ extension String
         return ""
     }
     
-    func toQuilometrosFormat() -> String
+    func toNumberFormat() -> String
     {
         if let int32Value = Int32(self)
         {

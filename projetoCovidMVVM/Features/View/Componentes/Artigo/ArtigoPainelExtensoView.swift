@@ -20,7 +20,10 @@ struct ArtigoPainelExtensoView: View
             HStack
             {
                 Spacer()
-                Image(systemName: "xmark.circle").onTapGesture
+                Image(systemName: "xmark.circle")
+                    .foregroundColor(.blue)
+                    .imageScale(.large)
+                    .onTapGesture
                     { dismiss()}
             }.padding()
             

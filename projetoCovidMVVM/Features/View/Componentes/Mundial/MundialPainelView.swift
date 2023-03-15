@@ -32,30 +32,30 @@ struct MundialPainelView: View
                              
                              HStack
                              {
-                                 Text("Daily Growth Rate")
+                                 Text("Taxa cresc. diária")
                                      .font(.system(size: 14))
                                      .fontWeight(.light)
-                                 Text(String(mundialData.activePerOneMillion))
+                                 Text(String(mundialData.activePerOneMillion).toNumberFormat())
                                      .font(.system(size: 14))
                                      .fontWeight(.regular)
                              }
                              
                              HStack
                              {
-                                 Text("14 Days Growth Rate")
+                                 Text("Taxa cresc. 14 dias")
                                      .font(.system(size: 14))
                                      .fontWeight(.light)
-                                 Text(String(mundialData.casesPerOneMillion))
+                                 Text(String(mundialData.casesPerOneMillion).toNumberFormat())
                                      .font(.system(size: 14))
                                      .fontWeight(.regular)
                              }
                              
                              HStack
                              {
-                                 Text("Fatality")
+                                 Text("Fatalidades")
                                      .font(.system(size: 14))
                                      .fontWeight(.light)
-                                 Text(String(mundialData.deaths))
+                                 Text(String(mundialData.deaths).toNumberFormat())
                                      .font(.system(size: 14))
                                      .fontWeight(.regular)
                              }
@@ -88,7 +88,7 @@ struct MundialPainelView: View
                      {
                          HStack
                          {
-                             Text("Cases")
+                             Text("Casos")
                                  .font(.system(size: 12))
                                  .fontWeight(.light)
                                  .lineLimit(1)
@@ -106,7 +106,7 @@ struct MundialPainelView: View
                      {
                          HStack
                          {
-                             Text("Deaths")
+                             Text("Mortes")
                                  .font(.system(size: 12))
                                  .fontWeight(.light)
                                  .lineLimit(1)
@@ -124,7 +124,7 @@ struct MundialPainelView: View
                      {
                          HStack
                          {
-                             Text("Recovered")
+                             Text("Recuperados")
                                  .font(.system(size: 12))
                                  .fontWeight(.light)
                                  .lineLimit(1)

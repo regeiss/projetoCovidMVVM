@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct PaisPainelExtensoView: View
 {
     @Environment(\.dismiss) var dismiss
     var pais: PaisModelElement
+    //
+    var mapRegion: MKCoordinateRegion?
+    var center: CLLocationCoordinate2D?
     
     var body: some View
     {
@@ -23,7 +27,7 @@ struct PaisPainelExtensoView: View
                     .foregroundColor(.blue)
                     .imageScale(.large)
                     .onTapGesture
-                    { dismiss()}
+                { dismiss()}
             }.padding()
             
             VStack(alignment: .leading)
@@ -32,7 +36,6 @@ struct PaisPainelExtensoView: View
                 {
                     VStack(alignment: .leading)
                     {
-                        
                         VStack(alignment: .leading, spacing: 2)
                         {
                             Text(pais.country)
@@ -42,32 +45,33 @@ struct PaisPainelExtensoView: View
                             
                             HStack
                             {
-                                Text("Daily Growth Rate")
+                                Text("Taxa cresc. dia")
                                     .font(.system(size: 14))
                                     .fontWeight(.light)
-                                Text(String(pais.activePerOneMillion))
+                                Text(String(pais.todayCases).toNumberFormat())
                                     .font(.system(size: 14))
                                     .fontWeight(.regular)
                             }
                             
                             HStack
                             {
-                                Text("14 Days Growth Rate")
+                                Text("Taxa cresc. 14 dias")
                                     .font(.system(size: 14))
                                     .fontWeight(.light)
-                                Text(String(pais.casesPerOneMillion))
+                                Text(String(pais.todayRecovered).toNumberFormat())
                                     .font(.system(size: 14))
                                     .fontWeight(.regular)
                             }
                             
                             HStack
                             {
-                                Text("Fatality")
+                                Text("Fatalidades")
                                     .font(.system(size: 14))
                                     .fontWeight(.light)
-                                Text(String(pais.deaths))
+                                Text(String(pais.deaths).toNumberFormat())
                                     .font(.system(size: 14))
                                     .fontWeight(.regular)
+                                    .foregroundColor(.green)
                             }
                         }
                     }
@@ -98,7 +102,7 @@ struct PaisPainelExtensoView: View
                     {
                         HStack
                         {
-                            Text("Cases")
+                            Text("Casos")
                                 .font(.system(size: 12))
                                 .fontWeight(.light)
                                 .lineLimit(1)
@@ -116,7 +120,7 @@ struct PaisPainelExtensoView: View
                     {
                         HStack
                         {
-                            Text("Deaths")
+                            Text("Mortes")
                                 .font(.system(size: 12))
                                 .fontWeight(.light)
                                 .lineLimit(1)
@@ -134,7 +138,7 @@ struct PaisPainelExtensoView: View
                     {
                         HStack
                         {
-                            Text("Recovered")
+                            Text("Recuperados")
                                 .font(.system(size: 12))
                                 .fontWeight(.light)
                                 .lineLimit(1)
@@ -153,6 +157,33 @@ struct PaisPainelExtensoView: View
                 }
             }
             .padding()
+            
+            HStack
+            {
+                if let urlImagem = pais.countryInfo.flag
+                {
+                    AsyncImage(url: URL(string: urlImagem)) { phase in
+                        switch phase
+                        {
+                        case .empty:
+                            ProgressView()
+                        case .success(let image):
+                            image.resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(maxWidth: 100, maxHeight: 50)
+                        case .failure:
+                            Image(systemName: "photo")
+                        @unknown default:
+                            BaseView()
+                        }
+                    }
+                }
+            }.padding()
+            
+            VStack
+            {
+                MapaPaisPainelDetalhe(mapRegion: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pais.countryInfo.lat ?? 37.334_900, longitude: pais.countryInfo.long ?? -122.009_020), latitudinalMeters: 100000, longitudinalMeters: 100000))
+            }
         }
         .placeCardStyle()
         Spacer() 
