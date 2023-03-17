@@ -29,7 +29,7 @@ struct MundialView: View
                     {
                         MundialPainelView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
                         //}
-                        
+                        Divider()
                         ScrollView
                         {
                             ContinenteListaView()
@@ -43,7 +43,7 @@ struct MundialView: View
             }.task { await viewModel.getAllEstatisticas() }
              .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                     { Task { await viewModel.getAllEstatisticas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-             .navigationBarTitle("Estatísticas mundo", displayMode: .inline)
+             .navigationBarTitle("Estatísticas mundo")
              .toolbar {
                 Button(role: .destructive, action: { goToSettings = true})
                  { Label("Settings", systemImage: "gearshape.fill").foregroundColor(.blue)}

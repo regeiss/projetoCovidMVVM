@@ -17,73 +17,77 @@ struct PaisListaView: View
     
     var body: some View
     {
-        VStack
+        NavigationStack
         {
-            Group
+            VStack
             {
-                switch viewModel.state
+                Group
                 {
-                case .loading:
-                    LoadingView(text: "Buscando")
-                    
-                case .success(let data):
-                    
-                    VStack()
+                    switch viewModel.state
                     {
-                        BarraBuscaView(searchText: $searchText, isSearching: $isSearching)
-                            .padding(.vertical, 5)
-                        Divider()
-                            .frame(height: 1)
-                            .background(Color(.systemGray2))
-                            .padding(.bottom, 5)
-                        List
+                    case .loading:
+                        LoadingView(text: "Buscando")
+                        
+                    case .success(let data):
+                        
+                        VStack()
                         {
-                            Section(header:
-                                        HStack
+                            BarraBuscaView(searchText: $searchText, isSearching: $isSearching)
+                                .padding(.vertical, 5)
+                            Divider()
+                                .frame(height: 1)
+                                .background(Color(.systemGray2))
+                                .padding(.bottom, 5)
+                            List
                             {
-                                CabecalhoView(title: "País",
-                                              fontSize: 16,
-                                              fontWeight: .bold)
-                                .frame(width: 130, alignment: .leading)
-                                Spacer()
-                                CabecalhoView(title: "Casos",
-                                              fontSize: 16,
-                                              fontWeight: .bold)
-                                .frame(width: 90, alignment: .trailing)
-                                CabecalhoView(title: "Mortes",
-                                              fontSize: 16,
-                                              fontWeight: .bold)
-                                .frame(width: 90, alignment: .trailing)
-                            }
-                            )
-                            {
-                            
-                            ForEach(data, id: \.country) { pais in
-                                LinhaDetalheView(textOne: String(pais.country),
-                                                 textTwo: "\(pais.cases.numberFormat())",
-                                                 textThree: "\(pais.deaths.numberFormat())",
-                                                 fontSize: 12,
-                                                 fontWeight: .light,
-                                                 frameWidth: 140)
-                                .foregroundColor(Color(.systemBlue))
-                                .onTapGesture { isShowingSheet = true
-                                    paisSelecionado = pais
+                                Section(header:
+                                            HStack
+                                        {
+                                    CabecalhoView(title: "País",
+                                                  fontSize: 16,
+                                                  fontWeight: .bold)
+                                    .frame(width: 130, alignment: .leading)
+                                    Spacer()
+                                    CabecalhoView(title: "Casos",
+                                                  fontSize: 16,
+                                                  fontWeight: .bold)
+                                    .frame(width: 90, alignment: .trailing)
+                                    CabecalhoView(title: "Mortes",
+                                                  fontSize: 16,
+                                                  fontWeight: .bold)
+                                    .frame(width: 90, alignment: .trailing)
                                 }
-                            }
+                                )
+                                {
+                                    
+                                    ForEach(data, id: \.country) { pais in
+                                        LinhaDetalheView(textOne: String(pais.country),
+                                                         textTwo: "\(pais.cases.numberFormat())",
+                                                         textThree: "\(pais.deaths.numberFormat())",
+                                                         fontSize: 12,
+                                                         fontWeight: .light,
+                                                         frameWidth: 140)
+                                        .foregroundColor(Color(.systemBlue))
+                                        .onTapGesture { isShowingSheet = true
+                                            paisSelecionado = pais
+                                        }
+                                    }
+                                }
+                            }.listStyle(.inset)
                         }
-                        }.listStyle(.inset)
+                    case .failed(let error):
+                        ErroView(erro: error)
+                        
+                    default: BaseView()
                     }
-                case .failed(let error):
-                    ErroView(erro: error)
-                    
-                default: BaseView()
-                }
-            }.task { await viewModel.getListaPaises() }
-            .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
-                    { Task {await viewModel.getListaPaises()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-            .navigationBarTitle("Lista países", displayMode: .automatic)
-        }.sheet(item: $paisSelecionado, onDismiss: didDismiss)
-        { paisSelecionado in  PaisPainelExtensoView(pais: paisSelecionado)}
+                }.task { await viewModel.getListaPaises() }
+                    .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
+                        { Task {await viewModel.getListaPaises()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
+                    .navigationBarTitle("Lista países", displayMode: .automatic)
+            }.sheet(item: $paisSelecionado, onDismiss: didDismiss)
+            { paisSelecionado in  PaisPainelExtensoView(pais: paisSelecionado)}
+                .navigationTitle("Lista países")
+        }
     }
     
     func didDismiss()
@@ -94,4 +98,4 @@ struct PaisListaView: View
 
 
 
- 
+

@@ -16,7 +16,13 @@ struct MapaMundiView: View
     
     var body: some View
     {
-        Map(coordinateRegion: $region)
+        NavigationStack
+        {
+            VStack
+            {
+                Map(coordinateRegion: $region)
+            }.navigationTitle("Mapas")
+        }
     }
 }
 

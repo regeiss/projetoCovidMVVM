@@ -14,8 +14,6 @@ struct MapaPaisPainelDetalhe: View
     
     var body: some View
     {
-        let mk = MKMapView()
-        
         VStack
         {
             Map(coordinateRegion: $mapRegion)

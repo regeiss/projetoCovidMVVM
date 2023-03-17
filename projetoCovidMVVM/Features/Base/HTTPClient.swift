@@ -24,7 +24,7 @@ extension HTTPClient
         urlComponents.path = endpoint.path
         urlComponents.queryItems = [
            //URLQueryItem(name: "country", value: "br"),
-           URLQueryItem(name: "q", value: "COVID-19"),
+           URLQueryItem(name: "q", value: "COVID"),
            //URLQueryItem(name: "sortBy", value: "publishedAt"),
            URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")
         ]

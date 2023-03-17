@@ -14,6 +14,8 @@ struct PlaceCardStyle: ViewModifier
         content
             .background(Color("CardBackground"))
             .cornerRadius(10)
+            .shadow(radius: 1)
+            .padding([.leading, .trailing], 10)
     }
 }
 

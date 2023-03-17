@@ -36,9 +36,9 @@ struct ContinenteListaView: View
                 default: BaseView()
                 }
             }.task { await viewModel.getInfoContinentes() }
-                .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
+             .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                     { Task {await viewModel.getInfoContinentes()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-                .navigationBarTitle("Lista países", displayMode: .inline)
+            
         }
     }
     
