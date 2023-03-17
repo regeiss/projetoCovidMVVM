@@ -11,9 +11,9 @@ struct ArtigoPainelCompactoView: View
 {
     @State private var isShowingSheet = false
     @State private var artigoSelecionado: ArtigoModelElement?
+    
     var artigo: ArtigoModelElement
-    let router = MyRouter.shared
-    var defaultLang: String = "en_US"
+    var defaultLang: String = "pt_BR"
     
     var relativeTime: String
     {

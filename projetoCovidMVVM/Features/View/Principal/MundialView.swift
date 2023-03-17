@@ -11,6 +11,7 @@ struct MundialView: View
 {
     @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
     @State private var goToSettings = false
+    @State private var goToMundialPainelDetalhe = false
     
     var body: some View
     {
@@ -28,7 +29,10 @@ struct MundialView: View
                     VStack
                     {
                         MundialPainelView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
-                        //}
+                            .onTapGesture {
+                                goToMundialPainelDetalhe = true
+                            }
+
                         Divider()
                         ScrollView
                         {
@@ -40,15 +44,16 @@ struct MundialView: View
                     
                 default: BaseView()
                 }
-            }.task { await viewModel.getAllEstatisticas() }
+            }.task { await viewModel.getAllEstatisticas()}
              .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                     { Task { await viewModel.getAllEstatisticas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-             .navigationBarTitle("Estatísticas mundo")
+             .navigationBarTitle("Dados COVID mundo")
              .toolbar {
                 Button(role: .destructive, action: { goToSettings = true})
                  { Label("Settings", systemImage: "gearshape.fill").foregroundColor(.blue)}
              }
              .navigationDestination(isPresented: $goToSettings, destination: { AjustesView()})
+             .navigationDestination(isPresented: $goToMundialPainelDetalhe, destination: { MundialPainelDetalheView()})
         }
     }
 }
