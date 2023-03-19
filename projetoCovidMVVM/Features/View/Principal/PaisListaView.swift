@@ -44,16 +44,16 @@ struct PaisListaView: View
                                             HStack
                                         {
                                     CabecalhoView(title: "País",
-                                                  fontSize: 16,
+                                                  fontSize: 14,
                                                   fontWeight: .bold)
                                     .frame(width: 130, alignment: .leading)
                                     Spacer()
                                     CabecalhoView(title: "Casos",
-                                                  fontSize: 16,
+                                                  fontSize: 14,
                                                   fontWeight: .bold)
                                     .frame(width: 90, alignment: .trailing)
                                     CabecalhoView(title: "Mortes",
-                                                  fontSize: 16,
+                                                  fontSize: 14,
                                                   fontWeight: .bold)
                                     .frame(width: 90, alignment: .trailing)
                                 }
@@ -64,10 +64,9 @@ struct PaisListaView: View
                                         LinhaDetalheView(textOne: String(pais.country),
                                                          textTwo: "\(pais.cases.numberFormat())",
                                                          textThree: "\(pais.deaths.numberFormat())",
-                                                         fontSize: 12,
-                                                         fontWeight: .light,
+                                                         fontSize: 14,
+                                                         fontWeight: .regular,
                                                          frameWidth: 140)
-                                        .foregroundColor(Color(.systemBlue))
                                         .onTapGesture { isShowingSheet = true
                                             paisSelecionado = pais
                                         }

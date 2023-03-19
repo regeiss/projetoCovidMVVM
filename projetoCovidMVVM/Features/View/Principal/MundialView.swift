@@ -11,7 +11,7 @@ struct MundialView: View
 {
     @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
     @State private var goToSettings = false
-    @State private var goToMundialPainelDetalhe = false
+    @State private var isShowingSheet = false
     
     var body: some View
     {
@@ -29,10 +29,7 @@ struct MundialView: View
                     VStack
                     {
                         MundialPainelView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
-                            .onTapGesture {
-                                goToMundialPainelDetalhe = true
-                            }
-
+                            .onTapGesture { isShowingSheet = true}
                         Divider()
                         ScrollView
                         {
@@ -51,9 +48,8 @@ struct MundialView: View
              .toolbar {
                 Button(role: .destructive, action: { goToSettings = true})
                  { Label("Settings", systemImage: "gearshape.fill").foregroundColor(.blue)}
-             }
+             }.sheet(isPresented: $isShowingSheet) { MundialPainelDetalheView()}
              .navigationDestination(isPresented: $goToSettings, destination: { AjustesView()})
-             .navigationDestination(isPresented: $goToMundialPainelDetalhe, destination: { MundialPainelDetalheView()})
         }
     }
 }

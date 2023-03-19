@@ -21,12 +21,14 @@ struct LinhaDetalheView: View
     {
         HStack
         {
-            CabecalhoView(title: textOne, fontSize: fontSize, fontWeight: fontWeight)
-                .frame(width: frameWidth, alignment: .leading)
+            Text(textOne)
+                .font(.system(size: fontSize, weight: fontWeight))
             Spacer()
-            CabecalhoView(title: textTwo, fontSize: fontSize, fontWeight: fontWeight)
-                .frame(width: (frameWidth-40), alignment: .trailing)
-            CabecalhoView(title: textThree, fontSize: fontSize, fontWeight: fontWeight)
+            Text(textTwo)
+                .font(.system(size: fontSize, weight: fontWeight))
+                .frame(width: (frameWidth-50), alignment: .trailing)
+            Text(textThree)
+                .font(.system(size: fontSize, weight: fontWeight))
                 .frame(width: (frameWidth-40), alignment: .trailing)
         }
         .frame(height: (fontSize+1), alignment: .center)
