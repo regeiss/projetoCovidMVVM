@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MundialPainelView: View
 {
+    @State private var isShowingSheet = false
     var mundialData: MundialModel
     var updated: String
     
@@ -143,9 +144,10 @@ struct MundialPainelView: View
                 
             }
             .padding()
+            .sheet(isPresented: $isShowingSheet) { MundialPainelDetalheView(mundialData: mundialData)}
             Text(updated).font(.footnote)
                 .padding()
-        }
+        }.onTapGesture { isShowingSheet = true}
         .placeCardStyle()
     }
 }
