@@ -12,7 +12,6 @@ struct PaisPainelExtensoView: View
 {
     @Environment(\.dismiss) var dismiss
     var pais: PaisModelElement
-    //
     var mapRegion: MKCoordinateRegion?
     var center: CLLocationCoordinate2D?
     
@@ -83,13 +82,13 @@ struct PaisPainelExtensoView: View
                         Text(String((pais.cases).numberFormat()))
                             .font(.system(size: 28))
                             .fontWeight(.light)
-                        Text("in total")
+                        Text("total")
                             .font(.system(size: 12))
                             .fontWeight(.light)
                         Text(String(pais.active).toNumberFormat())
                             .font(.system(size: 22))
                             .fontWeight(.light)
-                        Text("new cases")
+                        Text("novos casos")
                             .font(.system(size: 12))
                             .fontWeight(.light)
                     }

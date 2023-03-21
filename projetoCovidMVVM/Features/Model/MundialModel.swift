@@ -10,8 +10,8 @@ import Foundation
 struct MundialModel: Codable, Hashable
 {
     init(updated: Double, cases: Int, todayCases: Int, deaths: Int, recovered: Int, todayRecovered: Int, active: Int, critical: Int, casesPerOneMillion: Int,
-         deathsPerOneMillion: Double, tests: Int, testsPerOneMillion: Double, population: Int, oneCasePerPeople: Int, oneDeathPerPeople: Int, oneTestPerPeople: Int,
-          activePerOneMillion: Double, recoveredPerOneMillion: Double, criticalPerOneMillion: Double, affectedCountries: Int)
+        deathsPerOneMillion: Double, tests: Int, testsPerOneMillion: Double, population: Int, oneCasePerPeople: Int, oneDeathPerPeople: Int, oneTestPerPeople: Int,
+        activePerOneMillion: Double, recoveredPerOneMillion: Double, criticalPerOneMillion: Double, affectedCountries: Int)
     {
         self.updated = updated
         self.cases = cases

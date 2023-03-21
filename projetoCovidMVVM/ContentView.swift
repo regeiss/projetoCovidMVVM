@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NavigationStack
 
 struct ContentView: View
 {
@@ -19,40 +18,36 @@ struct ContentView: View
         UITabBar.appearance().scrollEdgeAppearance = appearance
     }
     
-    static let navigationStack = NavigationStackCompat()
-    
     var body: some View
     {
-        NavigationStackView(transitionType: .default, navigationStack: ContentView.navigationStack)
+        TabView
         {
-            TabView
-            {
-                MundialView()
-                    .tabItem({
-                        Image(systemName: "person.3.fill")
-                        Text("Estatísticas")
-                    })
-                MapaMundiView()
-                    .tabItem({
-                        Image(systemName: "map.fill")
-                        Text("Mapa")
-                    })
-                PaisListaView()
-                    .tabItem({
-                        Image(systemName: "list.dash")
-                        Text("Países")
-                    })
-                GraficoView()
-                    .tabItem({
-                        Image(systemName: "chart.bar.xaxis")
-                        Text("Gráficos")
-                    })
-                ArtigoView()
-                    .tabItem({
-                        Image(systemName: "newspaper")
-                        Text("Notícias")
-                    })
-            }
+            MundialView()
+                .tabItem({
+                    Image(systemName: "person.3.fill")
+                    Text("Estatísticas")
+                })
+            MapaMundiView()
+                .tabItem({
+                    Image(systemName: "map.fill")
+                    Text("Mapa")
+                })
+            PaisListaView()
+                .tabItem({
+                    Image(systemName: "list.dash")
+                    Text("Países")
+                })
+            GraficoView()
+                .tabItem({
+                    Image(systemName: "chart.bar.xaxis")
+                    Text("Gráficos")
+                })
+            ArtigoView()
+                .tabItem({
+                    Image(systemName: "newspaper")
+                    Text("Notícias")
+                })
+            
         }
         //.edgesIgnoringSafeArea(.top)
     }

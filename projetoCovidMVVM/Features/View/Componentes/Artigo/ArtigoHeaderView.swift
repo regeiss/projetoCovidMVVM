@@ -41,7 +41,7 @@ struct ArtigoHeaderView: View
                 }
                 HStack
                 {
-                    Text("Local News")
+                    Text("Notícias")
                         .font(.system(size: 32, weight: .black))
                         .foregroundColor(.white)
                     Spacer()

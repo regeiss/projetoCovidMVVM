@@ -144,7 +144,7 @@ struct MundialPainelView: View
                 
             }
             .padding()
-            .sheet(isPresented: $isShowingSheet) { MundialPainelDetalheView(mundialData: mundialData)}
+            .sheet(isPresented: $isShowingSheet) { MundialPainelDetalheView(mundialData: mundialData, updated: updated)}
             Text(updated).font(.footnote)
                 .padding()
         }.onTapGesture { isShowingSheet = true}

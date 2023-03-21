@@ -10,6 +10,9 @@ import Foundation
 enum COVIDEndpoint
 {
     case estatisticas
+    case serie14dias
+    case serie30dias
+    case serie90dias
     case lista
     case continente
     case artigos
@@ -21,7 +24,7 @@ extension COVIDEndpoint: Endpoint
     {
         switch self
         {
-        case .estatisticas, .lista, .continente:
+        case .estatisticas, .lista, .continente, .serie14dias, .serie30dias, .serie90dias:
             return "disease.sh"
         case .artigos:
             return "newsapi.org"
@@ -40,6 +43,12 @@ extension COVIDEndpoint: Endpoint
             return "/v3/covid-19/continents"
         case .artigos:
             return "/v2/everything"
+        case .serie14dias:
+            return "/v3/covid-19/historical/all?lastdays=14"
+        case .serie30dias:
+            return "/v3/covid-19/historical/all?lastdays=30"
+        case .serie90dias:
+            return "/v3/covid-19/historical/all?lastdays=90"
         }
     }
     
@@ -47,7 +56,7 @@ extension COVIDEndpoint: Endpoint
     {
         switch self
         {
-        case .estatisticas, .lista, .continente, .artigos:
+        case .estatisticas, .lista, .continente, .serie14dias, .serie30dias, .serie90dias, .artigos:
             return .get
         }
     }

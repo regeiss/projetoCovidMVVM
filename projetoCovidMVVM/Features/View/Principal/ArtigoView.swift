@@ -10,7 +10,6 @@ import SwiftUI
 struct ArtigoView: View
 {
     @StateObject private var viewModel = ArtigosViewModelImpl(service: NetworkService())
-    let router = MyRouter.shared
     
     var body: some View
     {
