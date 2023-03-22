@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MundialPainelView: View
 {
-    @State private var isShowingSheet = false
     var mundialData: MundialModel
     var updated: String
     
@@ -102,6 +101,7 @@ struct MundialPainelView: View
                             .foregroundColor(Color("casesColor"))
                             .frame(height: 2)
                     }
+                    
                     VStack
                     {
                         HStack
@@ -120,6 +120,7 @@ struct MundialPainelView: View
                             .foregroundColor(Color("deathsColor"))
                             .frame(height: 2)
                     }
+                    
                     VStack
                     {
                         HStack
@@ -141,13 +142,10 @@ struct MundialPainelView: View
                             .frame(height: 2)
                     }
                 }
-                
             }
             .padding()
-            .sheet(isPresented: $isShowingSheet) { MundialPainelDetalheView(mundialData: mundialData, updated: updated)}
             Text(updated).font(.footnote)
                 .padding()
-        }.onTapGesture { isShowingSheet = true}
-        .placeCardStyle()
+        }.placeCardStyle()
     }
 }

@@ -17,16 +17,20 @@ struct GraficoMundialView: View
     
     var covidData: MundialModel
     
-    var title: String {
-        switch dataCategory {
+    var title: String
+    {
+        switch dataCategory
+        {
         case .cases: return "Cases"
         case .deaths: return "Deaths"
         case .recovered: return "Recovered"
         }
     }
     
-    var barColor: Color {
-        switch dataCategory {
+    var barColor: Color
+    {
+        switch dataCategory
+        {
         case .cases: return Color(red: 233/255.0, green: 71/255.0, blue: 93/255.0)
         case .deaths: return Color(red: 240/255.0, green: 145/255.0, blue: 53/255.0)
         case .recovered: return Color(red: 118/255.0, green: 189/255.0, blue: 144/255.0)
@@ -35,22 +39,20 @@ struct GraficoMundialView: View
     
     var body: some View
     {
-        List {
-            Chart {
-                AreaMark(
-                    x: .value("Mount", "jan/22"),
-                    y: .value("Value", 5)
-                )
-                AreaMark(
-                    x: .value("Mount", "fev/22"),
-                    y: .value("Value", 4)
-                )
-                AreaMark(
-                    x: .value("Mount", "mar/22"),
-                    y: .value("Value", 7)
-                )
-            }
-            .frame(height: 100)
+        Chart
+        {
+            AreaMark(
+                x: .value("Mount", "jan/22"),
+                y: .value("Value", 5)
+            )
+            AreaMark(
+                x: .value("Mount", "fev/22"),
+                y: .value("Value", 4)
+            )
+            AreaMark(
+                x: .value("Mount", "mar/22"),
+                y: .value("Value", 7)
+            )
         }
     }
 }

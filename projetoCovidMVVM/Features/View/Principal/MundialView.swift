@@ -32,7 +32,7 @@ struct MundialView: View
                         Divider()
                         ScrollView
                         {
-                            ContinenteListaView()
+                            MundialPainelDetalheView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
                         }
                     }
                 case .failed(let error):
