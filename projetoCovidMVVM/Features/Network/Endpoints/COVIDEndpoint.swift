@@ -43,12 +43,8 @@ extension COVIDEndpoint: Endpoint
             return "/v3/covid-19/continents"
         case .artigos:
             return "/v2/everything"
-        case .serie14dias:
-            return "/v3/covid-19/historical/all?lastdays=14"
-        case .serie30dias:
-            return "/v3/covid-19/historical/all?lastdays=30"
-        case .serie90dias:
-            return "/v3/covid-19/historical/all?lastdays=90"
+        case .serie14dias, .serie30dias, .serie90dias:
+            return "/v3/covid-19/historical/all"
         }
     }
     
@@ -69,5 +65,19 @@ extension COVIDEndpoint: Endpoint
     var body: [String : String]?
     {
         return nil
+    }
+    
+    var series: Int
+    {
+        switch self
+        {
+        case .serie14dias:
+            return 14
+        case .serie30dias:
+            return 30
+        case .serie90dias:
+            return 90
+        default: return 0
+        }
     }
 }

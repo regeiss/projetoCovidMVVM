@@ -17,17 +17,17 @@ extension HTTPClient
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError> 
     {
         // TODO: Colocar condicao para os queryitens
-        //https://newsapi.org/v2/everything?q=COVID-19&apiKey=26995ba0201c407da84ab37262254c9b
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
-        urlComponents.queryItems = [
-           //URLQueryItem(name: "country", value: "br"),
-           URLQueryItem(name: "q", value: "COVID"),
-           //URLQueryItem(name: "sortBy", value: "publishedAt"),
-           URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")
-        ]
+        urlComponents.queryItems = [ URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+
+        if endpoint.series == 14
+        {
+            urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "14"))
+        }
+        
         print(urlComponents.url as Any)
         
         guard let url = urlComponents.url
