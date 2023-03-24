@@ -12,7 +12,6 @@ struct PaisListaView: View
     @StateObject private var viewModel = PaisListaViewModelImpl(service: NetworkService())
     @State private var isShowingSheet = false
     @State var searchText = ""
-    @State var isSearching = false
     @State private var paisSelecionado: PaisModelElement?
     
     var body: some View
@@ -32,7 +31,7 @@ struct PaisListaView: View
                         
                         VStack()
                         {
-                            BarraBuscaView(searchText: $searchText, isSearching: $isSearching)
+                            SearchBar(text: $searchText, placeholder: "Pesquisar")
                                 .padding(.vertical, 5)
                             Divider()
                                 .frame(height: 1)
@@ -60,7 +59,9 @@ struct PaisListaView: View
                                 )
                                 {
                                     
-                                    ForEach(data, id: \.country) { pais in
+                                    ForEach(data.filter
+                                            { self.searchText.isEmpty ? true : $0.country.lowercased().contains(self.searchText.lowercased())
+                                                                }, id: \.country) { pais in
                                         LinhaDetalheView(textOne: String(pais.country),
                                                          textTwo: "\(pais.cases.numberFormat())",
                                                          textThree: "\(pais.deaths.numberFormat())",
@@ -80,12 +81,12 @@ struct PaisListaView: View
                     default: BaseView()
                     }
                 }.task { await viewModel.getListaPaises() }
-                    .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
+                .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                         { Task {await viewModel.getListaPaises()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-                    .navigationBarTitle("Lista países", displayMode: .automatic)
+                .navigationBarTitle("Lista países", displayMode: .automatic)
             }.sheet(item: $paisSelecionado, onDismiss: didDismiss)
-            { paisSelecionado in  PaisPainelExtensoView(pais: paisSelecionado)}
-                .navigationTitle("Lista países")
+                { paisSelecionado in  PaisPainelExtensoView(pais: paisSelecionado)}
+            .navigationTitle("Lista países")
         }
     }
     

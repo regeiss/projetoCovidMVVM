@@ -21,11 +21,26 @@ extension HTTPClient
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
-        urlComponents.queryItems = [ URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
 
-        if endpoint.series == 14
+        if endpoint.host == "newsapi.org"
         {
-            urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "14"))
+            urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+            urlComponents.queryItems?.append(URLQueryItem(name: "q", value: "COVID"))
+        }
+        
+        if endpoint.host == "disease.sh"
+        {
+            switch endpoint.series
+            {
+            case 14:
+                urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "14"))
+            case 30:
+                urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "30"))
+            case 90:
+                urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "90"))
+            default:
+                urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "all"))
+            }
         }
         
         print(urlComponents.url as Any)

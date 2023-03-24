@@ -7,54 +7,44 @@
 
 import SwiftUI
 
-struct BarraBuscaView: View
+struct SearchBar: UIViewRepresentable
 {
-    @Binding var searchText: String
-    @Binding var isSearching: Bool
-    
-    var body: some View
-    {
-        HStack
-        {
-            HStack
-            {
-                TextField("Pesquisar país...", text: $searchText)
-                    .padding(.leading, 40)
-            }
-            .padding(.vertical, 7)
-            .background(Color(.systemGray5))
-            .cornerRadius(6)
-            .padding(.horizontal)
-            .onTapGesture(perform: { isSearching = true})
-            .overlay(
-                HStack
-                {
-                    Image(systemName: "magnifyingglass")
-                    Spacer()
-                    if isSearching
-                    {
-                        Button(action: { searchText = "" }, label: { Image(systemName: "xmark.circle.fill")})
-                    }
-                }
-                .padding(.horizontal, 32)
-                .foregroundColor(.gray)
-            )
-            
-            if isSearching
-            {
-                Button(action: {
-                    isSearching = false
-                    searchText  = ""
-                    withAnimation(.easeIn) {}
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                }, label: {
-                    Text("Cancelar")
-                        .padding(.trailing)
-                        .padding(.leading, -10)
-                        .accentColor(Color(.systemGray))
-                })
-                .transition(.move(edge: .trailing))
-            }
+    @Binding var text: String
+    var placeholder: String
+
+    class Coordinator: NSObject, UISearchBarDelegate {
+
+        @Binding var text: String
+
+        init(text: Binding<String>) {
+            _text = text
         }
+
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            text = searchText
+        }
+    }
+
+    func makeCoordinator() -> SearchBar.Coordinator {
+        return Coordinator(text: $text)
+    }
+
+    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
+        let searchBar = UISearchBar(frame: .zero)
+        searchBar.delegate = context.coordinator
+        searchBar.placeholder = placeholder
+        searchBar.searchBarStyle = .minimal
+        searchBar.autocapitalizationType = .none
+        return searchBar
+    }
+
+    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
+        uiView.text = text
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
