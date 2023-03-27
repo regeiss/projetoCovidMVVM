@@ -37,6 +37,16 @@
 		E18762B329B1682B009B75F7 /* ContinenteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18762B229B1682B009B75F7 /* ContinenteModel.swift */; };
 		E18762B529B16CFA009B75F7 /* ContinenteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18762B429B16CFA009B75F7 /* ContinenteViewModel.swift */; };
 		E18C99AE29C4D7A200CF2260 /* ContinentePainelDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C99AD29C4D7A200CF2260 /* ContinentePainelDetalheView.swift */; };
+		E19F52EC29D0B8BC00146465 /* SerieCasos+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52E629D0B8BC00146465 /* SerieCasos+CoreDataClass.swift */; };
+		E19F52ED29D0B8BC00146465 /* SerieCasos+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52E729D0B8BC00146465 /* SerieCasos+CoreDataProperties.swift */; };
+		E19F52EE29D0B8BC00146465 /* SerieMortes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52E829D0B8BC00146465 /* SerieMortes+CoreDataClass.swift */; };
+		E19F52EF29D0B8BC00146465 /* SerieMortes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52E929D0B8BC00146465 /* SerieMortes+CoreDataProperties.swift */; };
+		E19F52F029D0B8BC00146465 /* SerieRecuperados+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52EA29D0B8BC00146465 /* SerieRecuperados+CoreDataClass.swift */; };
+		E19F52F129D0B8BC00146465 /* SerieRecuperados+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52EB29D0B8BC00146465 /* SerieRecuperados+CoreDataProperties.swift */; };
+		E19F52F429D0BCEB00146465 /* SeriesHistoricasPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52F329D0BCEB00146465 /* SeriesHistoricasPublisher.swift */; };
+		E19F52F629D10E8500146465 /* ErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52F529D10E8500146465 /* ErrorEnum.swift */; };
+		E19F52F929D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52F729D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift */; };
+		E19F52FA29D1170B00146465 /* SeriesHistoricas+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52F829D1170B00146465 /* SeriesHistoricas+CoreDataProperties.swift */; };
 		E1A7FA2129A837F8006A4B97 /* ListaPaisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2029A837F8006A4B97 /* ListaPaisesViewModel.swift */; };
 		E1A7FA2429A98B1D006A4B97 /* CabecalhoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2329A98B1D006A4B97 /* CabecalhoView.swift */; };
 		E1A7FA2629A98B86006A4B97 /* LinhaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */; };
@@ -99,6 +109,16 @@
 		E18762B229B1682B009B75F7 /* ContinenteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinenteModel.swift; sourceTree = "<group>"; };
 		E18762B429B16CFA009B75F7 /* ContinenteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinenteViewModel.swift; sourceTree = "<group>"; };
 		E18C99AD29C4D7A200CF2260 /* ContinentePainelDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentePainelDetalheView.swift; sourceTree = "<group>"; };
+		E19F52E629D0B8BC00146465 /* SerieCasos+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerieCasos+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E19F52E729D0B8BC00146465 /* SerieCasos+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerieCasos+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E19F52E829D0B8BC00146465 /* SerieMortes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerieMortes+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E19F52E929D0B8BC00146465 /* SerieMortes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerieMortes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E19F52EA29D0B8BC00146465 /* SerieRecuperados+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerieRecuperados+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E19F52EB29D0B8BC00146465 /* SerieRecuperados+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerieRecuperados+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E19F52F329D0BCEB00146465 /* SeriesHistoricasPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesHistoricasPublisher.swift; sourceTree = "<group>"; };
+		E19F52F529D10E8500146465 /* ErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEnum.swift; sourceTree = "<group>"; };
+		E19F52F729D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeriesHistoricas+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E19F52F829D1170B00146465 /* SeriesHistoricas+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeriesHistoricas+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1A7FA2029A837F8006A4B97 /* ListaPaisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaPaisesViewModel.swift; sourceTree = "<group>"; };
 		E1A7FA2329A98B1D006A4B97 /* CabecalhoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabecalhoView.swift; sourceTree = "<group>"; };
 		E1A7FA2529A98B86006A4B97 /* LinhaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinhaDetalheView.swift; sourceTree = "<group>"; };
@@ -144,6 +164,14 @@
 		E1099EF32997D6CE00A098BF = {
 			isa = PBXGroup;
 			children = (
+				E19F52F729D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift */,
+				E19F52F829D1170B00146465 /* SeriesHistoricas+CoreDataProperties.swift */,
+				E19F52E629D0B8BC00146465 /* SerieCasos+CoreDataClass.swift */,
+				E19F52E729D0B8BC00146465 /* SerieCasos+CoreDataProperties.swift */,
+				E19F52E829D0B8BC00146465 /* SerieMortes+CoreDataClass.swift */,
+				E19F52E929D0B8BC00146465 /* SerieMortes+CoreDataProperties.swift */,
+				E19F52EA29D0B8BC00146465 /* SerieRecuperados+CoreDataClass.swift */,
+				E19F52EB29D0B8BC00146465 /* SerieRecuperados+CoreDataProperties.swift */,
 				E1099EFE2997D6CE00A098BF /* projetoCovidMVVM */,
 				E1099EFD2997D6CE00A098BF /* Products */,
 			);
@@ -194,6 +222,7 @@
 		E1099F0E2997D78D00A098BF /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E19F52F229D0BCD200146465 /* Services */,
 				E1C5391E29BCCFCA00707035 /* Router */,
 				E1099F0F2997D79800A098BF /* Model */,
 				E1099F122997D7FF00A098BF /* Network */,
@@ -277,6 +306,14 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		E19F52F229D0BCD200146465 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E19F52F329D0BCEB00146465 /* SeriesHistoricasPublisher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E1A7FA2229A98B02006A4B97 /* Componentes */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C5390C29B90AA900707035 /* ErroView.swift */,
+				E19F52F529D10E8500146465 /* ErrorEnum.swift */,
 			);
 			path = ErrorHandling;
 			sourceTree = "<group>";
@@ -479,18 +517,25 @@
 				E1C5392E29BFF02E00707035 /* MundialPainelDetalheView.swift in Sources */,
 				E1C5393829C287B300707035 /* ContinenteListaView.swift in Sources */,
 				E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */,
+				E19F52F129D0B8BC00146465 /* SerieRecuperados+CoreDataProperties.swift in Sources */,
+				E19F52F629D10E8500146465 /* ErrorEnum.swift in Sources */,
 				E1C5392029BCCFDB00707035 /* Router.swift in Sources */,
 				E1099F022997D6CE00A098BF /* ContentView.swift in Sources */,
 				E18C99AE29C4D7A200CF2260 /* ContinentePainelDetalheView.swift in Sources */,
 				E1C5391A29BBBF4F00707035 /* ArtigoPainelExtensoView.swift in Sources */,
 				E1C5391329B9638A00707035 /* BaseView.swift in Sources */,
+				E19F52EF29D0B8BC00146465 /* SerieMortes+CoreDataProperties.swift in Sources */,
+				E19F52ED29D0B8BC00146465 /* SerieCasos+CoreDataProperties.swift in Sources */,
 				E1C5391629BA29C300707035 /* TranslateManager.swift in Sources */,
+				E19F52F929D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift in Sources */,
 				E18762B329B1682B009B75F7 /* ContinenteModel.swift in Sources */,
 				E1C5391129B958CE00707035 /* ArtigoPainelCompactoView.swift in Sources */,
 				E1C5391829BBA21800707035 /* ArtigoHeaderView.swift in Sources */,
+				E19F52F029D0B8BC00146465 /* SerieRecuperados+CoreDataClass.swift in Sources */,
 				E1C5393329C2218000707035 /* AjustesView.swift in Sources */,
 				E1C5393529C23F3A00707035 /* ContinentePainelView.swift in Sources */,
 				E1C5390429B7796A00707035 /* ArtigoModel.swift in Sources */,
+				E19F52F429D0BCEB00146465 /* SeriesHistoricasPublisher.swift in Sources */,
 				E1A7FA2429A98B1D006A4B97 /* CabecalhoView.swift in Sources */,
 				E1099F33299DB45100A098BF /* COVIDEndpoint.swift in Sources */,
 				E1C5390A29B8093E00707035 /* ArtigosViewModel.swift in Sources */,
@@ -512,12 +557,15 @@
 				E1A7FA3029AC3CB1006A4B97 /* GraficoView.swift in Sources */,
 				E151955C29CE68A800F8C382 /* Persistence.swift in Sources */,
 				E1099F2B299DB1D500A098BF /* HTTPClient.swift in Sources */,
+				E19F52EC29D0B8BC00146465 /* SerieCasos+CoreDataClass.swift in Sources */,
+				E19F52FA29D1170B00146465 /* SeriesHistoricas+CoreDataProperties.swift in Sources */,
 				E1099F182997D96800A098BF /* MapaMundiView.swift in Sources */,
 				E16160DC29C931D50081813F /* Series30DiasViewModel.swift in Sources */,
 				E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */,
 				E1A7FA2929A98D89006A4B97 /* BarraBuscaView.swift in Sources */,
 				E1099F162997D91200A098BF /* PaisListaView.swift in Sources */,
 				E1A7FA2C29AC27C9006A4B97 /* Formas.swift in Sources */,
+				E19F52EE29D0B8BC00146465 /* SerieMortes+CoreDataClass.swift in Sources */,
 				E151955A29CE646800F8C382 /* CovidDataModel.xcdatamodeld in Sources */,
 				E16160D429C775710081813F /* Enums.swift in Sources */,
 				E18762B529B16CFA009B75F7 /* ContinenteViewModel.swift in Sources */,
