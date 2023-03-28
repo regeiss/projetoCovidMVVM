@@ -24,7 +24,8 @@ extension HTTPClient
 
         if endpoint.host == "newsapi.org"
         {
-            urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+            // urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+            // urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
             urlComponents.queryItems?.append(URLQueryItem(name: "q", value: "COVID"))
         }
         
@@ -53,6 +54,12 @@ extension HTTPClient
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
+
+        if endpoint.host == "newsapi.org"
+        {
+            // urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+            request.setValue("Bearer \(26995ba0201c407da84ab37262254c9b)", forHTTPHeaderField:"Authorization") 
+        }
 
         if let body = endpoint.body 
         {
