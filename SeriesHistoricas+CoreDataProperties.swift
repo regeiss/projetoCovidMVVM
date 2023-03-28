@@ -20,8 +20,16 @@ extension SeriesHistoricas {
     @NSManaged public var qtd: Int32
     @NSManaged public var data: Date?
 
+    var dictionaryValue: [String: Any] {
+        [
+            "tipo": tipo,
+            "qtd": qtd,
+            "data": data
+        ]
+    }
 }
 
-extension SeriesHistoricas : Identifiable {
+extension SeriesHistoricas : Identifiable
+{
 
 }
