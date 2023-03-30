@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-
-extension SeriesHistoricas {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<SeriesHistoricas> {
+extension SeriesHistoricas
+{
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<SeriesHistoricas>
+    {
         return NSFetchRequest<SeriesHistoricas>(entityName: "SeriesHistoricas")
     }
 
@@ -20,11 +20,12 @@ extension SeriesHistoricas {
     @NSManaged public var qtd: Int32
     @NSManaged public var data: Date?
 
-    var dictionaryValue: [String: Any] {
+    var dictionaryValue: [String: Any]
+    {
         [
-            "tipo": tipo,
+            "tipo": tipo as Any,
             "qtd": qtd,
-            "data": data
+            "data": data as Any
         ]
     }
 }

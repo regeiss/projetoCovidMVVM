@@ -16,17 +16,15 @@ extension HTTPClient
 {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError> 
     {
-        // TODO: Colocar condicao para os queryitens
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
-
+    
         if endpoint.host == "newsapi.org"
-        {
-            // urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
-            // urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+        {   urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
             urlComponents.queryItems?.append(URLQueryItem(name: "q", value: "COVID"))
+            //urlComponents.queryItems?.append(URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b"))
         }
         
         if endpoint.host == "disease.sh"
@@ -54,13 +52,7 @@ extension HTTPClient
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
-
-        if endpoint.host == "newsapi.org"
-        {
-            // urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
-            request.setValue("Bearer \(26995ba0201c407da84ab37262254c9b)", forHTTPHeaderField:"Authorization") 
-        }
-
+        
         if let body = endpoint.body 
         {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
@@ -68,7 +60,8 @@ extension HTTPClient
         
         do 
         {
-            let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
+            var session = URLSession.shared
+            let (data, response) = try await session.data(for: request, delegate: nil)
             guard let response = response as? HTTPURLResponse 
             else 
             {
@@ -81,10 +74,6 @@ extension HTTPClient
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                 
-                    print("Status code: ")
-                    print(response.statusCode)
-                    print(data)
-                    print("HTTP client")
                     guard let decodedResponse = try? decoder.decode(responseModel, from: data)
                     else
                     {
@@ -93,6 +82,7 @@ extension HTTPClient
  
                     print("Decode com sucesso")
                     print(decodedResponse)
+                    //URLSession.finishTasksAndInvalidate(self)
                     return .success(decodedResponse)
 
                 case 401:
