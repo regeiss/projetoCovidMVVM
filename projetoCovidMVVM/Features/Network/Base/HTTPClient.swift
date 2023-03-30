@@ -5,27 +5,23 @@
 //  Created by Roberto Edgar Geiss on 15/02/23.
 //
 
-//
-//  HTTPClient.swift
-//  projetoCovidMVVM
-//
-//  Created by Roberto Edgar Geiss on 15/02/23.
-//
 import Foundation
 
-protocol HTTPClient 
+protocol HTTPClientProtocol
 {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
 }
 
-extension HTTPClient 
+class HTTPClient: NSObject //: HTTPClientProtocol
 {
     private lazy var session: URLSession = {
-    let configuration = URLSessionConfiguration.default
-    configuration.waitsForConnectivity = true
-    return URLSession(configuration: configuration,
-                      delegate: self, delegateQueue: nil)
+        let configuration = URLSessionConfiguration.default
+        configuration.waitsForConnectivity = true
+        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }()
+    
+    var basicAuthUserName: String = "kk"
+    var basicAuthPassword: String = "kk"
     
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError> 
     {
@@ -97,7 +93,7 @@ extension HTTPClient
                     print(decodedResponse)
                     //Important
                     // Calling this method on the session returned by the shared method has no effect.
-                    session.finishTasksAndInvalidate(self)
+                    //session.finishTasksAndInvalidate(self)
                     return .success(decodedResponse)
 
                 case 401:
@@ -110,6 +106,28 @@ extension HTTPClient
         catch 
         {
             return .failure(.unknown)
+        }
+    }
+}
+
+extension HTTPClient: URLSessionTaskDelegate
+{
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge,
+            completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+    {
+        print("in delegate" )
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodDefault ||
+            challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic {
+            
+            let credential = URLCredential(user: self.basicAuthUserName,
+                                           password: self.basicAuthPassword,
+                                           persistence: .forSession)
+            
+            completionHandler(.useCredential, credential)
+        }
+        else
+        {
+            completionHandler(.performDefaultHandling, nil)
         }
     }
 }
