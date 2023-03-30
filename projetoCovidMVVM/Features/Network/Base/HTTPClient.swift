@@ -5,6 +5,12 @@
 //  Created by Roberto Edgar Geiss on 15/02/23.
 //
 
+//
+//  HTTPClient.swift
+//  projetoCovidMVVM
+//
+//  Created by Roberto Edgar Geiss on 15/02/23.
+//
 import Foundation
 
 protocol HTTPClient 
@@ -14,6 +20,13 @@ protocol HTTPClient
 
 extension HTTPClient 
 {
+    private lazy var session: URLSession = {
+    let configuration = URLSessionConfiguration.default
+    configuration.waitsForConnectivity = true
+    return URLSession(configuration: configuration,
+                      delegate: self, delegateQueue: nil)
+    }()
+    
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError> 
     {
         var urlComponents = URLComponents()
@@ -60,7 +73,7 @@ extension HTTPClient
         
         do 
         {
-            var session = URLSession.shared
+            //var session = URLSession.shared
             let (data, response) = try await session.data(for: request, delegate: nil)
             guard let response = response as? HTTPURLResponse 
             else 
@@ -82,7 +95,9 @@ extension HTTPClient
  
                     print("Decode com sucesso")
                     print(decodedResponse)
-                    //URLSession.finishTasksAndInvalidate(self)
+                    //Important
+                    // Calling this method on the session returned by the shared method has no effect.
+                    session.finishTasksAndInvalidate(self)
                     return .success(decodedResponse)
 
                 case 401:
