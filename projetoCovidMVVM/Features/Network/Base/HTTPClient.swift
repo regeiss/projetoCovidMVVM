@@ -4,7 +4,6 @@
 //
 //  Created by Roberto Edgar Geiss on 15/02/23.
 //
-
 import Foundation
 
 protocol HTTPClientProtocol
@@ -20,8 +19,8 @@ class HTTPClient: NSObject //: HTTPClientProtocol
         return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }()
     
-    var basicAuthUserName: String = "kk"
-    var basicAuthPassword: String = "kk"
+    var basicAuthUserName: String = "default"
+    var basicAuthPassword: String = "default"
     
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError> 
     {
@@ -31,9 +30,11 @@ class HTTPClient: NSObject //: HTTPClientProtocol
         urlComponents.path = endpoint.path
     
         if endpoint.host == "newsapi.org"
-        {   urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+        {   
+            urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
             urlComponents.queryItems?.append(URLQueryItem(name: "q", value: "COVID"))
             //urlComponents.queryItems?.append(URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b"))
+            sessionConfiguration.httpAdditionalHeaders = ["Authorization": "Bearer 26995ba0201c407da84ab37262254c9b"]
         }
         
         if endpoint.host == "disease.sh"
