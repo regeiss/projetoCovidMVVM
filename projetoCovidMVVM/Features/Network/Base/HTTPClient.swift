@@ -16,6 +16,7 @@ class HTTPClient: NSObject //: HTTPClientProtocol
     private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
+        configuration.httpAdditionalHeaders = ["Authorization": "Bearer 26995ba0201c407da84ab37262254c9b"]
         return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }()
     
@@ -31,10 +32,11 @@ class HTTPClient: NSObject //: HTTPClientProtocol
     
         if endpoint.host == "newsapi.org"
         {   
-            urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
-            urlComponents.queryItems?.append(URLQueryItem(name: "q", value: "COVID"))
+            //urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+            urlComponents.queryItems = [URLQueryItem(name: "q", value: "COVID")]
+            //urlComponents.queryItems?.append(URLQueryItem(name: "q", value: "COVID"))
             //urlComponents.queryItems?.append(URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b"))
-            sessionConfiguration.httpAdditionalHeaders = ["Authorization": "Bearer 26995ba0201c407da84ab37262254c9b"]
+            
         }
         
         if endpoint.host == "disease.sh"

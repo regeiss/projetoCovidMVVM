@@ -27,10 +27,10 @@ struct ContentView: View
                     Image(systemName: "person.3.fill")
                     Text("Estatísticas")
                 })
-            MapaMundiView()
+            ListaContinenteView()
                 .tabItem({
-                    Image(systemName: "map.fill")
-                    Text("Mapa")
+                    Image(systemName: "globe.americas.fill")
+                    Text("Continentes")
                 })
             PaisListaView()
                 .tabItem({
@@ -47,9 +47,7 @@ struct ContentView: View
                     Image(systemName: "newspaper")
                     Text("Notícias")
                 })
-            
         }
-        //.edgesIgnoringSafeArea(.top)
     }
 }
 

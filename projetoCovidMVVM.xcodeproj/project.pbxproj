@@ -13,7 +13,7 @@
 		E1099F072997D6D000A098BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1099F062997D6D000A098BF /* Preview Assets.xcassets */; };
 		E1099F142997D8F800A098BF /* MundialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F132997D8F800A098BF /* MundialView.swift */; };
 		E1099F162997D91200A098BF /* PaisListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F152997D91200A098BF /* PaisListaView.swift */; };
-		E1099F182997D96800A098BF /* MapaMundiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F172997D96800A098BF /* MapaMundiView.swift */; };
+		E1099F182997D96800A098BF /* ContinenteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F172997D96800A098BF /* ContinenteView.swift */; };
 		E1099F1A2997DB2100A098BF /* PaisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F192997DB2100A098BF /* PaisModel.swift */; };
 		E1099F1C2997DB7D00A098BF /* MundialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F1B2997DB7D00A098BF /* MundialModel.swift */; };
 		E1099F1E2997DC5000A098BF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F1D2997DC5000A098BF /* NetworkService.swift */; };
@@ -64,7 +64,6 @@
 		E1C5391629BA29C300707035 /* TranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391529BA29C300707035 /* TranslateManager.swift */; };
 		E1C5391829BBA21800707035 /* ArtigoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391729BBA21800707035 /* ArtigoHeaderView.swift */; };
 		E1C5391A29BBBF4F00707035 /* ArtigoPainelExtensoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391929BBBF4F00707035 /* ArtigoPainelExtensoView.swift */; };
-		E1C5391D29BCCE0200707035 /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = E1C5391C29BCCE0200707035 /* NavigationStack */; };
 		E1C5392029BCCFDB00707035 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5391F29BCCFDB00707035 /* Router.swift */; };
 		E1C5392329BD30FE00707035 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5392229BD30FE00707035 /* HeaderView.swift */; };
 		E1C5392629BE418400707035 /* PaisPainelExtensoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5392529BE418400707035 /* PaisPainelExtensoView.swift */; };
@@ -85,7 +84,7 @@
 		E1099F062997D6D000A098BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E1099F132997D8F800A098BF /* MundialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialView.swift; sourceTree = "<group>"; };
 		E1099F152997D91200A098BF /* PaisListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaisListaView.swift; sourceTree = "<group>"; };
-		E1099F172997D96800A098BF /* MapaMundiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaMundiView.swift; sourceTree = "<group>"; };
+		E1099F172997D96800A098BF /* ContinenteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinenteView.swift; sourceTree = "<group>"; };
 		E1099F192997DB2100A098BF /* PaisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaisModel.swift; sourceTree = "<group>"; };
 		E1099F1B2997DB7D00A098BF /* MundialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialModel.swift; sourceTree = "<group>"; };
 		E1099F1D2997DC5000A098BF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -154,7 +153,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1C5391D29BCCE0200707035 /* NavigationStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +245,7 @@
 		E1099F102997D7A200A098BF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E1A7FA2729A98C24006A4B97 /* Principal */,
+				E1A7FA2729A98C24006A4B97 /* Screens */,
 				E1A7FA2229A98B02006A4B97 /* Componentes */,
 			);
 			path = View;
@@ -334,7 +332,7 @@
 			path = Componentes;
 			sourceTree = "<group>";
 		};
-		E1A7FA2729A98C24006A4B97 /* Principal */ = {
+		E1A7FA2729A98C24006A4B97 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				E1C5393229C2218000707035 /* AjustesView.swift */,
@@ -342,11 +340,11 @@
 				E1C5391229B9638A00707035 /* BaseView.swift */,
 				E1C5393729C287B200707035 /* ContinenteListaView.swift */,
 				E1A7FA2F29AC3CB1006A4B97 /* GraficoView.swift */,
-				E1099F172997D96800A098BF /* MapaMundiView.swift */,
+				E1099F172997D96800A098BF /* ContinenteView.swift */,
 				E1099F132997D8F800A098BF /* MundialView.swift */,
 				E1099F152997D91200A098BF /* PaisListaView.swift */,
 			);
-			path = Principal;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		E1C5390B29B90A9200707035 /* ErrorHandling */ = {
@@ -445,7 +443,6 @@
 			);
 			name = projetoCovidMVVM;
 			packageProductDependencies = (
-				E1C5391C29BCCE0200707035 /* NavigationStack */,
 			);
 			productName = projetoCovidMVVM;
 			productReference = E1099EFC2997D6CE00A098BF /* projetoCovidMVVM.app */;
@@ -559,7 +556,7 @@
 				E1099F2B299DB1D500A098BF /* HTTPClient.swift in Sources */,
 				E19F52EC29D0B8BC00146465 /* SerieCasos+CoreDataClass.swift in Sources */,
 				E19F52FA29D1170B00146465 /* SeriesHistoricas+CoreDataProperties.swift in Sources */,
-				E1099F182997D96800A098BF /* MapaMundiView.swift in Sources */,
+				E1099F182997D96800A098BF /* ContinenteView.swift in Sources */,
 				E16160DC29C931D50081813F /* Series30DiasViewModel.swift in Sources */,
 				E1099F242997E19F00A098BF /* MundialViewModel.swift in Sources */,
 				E1A7FA2929A98D89006A4B97 /* BarraBuscaView.swift in Sources */,
@@ -780,14 +777,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E1C5391C29BCCE0200707035 /* NavigationStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E1C5391B29BCCE0200707035 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
-			productName = NavigationStack;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E151955829CE646800F8C382 /* CovidDataModel.xcdatamodeld */ = {
