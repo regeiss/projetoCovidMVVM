@@ -21,11 +21,12 @@ final class MundialViewModelImpl: MundialViewModel
         case na
         case loading
         case success(data: MundialModel)
+        case successSeries(data: MundialSeriesModel)
         case failed(error: Error)
     }
 
     @Published private(set) var mundial: [MundialModel] = []
-    @Published private(set) var mundial: [MundialSeriesModel] = []
+    @Published private(set) var mundialSerie: [MundialSeriesModel] = []
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
     @Published var carregando: Bool = false
@@ -74,7 +75,7 @@ final class MundialViewModelImpl: MundialViewModel
         let result = await service.getSerieHistorica()
         switch result
         {
-        case .success(let data):
+        case .successSeries(let data):
             self.state = .success(data: data)
             self.carregando = false
         case .failure(let error):
@@ -87,4 +88,3 @@ final class MundialViewModelImpl: MundialViewModel
         logger.trace("Finalizando fetch")
     }
 }
-
