@@ -1,83 +1,89 @@
 //
-//  MundialEndpoint.swift
+//  MundialViewModel.swift
 //  projetoCovidMVVM
 //
-//  Created by Roberto Edgar Geiss on 15/02/23.
+//  Created by Roberto Edgar Geiss on 11/02/23.
 //
 
 import Foundation
+import OSLog
 
-enum COVIDEndpoint
+protocol MundialViewModel: ObservableObject
 {
-    case estatisticas
-    case serie14dias
-    case serie30dias
-    case serie90dias
-    case lista
-    case continente
-    case artigos
+    func getAllEstatisticas() async
 }
 
-extension COVIDEndpoint: Endpoint
+@MainActor
+final class MundialViewModelImpl: MundialViewModel
 {
-    var host: String
+    enum State
     {
-        switch self
+        case na
+        case loading
+        case success(data: MundialModel)
+        case failed(error: Error)
+    }
+
+    @Published private(set) var mundial: [MundialModel] = []
+    @Published private(set) var mundial: [MundialSeriesModel] = []
+    @Published private(set) var state: State = .na
+    @Published var hasError: Bool = false
+    @Published var carregando: Bool = false
+    
+    private let service: NetworkService
+
+    init(service: NetworkService)
+    {
+        self.service = service
+    }
+    
+    func getAllEstatisticas() async
+    {
+        self.state = .loading
+        self.hasError = false
+        self.carregando = true
+        
+        let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
+        logger.trace("Iniciando fetch")
+        
+        let result = await service.getEstatisticas()
+        switch result
         {
-        case .estatisticas, .lista, .continente, .serie14dias, .serie30dias, .serie90dias:
-            return "disease.sh"
-        case .artigos:
-            return "newsapi.org"
+        case .success(let data):
+            self.state = .success(data: data)
+            self.carregando = false
+        case .failure(let error):
+            self.state = .failed(error: error)
+            self.hasError = true
+            self.carregando = false
+            print(String(describing: error))
+            logger.error("\(error.localizedDescription, privacy: .public)")
         }
+        logger.trace("Finalizando fetch")
     }
-    
-    var path: String
+
+    func getSerieHistorica() async 
     {
-        switch self
+        self.state = .loading
+        self.hasError = false
+        self.carregando = true
+        
+        let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
+        logger.trace("Iniciando fetch")
+
+        let result = await service.getSerieHistorica()
+        switch result
         {
-        case .estatisticas:
-            return "/v3/covid-19/all"
-        case .lista:
-            return "/v3/covid-19/countries"
-        case .continente:
-            return "/v3/covid-19/continents"
-        case .artigos:
-            return "/v2/everything"
-        case .serie14dias, .serie30dias, .serie90dias:
-            return "/v3/covid-19/historical/all"
+        case .success(let data):
+            self.state = .success(data: data)
+            self.carregando = false
+        case .failure(let error):
+            self.state = .failed(error: error)
+            self.hasError = true
+            self.carregando = false
+            print(String(describing: error))
+            logger.error("\(error.localizedDescription, privacy: .public)")
         }
-    }
-    
-    var method: RequestMethod
-    {
-        switch self
-        {
-        case .estatisticas, .lista, .continente, .serie14dias, .serie30dias, .serie90dias, .artigos:
-            return .get
-        }
-    }
-    
-    var header: [String : String]?
-    {
-        return nil
-    }
-    
-    var body: [String : String]?
-    {
-        return nil
-    }
-    
-    var series: Int
-    {
-        switch self
-        {
-        case .serie14dias:
-            return 14
-        case .serie30dias:
-            return 30
-        case .serie90dias:
-            return 90
-        default: return 0
-        }
+        logger.trace("Finalizando fetch")
     }
 }
