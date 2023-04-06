@@ -27,7 +27,7 @@ struct ContentView: View
                     Image(systemName: "person.3.fill")
                     Text("Estatísticas")
                 })
-            ListaContinenteView()
+            ContinenteView()
                 .tabItem({
                     Image(systemName: "globe.americas.fill")
                     Text("Continentes")

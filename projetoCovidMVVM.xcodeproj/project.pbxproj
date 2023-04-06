@@ -26,6 +26,7 @@
 		E1099F2F299DB24200A098BF /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F2E299DB24200A098BF /* RequestError.swift */; };
 		E1099F33299DB45100A098BF /* COVIDEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F32299DB45100A098BF /* COVIDEndpoint.swift */; };
 		E1099F3529A1041700A098BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F3429A1041700A098BF /* Extensions.swift */; };
+		E14CC77D29DE4F860073176C /* MundialSeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14CC77C29DE4F860073176C /* MundialSeriesViewModel.swift */; };
 		E151955A29CE646800F8C382 /* CovidDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E151955829CE646800F8C382 /* CovidDataModel.xcdatamodeld */; };
 		E151955C29CE68A800F8C382 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E151955B29CE68A800F8C382 /* Persistence.swift */; };
 		E16160D429C775710081813F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160D329C775710081813F /* Enums.swift */; };
@@ -97,6 +98,7 @@
 		E1099F2E299DB24200A098BF /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		E1099F32299DB45100A098BF /* COVIDEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDEndpoint.swift; sourceTree = "<group>"; };
 		E1099F3429A1041700A098BF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E14CC77C29DE4F860073176C /* MundialSeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MundialSeriesViewModel.swift; sourceTree = "<group>"; };
 		E151955929CE646800F8C382 /* CovidDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CovidDataModel.xcdatamodel; sourceTree = "<group>"; };
 		E151955B29CE68A800F8C382 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E16160D329C775710081813F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				E16160D929C931C50081813F /* Series14DiasViewModel.swift */,
 				E16160DB29C931D50081813F /* Series30DiasViewModel.swift */,
 				E16160DD29C931E90081813F /* Series90DiasViewModel.swift */,
+				E14CC77C29DE4F860073176C /* MundialSeriesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				E1C5392029BCCFDB00707035 /* Router.swift in Sources */,
 				E1099F022997D6CE00A098BF /* ContentView.swift in Sources */,
 				E18C99AE29C4D7A200CF2260 /* ContinentePainelDetalheView.swift in Sources */,
+				E14CC77D29DE4F860073176C /* MundialSeriesViewModel.swift in Sources */,
 				E1C5391A29BBBF4F00707035 /* ArtigoPainelExtensoView.swift in Sources */,
 				E1C5391329B9638A00707035 /* BaseView.swift in Sources */,
 				E19F52EF29D0B8BC00146465 /* SerieMortes+CoreDataProperties.swift in Sources */,

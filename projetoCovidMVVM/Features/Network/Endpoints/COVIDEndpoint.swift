@@ -1,89 +1,84 @@
 //
-//  MundialViewModel.swift
+//  MundialEndpoint.swift
 //  projetoCovidMVVM
 //
-//  Created by Roberto Edgar Geiss on 11/02/23.
+//  Created by Roberto Edgar Geiss on 15/02/23.
 //
 
 import Foundation
-import OSLog
 
-protocol MundialViewModel: ObservableObject
+enum COVIDEndpoint
 {
-    func getAllEstatisticas() async
+    case estatisticas
+    case serie14dias
+    case serie30dias
+    case serie90dias
+    case lista
+    case continente
+    case artigos
+    case serieHistorica
 }
 
-@MainActor
-final class MundialViewModelImpl: MundialViewModel
+extension COVIDEndpoint: Endpoint
 {
-    enum State
+    var host: String
     {
-        case na
-        case loading
-        case success(data: MundialModel)
-        case failed(error: Error)
-    }
-
-    @Published private(set) var mundial: [MundialModel] = []
-    @Published private(set) var mundial: [MundialSeriesModel] = []
-    @Published private(set) var state: State = .na
-    @Published var hasError: Bool = false
-    @Published var carregando: Bool = false
-    
-    private let service: NetworkService
-
-    init(service: NetworkService)
-    {
-        self.service = service
+        switch self
+        {
+        case .estatisticas, .lista, .continente, .serie14dias, .serie30dias, .serie90dias, .serieHistorica:
+            return "disease.sh"
+        case .artigos:
+            return "newsapi.org"
+        }
     }
     
-    func getAllEstatisticas() async
+    var path: String
     {
-        self.state = .loading
-        self.hasError = false
-        self.carregando = true
-        
-        let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
-        logger.trace("Iniciando fetch")
-        
-        let result = await service.getEstatisticas()
-        switch result
+        switch self
         {
-        case .success(let data):
-            self.state = .success(data: data)
-            self.carregando = false
-        case .failure(let error):
-            self.state = .failed(error: error)
-            self.hasError = true
-            self.carregando = false
-            print(String(describing: error))
-            logger.error("\(error.localizedDescription, privacy: .public)")
+        case .estatisticas:
+            return "/v3/covid-19/all"
+        case .lista:
+            return "/v3/covid-19/countries"
+        case .continente:
+            return "/v3/covid-19/continents"
+        case .artigos:
+            return "/v2/everything"
+        case .serie14dias, .serie30dias, .serie90dias, .serieHistorica:
+            return "/v3/covid-19/historical/all"
         }
-        logger.trace("Finalizando fetch")
     }
-
-    func getSerieHistorica() async 
+    
+    var method: RequestMethod
     {
-        self.state = .loading
-        self.hasError = false
-        self.carregando = true
-        
-        let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
-        logger.trace("Iniciando fetch")
-
-        let result = await service.getSerieHistorica()
-        switch result
+        switch self
         {
-        case .success(let data):
-            self.state = .success(data: data)
-            self.carregando = false
-        case .failure(let error):
-            self.state = .failed(error: error)
-            self.hasError = true
-            self.carregando = false
-            print(String(describing: error))
-            logger.error("\(error.localizedDescription, privacy: .public)")
+        case .estatisticas, .lista, .continente, .serie14dias, .serie30dias, .serie90dias, .artigos, .serieHistorica:
+            return .get
         }
-        logger.trace("Finalizando fetch")
+    }
+    
+    var header: [String : String]?
+    {
+        return nil
+    }
+    
+    var body: [String : String]?
+    {
+        return nil
+    }
+    
+    var series: Int
+    {
+        switch self
+        {
+        case .serie14dias:
+            return 14
+        case .serie30dias:
+            return 30
+        case .serie90dias:
+            return 90
+        default: return 0
+        }
     }
 }
