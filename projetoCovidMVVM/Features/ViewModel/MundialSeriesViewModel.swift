@@ -13,7 +13,6 @@ protocol MundialSeriesViewModel: ObservableObject
     func getSerieHistorica() async
 }
 
-@MainActor
 final class MundialSeriesViewModelImpl: MundialSeriesViewModel
 {
     enum State

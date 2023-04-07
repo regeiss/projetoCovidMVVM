@@ -9,20 +9,17 @@ import Foundation
 import CoreData
 import Combine
 import OSLog
+import SwiftUI
 
-class SeriesHistoricasPublisher: NSObject, ObservableObject
+class SeriesHistoricasPublisher: NSObject
 {
+    private var viewModel = MundialSeriesViewModelImpl(service: NetworkService())
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
     
-    /// Creates and configures a private queue context.
     private func newTaskContext() -> NSManagedObjectContext
     {
-        // Create a private queue context.
-        /// - Tag: newBackgroundContext
         let taskContext = PersistenceController.shared.container.viewContext
         taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        // Set unused undoManager to nil for macOS (it is nil by default on iOS)
-        // to reduce resource requirements.
         taskContext.undoManager = nil
         return taskContext
     }
@@ -44,29 +41,29 @@ class SeriesHistoricasPublisher: NSObject, ObservableObject
     
     func fetchSeries() async throws
     {
-//        let session = URLSession.shared
-//        guard let (data, response) = try? await session.data(from: url),
-//              let httpResponse = response as? HTTPURLResponse,
-//              httpResponse.statusCode == 200
-//        else
-//        {
-//            logger.debug("Failed to received valid response and/or data.")
-//            throw DataError.missingData
-//        }
-//
 //        do
 //        {
-//            // Decode the GeoJSON into a data model.
-//            let jsonDecoder = JSONDecoder()
-//            jsonDecoder.dateDecodingStrategy = .secondsSince1970
-//            let geoJSON = try jsonDecoder.decode(GeoJSON.self, from: data)
-//            let quakePropertiesList = geoJSON.quakePropertiesList
-//            logger.debug("Received \(quakePropertiesList.count) records.")
-//
-//            // Import the GeoJSON into Core Data.
 //            logger.debug("Start importing data to the store...")
-//            try await importSeriesHistoricas(from: quakePropertiesList)
+//            await viewModel.getSerieHistorica()
 //            logger.debug("Finished importing data.")
+//            switch viewModel.state
+//            {
+//            case .loading:
+//                LoadingView(text: "Buscando")
+//
+//            case .success(let data):
+//
+//
+//                ForEach(data.articles, id: \.id) { artigo in
+//                    ArtigoPainelCompactoView(artigo: artigo)
+//                }
+//
+//
+//            case .failed(let error):
+//                ErroView(erro: error)
+//
+//            default: return
+//            }
 //        }
 //        catch
 //        {
@@ -74,17 +71,14 @@ class SeriesHistoricasPublisher: NSObject, ObservableObject
 //        }
     }
     
-    /// Uses `NSBatchInsertRequest` (BIR) to import a JSON dictionary into the Core Data store on a private queue.
     private func importSeriesHistoricas(from propertiesList: [SeriesHistoricas]) async throws
     {
         guard !propertiesList.isEmpty else { return }
         
         let taskContext = newTaskContext()
-        // Add name and author to identify source of persistent history changes.
         taskContext.name = "importContext"
         taskContext.transactionAuthor = "importQuakes"
         
-        /// - Tag: performAndWait
         try await taskContext.perform
         {
             // Execute the batch insert.

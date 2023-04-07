@@ -42,7 +42,7 @@ struct ArtigoView: View
             .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                 { Task { await viewModel.getAllArtigos()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
             .navigationBarTitle("Noticias mundo", displayMode: .automatic)
-        }.background(LinearGradient(gradient: Gradient(colors: [Color("adaptiveBlue"),Color("adaptiveBlue"), Color(.systemGray)]), startPoint: .top, endPoint: .bottom))
+        }.background(LinearGradient(gradient: Gradient(colors: [Color("adaptiveBlue"),Color(.blue), Color(.systemGray)]), startPoint: .top, endPoint: .bottom))
     }
 }
 
