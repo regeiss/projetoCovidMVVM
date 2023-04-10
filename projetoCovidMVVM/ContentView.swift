@@ -17,6 +17,7 @@ struct ContentView: View
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
         
+//      Precisa conta desenv paga
 //        AppleCloudIdentifier.fetch { (handler) in
 //            switch handler {
 //            case .success(let token):

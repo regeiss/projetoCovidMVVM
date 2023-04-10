@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import CoreData
 
 protocol MundialSeriesViewModel: ObservableObject
 {
@@ -23,7 +24,6 @@ final class MundialSeriesViewModelImpl: MundialSeriesViewModel
         case failed(error: Error)
     }
 
-    @Published private(set) var mundial: [MundialModel] = []
     @Published private(set) var mundialSerie: [MundialSeriesModel] = []
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
@@ -36,8 +36,18 @@ final class MundialSeriesViewModelImpl: MundialSeriesViewModel
         self.service = service
     }
 
+    private func backgroundTaskContext() -> NSManagedObjectContext
+    {
+        let taskContext = PersistenceController.shared.container.newBackgroundContext()
+        taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        taskContext.undoManager = nil
+        return taskContext
+    }
+    
     func getSerieHistorica() async
     {
+        let taskContext = backgroundTaskContext()
+        
         self.state = .loading
         self.hasError = false
         self.carregando = true
@@ -51,6 +61,25 @@ final class MundialSeriesViewModelImpl: MundialSeriesViewModel
         case .success(let data):
             self.state = .success(data: data)
             self.carregando = false
+            
+            try await taskContext.perform
+            {
+                // Execute the batch insert.
+                /// - Tag: batchInsertRequest
+                let batchInsertRequest = NSBatchInsertRequest(entityName: "Product", objects: (data as? [[String : Any]])!)
+                if let fetchResult = try? taskContext.execute(batchInsertRequest),
+                   let batchInsertResult = fetchResult as? NSBatchInsertResult,
+                   let success = batchInsertResult.result as? Bool, success {
+                    return
+                }
+                logger.debug("Failed to execute batch insert request.")
+                throw DataError.batchInsertError
+            }
+            catch
+            {
+                logger.error("\(error.localizedDescription, privacy: .public)")
+            }
+            
         case .failure(let error):
             self.state = .failed(error: error)
             self.hasError = true

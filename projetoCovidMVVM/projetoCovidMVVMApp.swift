@@ -41,6 +41,7 @@ struct projetoCovidMVVMApp: App
             }
         }
     }
+    
     func saveContext()
     {
         let context = moc

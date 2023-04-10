@@ -2,7 +2,7 @@
 //  SerieCasos+CoreDataProperties.swift
 //  projetoCovidMVVM
 //
-//  Created by Roberto Edgar Geiss on 26/03/23.
+//  Created by Roberto Edgar Geiss on 10/04/23.
 //
 //
 
