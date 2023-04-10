@@ -1,0 +1,60 @@
+[
+  {
+    "version": "1.0",
+    "new": [
+      {
+        "body": "Available for iOS 16, iPadOS 16, macOS 13",
+        "icon": "hammer.fill",
+        "subtitle": "Broken UI",
+        "title": "Bug fixes"
+      },
+      {
+        "body": "Direct load via remote storage. Easy!",
+        "icon": "square.and.arrow.down.fill",
+        "subtitle": "Supported",
+        "title": "Firebase Remote"
+      },
+      {
+        "body": "Free and open source! Created by Ming with ❤️‍🔥",
+        "icon": "macpro.gen3.server",
+        "subtitle": "Design",
+        "title": "Serverless"
+      },
+      {
+        "body": "Pull requests and make it better for everyone!",
+        "icon": "arrow.triangle.pull",
+        "subtitle": "Together",
+        "title": "Contribute"
+      }
+    ]
+  },
+  {
+   "version": "1.1",
+    "new": [
+      {
+        "body": "Available for iOS 16, iPadOS 16, macOS 13",
+        "icon": "hammer.fill",
+        "subtitle": "Broken UI",
+        "title": "Bug fixes"
+      },
+      {
+        "body": "Direct load via local storage. Super fast!",
+        "icon": "square.and.arrow.down.fill",
+        "subtitle": "Supported",
+        "title": "Local File"
+      },
+      {
+        "body": "Free and open source! Created by Ming",
+        "icon": "macpro.gen3.server",
+        "subtitle": "Design",
+        "title": "Serverless"
+      },
+      {
+        "body": "Pull requests and make it better for everyone!",
+        "icon": "arrow.triangle.pull",
+        "subtitle": "Together",
+        "title": "Contribute"
+      }
+    ]
+  }
+]

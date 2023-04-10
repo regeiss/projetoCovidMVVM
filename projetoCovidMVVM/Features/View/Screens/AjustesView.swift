@@ -34,7 +34,7 @@ struct AjustesView: View
                    })
               }
            }
-           .navigationTitle(Text("Settings"))
+           .navigationTitle(Text("Ajustes"))
         }
     }
 }

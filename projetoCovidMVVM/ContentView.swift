@@ -16,6 +16,15 @@ struct ContentView: View
         appearance.backgroundColor = UIColor(Color.blue.opacity(0.2))
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
+        
+//        AppleCloudIdentifier.fetch { (handler) in
+//            switch handler {
+//            case .success(let token):
+//                print("CLOUD TOKEN: \(token)")
+//            case .failure(let error):
+//                print("ERROR: \(error)")
+//            }
+//        }
     }
     
     var body: some View
@@ -37,7 +46,7 @@ struct ContentView: View
                     Image(systemName: "list.dash")
                     Text("Países")
                 })
-            GraficoView()
+            WhatsNew()
                 .tabItem({
                     Image(systemName: "chart.bar.xaxis")
                     Text("Gráficos")

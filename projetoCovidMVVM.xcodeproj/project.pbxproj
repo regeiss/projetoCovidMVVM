@@ -35,6 +35,10 @@
 		E16160DA29C931C50081813F /* Series14DiasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160D929C931C50081813F /* Series14DiasViewModel.swift */; };
 		E16160DC29C931D50081813F /* Series30DiasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160DB29C931D50081813F /* Series30DiasViewModel.swift */; };
 		E16160DE29C931E90081813F /* Series90DiasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160DD29C931E90081813F /* Series90DiasViewModel.swift */; };
+		E1730B3829E32FCF00A32099 /* SwiftNEW in Frameworks */ = {isa = PBXBuildFile; productRef = E1730B3729E32FCF00A32099 /* SwiftNEW */; };
+		E1730B3B29E3323500A32099 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B3A29E3323500A32099 /* WhatsNew.swift */; };
+		E1730B3E29E37A7A00A32099 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E1730B3C29E372C400A32099 /* data.json */; };
+		E1730B4129E3861B00A32099 /* AppleCloudIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B4029E3861B00A32099 /* AppleCloudIdentifier.swift */; };
 		E18762B329B1682B009B75F7 /* ContinenteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18762B229B1682B009B75F7 /* ContinenteModel.swift */; };
 		E18762B529B16CFA009B75F7 /* ContinenteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18762B429B16CFA009B75F7 /* ContinenteViewModel.swift */; };
 		E18C99AE29C4D7A200CF2260 /* ContinentePainelDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C99AD29C4D7A200CF2260 /* ContinentePainelDetalheView.swift */; };
@@ -107,6 +111,10 @@
 		E16160D929C931C50081813F /* Series14DiasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series14DiasViewModel.swift; sourceTree = "<group>"; };
 		E16160DB29C931D50081813F /* Series30DiasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series30DiasViewModel.swift; sourceTree = "<group>"; };
 		E16160DD29C931E90081813F /* Series90DiasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series90DiasViewModel.swift; sourceTree = "<group>"; };
+		E1730B3A29E3323500A32099 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
+		E1730B3C29E372C400A32099 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		E1730B3D29E372EC00A32099 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E1730B4029E3861B00A32099 /* AppleCloudIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCloudIdentifier.swift; sourceTree = "<group>"; };
 		E18762B229B1682B009B75F7 /* ContinenteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinenteModel.swift; sourceTree = "<group>"; };
 		E18762B429B16CFA009B75F7 /* ContinenteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinenteViewModel.swift; sourceTree = "<group>"; };
 		E18C99AD29C4D7A200CF2260 /* ContinentePainelDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentePainelDetalheView.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1730B3829E32FCF00A32099 /* SwiftNEW in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +173,7 @@
 		E1099EF32997D6CE00A098BF = {
 			isa = PBXGroup;
 			children = (
+				E1730B3D29E372EC00A32099 /* README.md */,
 				E19F52F729D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift */,
 				E19F52F829D1170B00146465 /* SeriesHistoricas+CoreDataProperties.swift */,
 				E19F52E629D0B8BC00146465 /* SerieCasos+CoreDataClass.swift */,
@@ -188,6 +198,7 @@
 		E1099EFE2997D6CE00A098BF /* projetoCovidMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				E1730B3C29E372C400A32099 /* data.json */,
 				E1099F032997D6D000A098BF /* Assets.xcassets */,
 				E1099F012997D6CE00A098BF /* ContentView.swift */,
 				E1099F0D2997D78300A098BF /* Base */,
@@ -211,6 +222,7 @@
 		E1099F0D2997D78300A098BF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E1730B3F29E385C500A32099 /* UserID */,
 				E1C5390B29B90A9200707035 /* ErrorHandling */,
 				E1099F1F2997DE8D00A098BF /* APIConstants.swift */,
 				E1099F3429A1041700A098BF /* Extensions.swift */,
@@ -247,6 +259,7 @@
 		E1099F102997D7A200A098BF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1730B3929E3321200A32099 /* WhatsNew */,
 				E1A7FA2729A98C24006A4B97 /* Screens */,
 				E1A7FA2229A98B02006A4B97 /* Componentes */,
 			);
@@ -305,6 +318,22 @@
 				E1099F32299DB45100A098BF /* COVIDEndpoint.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		E1730B3929E3321200A32099 /* WhatsNew */ = {
+			isa = PBXGroup;
+			children = (
+				E1730B3A29E3323500A32099 /* WhatsNew.swift */,
+			);
+			path = WhatsNew;
+			sourceTree = "<group>";
+		};
+		E1730B3F29E385C500A32099 /* UserID */ = {
+			isa = PBXGroup;
+			children = (
+				E1730B4029E3861B00A32099 /* AppleCloudIdentifier.swift */,
+			);
+			path = UserID;
 			sourceTree = "<group>";
 		};
 		E19F52F229D0BCD200146465 /* Services */ = {
@@ -446,6 +475,7 @@
 			);
 			name = projetoCovidMVVM;
 			packageProductDependencies = (
+				E1730B3729E32FCF00A32099 /* SwiftNEW */,
 			);
 			productName = projetoCovidMVVM;
 			productReference = E1099EFC2997D6CE00A098BF /* projetoCovidMVVM.app */;
@@ -477,6 +507,7 @@
 			mainGroup = E1099EF32997D6CE00A098BF;
 			packageReferences = (
 				E1C5391B29BCCE0200707035 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
+				E1730B3629E32FCF00A32099 /* XCRemoteSwiftPackageReference "SwiftNEWKit" */,
 			);
 			productRefGroup = E1099EFD2997D6CE00A098BF /* Products */;
 			projectDirPath = "";
@@ -493,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1099F072997D6D000A098BF /* Preview Assets.xcassets in Resources */,
+				E1730B3E29E37A7A00A32099 /* data.json in Resources */,
 				E1099F042997D6D000A098BF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1730B3B29E3323500A32099 /* WhatsNew.swift in Sources */,
 				E1099F2F299DB24200A098BF /* RequestError.swift in Sources */,
 				E1C5390229B6635600707035 /* ArtigoView.swift in Sources */,
 				E1C5392C29BFEEFE00707035 /* MundialPainelView.swift in Sources */,
@@ -538,6 +571,7 @@
 				E1C5390429B7796A00707035 /* ArtigoModel.swift in Sources */,
 				E19F52F429D0BCEB00146465 /* SeriesHistoricasPublisher.swift in Sources */,
 				E1A7FA2429A98B1D006A4B97 /* CabecalhoView.swift in Sources */,
+				E1730B4129E3861B00A32099 /* AppleCloudIdentifier.swift in Sources */,
 				E1099F33299DB45100A098BF /* COVIDEndpoint.swift in Sources */,
 				E1C5390A29B8093E00707035 /* ArtigosViewModel.swift in Sources */,
 				E1099F1E2997DC5000A098BF /* NetworkService.swift in Sources */,
@@ -710,7 +744,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = geiss.com.projetoCovidMVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -739,7 +773,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = geiss.com.projetoCovidMVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -772,6 +806,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E1730B3629E32FCF00A32099 /* XCRemoteSwiftPackageReference "SwiftNEWKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/1998code/SwiftNEWKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		E1C5391B29BCCE0200707035 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack.git";
@@ -781,6 +823,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1730B3729E32FCF00A32099 /* SwiftNEW */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1730B3629E32FCF00A32099 /* XCRemoteSwiftPackageReference "SwiftNEWKit" */;
+			productName = SwiftNEW;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E151955829CE646800F8C382 /* CovidDataModel.xcdatamodeld */ = {
