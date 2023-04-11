@@ -16,6 +16,11 @@ protocol MundialSeriesViewModel: ObservableObject
 
 final class MundialSeriesViewModelImpl: MundialSeriesViewModel
 {
+    @Published private(set) var mundialSerie: [MundialSeriesModel] = []
+    @Published private(set) var state: State = .na
+    @Published var hasError: Bool = false
+    @Published var carregando: Bool = false
+    
     enum State
     {
         case na
@@ -23,62 +28,82 @@ final class MundialSeriesViewModelImpl: MundialSeriesViewModel
         case success(data: MundialSeriesModel)
         case failed(error: Error)
     }
-
-    @Published private(set) var mundialSerie: [MundialSeriesModel] = []
-    @Published private(set) var state: State = .na
-    @Published var hasError: Bool = false
-    @Published var carregando: Bool = false
     
     private let service: NetworkService
-
+    
     init(service: NetworkService)
     {
         self.service = service
     }
-
-    private func backgroundTaskContext() -> NSManagedObjectContext
-    {
-        let taskContext = PersistenceController.shared.container.newBackgroundContext()
-        taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        taskContext.undoManager = nil
-        return taskContext
-    }
+    
+//    private func newBatchInsertRequest(with series: [MundialSeriesModel]) -> NSBatchInsertRequest
+//    {
+//        // 1
+//        var index = 0
+//        let total = series.count
+//
+//        // 2
+//        let batchInsert = NSBatchInsertRequest( entity: SeriesHistoricas.entity())
+//            { (managedObject: NSManagedObject) -> Bool in
+//                // 3
+//                guard index < total else { return true }
+//
+//                if let serie = managedObject as? SeriesHistoricas
+//                {
+//                    // 4
+//                    let data = series[index]
+//                    serie.tipo = data.deaths
+//                    serie.qtd = data.recovered
+//                    serie.data = data.cases
+//
+//                }
+//
+//                // 5
+//                index += 1
+//                return false
+//            }
+//        return batchInsert
+//    }
+//
+//    private func batchInsertFireballs(_ fireballs: [FireballData]) {
+//      // 1
+//      guard !fireballs.isEmpty else { return }
+//
+//      // 2
+//      container.performBackgroundTask { context in
+//        // 3
+//        let batchInsert = self.newBatchInsertRequest(with: fireballs)
+//        do {
+//          try context.execute(batchInsert)
+//        } catch {
+//          // log any errors
+//        }
+//      }
+//    }
+//
+//    private func backgroundTaskContext() -> NSManagedObjectContext
+//    {
+//        let taskContext = PersistenceController.shared.container.newBackgroundContext()
+//        taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+//        taskContext.undoManager = nil
+//        return taskContext
+//    }
     
     func getSerieHistorica() async
     {
-        let taskContext = backgroundTaskContext()
-        
         self.state = .loading
         self.hasError = false
         self.carregando = true
         
         let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
         logger.trace("Iniciando fetch")
-
+        
         let result = await service.getSerieHistorica()
         switch result
         {
         case .success(let data):
             self.state = .success(data: data)
             self.carregando = false
-            
-            try await taskContext.perform
-            {
-                // Execute the batch insert.
-                /// - Tag: batchInsertRequest
-                let batchInsertRequest = NSBatchInsertRequest(entityName: "Product", objects: (data as? [[String : Any]])!)
-                if let fetchResult = try? taskContext.execute(batchInsertRequest),
-                   let batchInsertResult = fetchResult as? NSBatchInsertResult,
-                   let success = batchInsertResult.result as? Bool, success {
-                    return
-                }
-                logger.debug("Failed to execute batch insert request.")
-                throw DataError.batchInsertError
-            }
-            catch
-            {
-                logger.error("\(error.localizedDescription, privacy: .public)")
-            }
             
         case .failure(let error):
             self.state = .failed(error: error)
