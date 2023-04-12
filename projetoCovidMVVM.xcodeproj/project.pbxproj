@@ -39,8 +39,10 @@
 		E1730B3B29E3323500A32099 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B3A29E3323500A32099 /* WhatsNew.swift */; };
 		E1730B3E29E37A7A00A32099 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E1730B3C29E372C400A32099 /* data.json */; };
 		E1730B4129E3861B00A32099 /* AppleCloudIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B4029E3861B00A32099 /* AppleCloudIdentifier.swift */; };
-		E1730B4429E49DB100A32099 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B4329E49DB100A32099 /* Onboarding.swift */; };
+		E1730B4429E49DB100A32099 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B4329E49DB100A32099 /* OnboardingView.swift */; };
 		E1730B4729E4D27000A32099 /* ConcentricOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = E1730B4629E4D27000A32099 /* ConcentricOnboarding */; };
+		E1730B4929E63C3F00A32099 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B4829E63C3F00A32099 /* OnboardingData.swift */; };
+		E1730B4B29E63D2F00A32099 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B4A29E63D2F00A32099 /* OnboardingPageView.swift */; };
 		E18762B329B1682B009B75F7 /* ContinenteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18762B229B1682B009B75F7 /* ContinenteModel.swift */; };
 		E18762B529B16CFA009B75F7 /* ContinenteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18762B429B16CFA009B75F7 /* ContinenteViewModel.swift */; };
 		E18C99AE29C4D7A200CF2260 /* ContinentePainelDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C99AD29C4D7A200CF2260 /* ContinentePainelDetalheView.swift */; };
@@ -117,7 +119,9 @@
 		E1730B3C29E372C400A32099 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		E1730B3D29E372EC00A32099 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E1730B4029E3861B00A32099 /* AppleCloudIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCloudIdentifier.swift; sourceTree = "<group>"; };
-		E1730B4329E49DB100A32099 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		E1730B4329E49DB100A32099 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		E1730B4829E63C3F00A32099 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		E1730B4A29E63D2F00A32099 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		E18762B229B1682B009B75F7 /* ContinenteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinenteModel.swift; sourceTree = "<group>"; };
 		E18762B429B16CFA009B75F7 /* ContinenteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinenteViewModel.swift; sourceTree = "<group>"; };
 		E18C99AD29C4D7A200CF2260 /* ContinentePainelDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentePainelDetalheView.swift; sourceTree = "<group>"; };
@@ -202,7 +206,6 @@
 		E1099EFE2997D6CE00A098BF /* projetoCovidMVVM */ = {
 			isa = PBXGroup;
 			children = (
-				E1730B3C29E372C400A32099 /* data.json */,
 				E1099F032997D6D000A098BF /* Assets.xcassets */,
 				E1099F012997D6CE00A098BF /* ContentView.swift */,
 				E1099F0D2997D78300A098BF /* Base */,
@@ -326,6 +329,7 @@
 		E1730B3929E3321200A32099 /* WhatsNew */ = {
 			isa = PBXGroup;
 			children = (
+				E1730B3C29E372C400A32099 /* data.json */,
 				E1730B3A29E3323500A32099 /* WhatsNew.swift */,
 			);
 			path = WhatsNew;
@@ -342,7 +346,9 @@
 		E1730B4229E49D7E00A32099 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				E1730B4329E49DB100A32099 /* Onboarding.swift */,
+				E1730B4329E49DB100A32099 /* OnboardingView.swift */,
+				E1730B4829E63C3F00A32099 /* OnboardingData.swift */,
+				E1730B4A29E63D2F00A32099 /* OnboardingPageView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -557,6 +563,7 @@
 				E1C5392C29BFEEFE00707035 /* MundialPainelView.swift in Sources */,
 				E1099F3529A1041700A098BF /* Extensions.swift in Sources */,
 				E1099F29299DB1BD00A098BF /* EndPoint.swift in Sources */,
+				E1730B4929E63C3F00A32099 /* OnboardingData.swift in Sources */,
 				E16160D629C88DF80081813F /* GraficoMundialView.swift in Sources */,
 				E16160DE29C931E90081813F /* Series90DiasViewModel.swift in Sources */,
 				E1A7FA2E29AC2CDB006A4B97 /* Botao.swift in Sources */,
@@ -582,6 +589,7 @@
 				E1C5391829BBA21800707035 /* ArtigoHeaderView.swift in Sources */,
 				E19F52F029D0B8BC00146465 /* SerieRecuperados+CoreDataClass.swift in Sources */,
 				E1C5393329C2218000707035 /* AjustesView.swift in Sources */,
+				E1730B4B29E63D2F00A32099 /* OnboardingPageView.swift in Sources */,
 				E1C5393529C23F3A00707035 /* ContinentePainelView.swift in Sources */,
 				E1C5390429B7796A00707035 /* ArtigoModel.swift in Sources */,
 				E19F52F429D0BCEB00146465 /* SeriesHistoricasPublisher.swift in Sources */,
@@ -593,7 +601,7 @@
 				E1099F1C2997DB7D00A098BF /* MundialModel.swift in Sources */,
 				E1099F26299A7ACA00A098BF /* LoadingView.swift in Sources */,
 				E1A7FA2629A98B86006A4B97 /* LinhaDetalheView.swift in Sources */,
-				E1730B4429E49DB100A32099 /* Onboarding.swift in Sources */,
+				E1730B4429E49DB100A32099 /* OnboardingView.swift in Sources */,
 				E1099F142997D8F800A098BF /* MundialView.swift in Sources */,
 				E1C5392329BD30FE00707035 /* HeaderView.swift in Sources */,
 				E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */,

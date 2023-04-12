@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConcentricOnboarding
 
 struct ContentView: View
 {
@@ -52,7 +53,7 @@ struct ContentView: View
                     Image(systemName: "chart.bar.xaxis")
                     Text("Gráficos")
                 })
-            ArtigoView()
+            OnboardingView()
                 .tabItem({
                     Image(systemName: "newspaper")
                     Text("Notícias")
