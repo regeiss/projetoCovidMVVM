@@ -51,6 +51,22 @@ final class Series14DiasViewModelImpl: Series14DiasViewModel
         case .success(let data):
             self.state = .success(data: data)
             self.carregando = false
+            
+            data.cases.forEach({ (caso) in
+                print( " \(caso.key)")
+                print( " \(caso.value)")
+            })
+            
+            data.deaths.forEach({ (caso) in
+                print( " \(caso.key)")
+                print( " \(caso.value)")
+            })
+            
+            data.recovered.forEach({ (caso) in
+                print( " \(caso.key)")
+                print( " \(caso.value)")
+            })
+            
         case .failure(let error):
             self.state = .failed(error: error)
             self.hasError = true

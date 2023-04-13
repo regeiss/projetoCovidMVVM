@@ -14,7 +14,6 @@ struct MundialView: View
     
     @State var mundialData: MundialModel?
     @State var series14Data: MundialSeriesModel?
-    
     @State private var goToSettings = false
     
     var body: some View

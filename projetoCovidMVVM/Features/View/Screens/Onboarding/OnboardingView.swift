@@ -17,6 +17,11 @@ struct OnboardingView: View
             .nextIcon("chevron.forward")
             .animationDidEnd {
                 print("Animation Did End")
+                currentIndex += 1
+                print(currentIndex)
+            }
+            .didGoToLastPage {
+                print("last page")
             }
     }
 }

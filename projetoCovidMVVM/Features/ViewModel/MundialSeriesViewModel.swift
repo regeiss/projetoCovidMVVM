@@ -36,59 +36,6 @@ final class MundialSeriesViewModelImpl: MundialSeriesViewModel
         self.service = service
     }
     
-//    private func newBatchInsertRequest(with series: [MundialSeriesModel]) -> NSBatchInsertRequest
-//    {
-//        // 1
-//        var index = 0
-//        let total = series.count
-//
-//        // 2
-//        let batchInsert = NSBatchInsertRequest( entity: SeriesHistoricas.entity())
-//            { (managedObject: NSManagedObject) -> Bool in
-//                // 3
-//                guard index < total else { return true }
-//
-//                if let serie = managedObject as? SeriesHistoricas
-//                {
-//                    // 4
-//                    let data = series[index]
-//                    serie.tipo = data.deaths
-//                    serie.qtd = data.recovered
-//                    serie.data = data.cases
-//
-//                }
-//
-//                // 5
-//                index += 1
-//                return false
-//            }
-//        return batchInsert
-//    }
-//
-//    private func batchInsertFireballs(_ fireballs: [FireballData]) {
-//      // 1
-//      guard !fireballs.isEmpty else { return }
-//
-//      // 2
-//      container.performBackgroundTask { context in
-//        // 3
-//        let batchInsert = self.newBatchInsertRequest(with: fireballs)
-//        do {
-//          try context.execute(batchInsert)
-//        } catch {
-//          // log any errors
-//        }
-//      }
-//    }
-//
-//    private func backgroundTaskContext() -> NSManagedObjectContext
-//    {
-//        let taskContext = PersistenceController.shared.container.newBackgroundContext()
-//        taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-//        taskContext.undoManager = nil
-//        return taskContext
-//    }
-    
     func getSerieHistorica() async
     {
         self.state = .loading
