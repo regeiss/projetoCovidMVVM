@@ -25,19 +25,13 @@ final class Series14DiasViewModelImpl: Series14DiasViewModel
         case failed(error: Error)
     }
 
-    @Published private(set) var series: [MundialSeriesModel] = []
+    //@Published private(set) var series: [MundialSeriesModel] = []
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
     @Published var carregando: Bool = false
+    var publisher = SeriesHistoricasPublisher()
     
     private let service: NetworkService
-
-    var publisherContext: NSManagedObjectContext = {
-         let context = PersistenceController.shared.container.viewContext
-         context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
-         context.automaticallyMergesChangesFromParent = true
-         return context
-     }()
     
     init(service: NetworkService)
     {
@@ -59,30 +53,7 @@ final class Series14DiasViewModelImpl: Series14DiasViewModel
         case .success(let data):
             self.state = .success(data: data)
             self.carregando = false
-            
-            data.cases.forEach({ (casos) in
-                let newSerie = SeriesHistoricas(context: publisherContext)
-                newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
-                newSerie.qtd = Int32(casos.value)
-                newSerie.tipo = "casos"
-                add()
-            })
-            
-            data.deaths.forEach({ (casos) in
-                let newSerie = SeriesHistoricas(context: publisherContext)
-                newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
-                newSerie.qtd = Int32(casos.value)
-                newSerie.tipo = "mortes"
-                add()
-            })
-            
-            data.recovered.forEach({ (casos) in
-                let newSerie = SeriesHistoricas(context: publisherContext)
-                newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
-                newSerie.qtd = Int32(casos.value)
-                newSerie.tipo = "recuperados"
-                add()
-            })
+            publisher.add(series: data)
             
         case .failure(let error):
             self.state = .failed(error: error)
@@ -91,23 +62,11 @@ final class Series14DiasViewModelImpl: Series14DiasViewModel
             print(String(describing: error))
             logger.error("\(error.localizedDescription, privacy: .public)")
         }
+        
         logger.trace("Finalizando fetch")
     }
     
-    func add()
-     {
-         publisherContext.performAndWait
-         {
-             do
-             {
-                 try self.publisherContext.save()
-             }
-             catch
-             {
-                 fatalError("Erro moc \(error.localizedDescription)")
-             }
-         }
-     }
+
 //    func getFatality(offset: Int = 1) -> String {
 //        let fatality = Float (self.getTodayDeaths(offset: offset)) / Float (self.getTodayCases(offset: offset)) * Float (100)
 //        return String(format: "%.2f", fatality) + "%"

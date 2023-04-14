@@ -48,20 +48,15 @@ extension String
         dateFormatter.dateStyle = style
         return dateFormatter.string(from: date)
     }
-}
 
-extension String
-{
     func toDate(withFormat format: String = "yyyy-MM-dd")-> Date?
     {
-
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = format
         let date = dateFormatter.date(from: self)
 
         return date
-
     }
 }
 
@@ -82,7 +77,6 @@ extension Date
 
     var startOfMonth: Date
     {
-
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents([.year, .month], from: self)
 
@@ -160,8 +154,7 @@ extension Double
     {
         let dateFromServer = NSDate(timeIntervalSince1970: self / 1000)
         let dateFormatter = DateFormatter()
-        
-        //dateFormatter.doesRelativeDateFormatting = true
+
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .full
         

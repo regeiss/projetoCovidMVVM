@@ -11,60 +11,87 @@ import Combine
 import OSLog
 import SwiftUI
 
-//class SeriesHistoricasPublisher: NSObject
-//{
-//    private var viewModel = MundialSeriesViewModelImpl(service: NetworkService())
-//    var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
-//
-//    private func backgroundTaskContext() -> NSManagedObjectContext
-//    {
-//        let taskContext = PersistenceController.shared.container.newBackgroundContext()
-//        taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-//        taskContext.undoManager = nil
-//        return taskContext
-//    }
-//
-//    func insereSerie() async
-//    {
-//        let taskContext = backgroundTaskContext()
-//
-//        await viewModel.getSerieHistorica()
-//
-//        switch result
-//        {
-//        case .success(let data):
-//            try await taskContext.perform
-//            {
-//                // Execute the batch insert.
-//                /// - Tag: batchInsertRequest
-//                let batchInsertRequest = NSBatchInsertRequest(entityName: "Product", objects: data)
-//                if let fetchResult = try? taskContext.execute(batchInsertRequest),
-//                   let batchInsertResult = fetchResult as? NSBatchInsertResult,
-//                   let success = batchInsertResult.result as? Bool, success {
-//                    return
-//                }
-//                self.logger.debug("Failed to execute batch insert request.")
-//                throw DataError.batchInsertError
-//            }
-//            //            self.persistenceController.container.performBackgroundTask { context in
-//            //                context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-//            //                let batchInsert = NSBatchInsertRequest(entityName: "Product", objects: data)
-//            //                do {
-//            //                    let result = try context.execute(batchInsert) as! NSBatchInsertResult
-//            //                    print(result)
-//            //                }
-//            //                catch
-//            //                {
-//            //                    let nsError = error as NSError
-//            //                    // TODO: handle errors
-//            //                }
-//            //                //          DispatchQueue.main.async {
-//            //                //            objectWillChange.send()
-//            //                //            // TODO: handle errors
-//            //                //            try? resultsController.performFetch()
-//            //                //          }
-//        }
-//    }
-//}
+class SeriesHistoricasPublisher: NSObject
+{
+    var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
+    
+    var publisherContext: NSManagedObjectContext = {
+        let context = PersistenceController.shared.container.viewContext
+        context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
+        context.automaticallyMergesChangesFromParent = true
+        return context
+    }()
+    
+    func add(series: MundialSeriesModel)
+    {
+        deleteAll()
+        
+        series.cases.forEach({ (casos) in
+            let newSerie = SeriesHistoricas(context: publisherContext)
+            newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
+            newSerie.qtd = Int32(casos.value)
+            newSerie.tipo = "casos14"
+            save()
+        })
+        
+        series.deaths.forEach({ (casos) in
+            let newSerie = SeriesHistoricas(context: publisherContext)
+            newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
+            newSerie.qtd = Int32(casos.value)
+            newSerie.tipo = "mortes"
+            save()
+        })
+        
+        series.recovered.forEach({ (casos) in
+            let newSerie = SeriesHistoricas(context: publisherContext)
+            newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
+            newSerie.qtd = Int32(casos.value)
+            newSerie.tipo = "recuperados"
+            save()
+        })
+    }
+    
+    func save()
+    {
+        publisherContext.performAndWait
+        {
+            do
+            {
+                try self.publisherContext.save()
+            }
+            catch
+            {
+                fatalError("Erro moc \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func deleteAll()
+    {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>
+        fetchRequest = NSFetchRequest(entityName: "SeriesHistoricas")
+
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        deleteRequest.resultType = .resultTypeObjectIDs
+        
+        let context = publisherContext
+        
+        do
+        {
+            let batchDelete = try context.execute(deleteRequest) as? NSBatchDeleteResult
+            guard let deleteResult = batchDelete?.result
+                    as? [NSManagedObjectID]
+            else { return }
+            
+            let deletedObjects: [AnyHashable: Any] = [NSDeletedObjectsKey: deleteResult]
+            
+            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: deletedObjects, into: [context])
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+    }
+}
 
 
