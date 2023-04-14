@@ -30,7 +30,7 @@ struct projetoCovidMVVMApp: App
                 print("active")
                 //prepareAppContext()
                 //setAppVars()
-                //getCoreDataDBPath()
+                getCoreDataDBPath()
             case .inactive:
                 print("inactive")
             case .background:

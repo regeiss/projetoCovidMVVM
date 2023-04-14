@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import CoreData
 
 protocol Series14DiasViewModel: ObservableObject
 {
@@ -31,6 +32,13 @@ final class Series14DiasViewModelImpl: Series14DiasViewModel
     
     private let service: NetworkService
 
+    var publisherContext: NSManagedObjectContext = {
+         let context = PersistenceController.shared.container.viewContext
+         context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
+         context.automaticallyMergesChangesFromParent = true
+         return context
+     }()
+    
     init(service: NetworkService)
     {
         self.service = service
@@ -52,19 +60,28 @@ final class Series14DiasViewModelImpl: Series14DiasViewModel
             self.state = .success(data: data)
             self.carregando = false
             
-            data.cases.forEach({ (caso) in
-                print( " \(caso.key)")
-                print( " \(caso.value)")
+            data.cases.forEach({ (casos) in
+                let newSerie = SeriesHistoricas(context: publisherContext)
+                newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
+                newSerie.qtd = Int32(casos.value)
+                newSerie.tipo = "casos"
+                add()
             })
             
-            data.deaths.forEach({ (caso) in
-                print( " \(caso.key)")
-                print( " \(caso.value)")
+            data.deaths.forEach({ (casos) in
+                let newSerie = SeriesHistoricas(context: publisherContext)
+                newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
+                newSerie.qtd = Int32(casos.value)
+                newSerie.tipo = "mortes"
+                add()
             })
             
-            data.recovered.forEach({ (caso) in
-                print( " \(caso.key)")
-                print( " \(caso.value)")
+            data.recovered.forEach({ (casos) in
+                let newSerie = SeriesHistoricas(context: publisherContext)
+                newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
+                newSerie.qtd = Int32(casos.value)
+                newSerie.tipo = "recuperados"
+                add()
             })
             
         case .failure(let error):
@@ -77,6 +94,20 @@ final class Series14DiasViewModelImpl: Series14DiasViewModel
         logger.trace("Finalizando fetch")
     }
     
+    func add()
+     {
+         publisherContext.performAndWait
+         {
+             do
+             {
+                 try self.publisherContext.save()
+             }
+             catch
+             {
+                 fatalError("Erro moc \(error.localizedDescription)")
+             }
+         }
+     }
 //    func getFatality(offset: Int = 1) -> String {
 //        let fatality = Float (self.getTodayDeaths(offset: offset)) / Float (self.getTodayCases(offset: offset)) * Float (100)
 //        return String(format: "%.2f", fatality) + "%"
