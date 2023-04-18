@@ -10,7 +10,7 @@ import SwiftUI
 struct MundialView: View
 {
     @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
-    @StateObject private var viewModel14dias = Series14DiasViewModelImpl(service: NetworkService())
+    @StateObject private var viewModel14dias = SeriesHistoricasViewModelImpl(service: NetworkService())
     
     @State var mundialData: MundialModel?
     @State var series14Data: MundialSeriesModel?

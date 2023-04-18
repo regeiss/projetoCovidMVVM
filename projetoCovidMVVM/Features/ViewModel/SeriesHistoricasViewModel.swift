@@ -9,13 +9,13 @@ import Foundation
 import OSLog
 import CoreData
 
-protocol Series14DiasViewModel: ObservableObject
+protocol SeriesHistoricasViewModel: ObservableObject
 {
     func getSeries14Dias() async
 }
 
 @MainActor
-final class Series14DiasViewModelImpl: Series14DiasViewModel
+final class SeriesHistoricasViewModelImpl: SeriesHistoricasViewModel
 {
     enum State
     {

@@ -48,12 +48,12 @@ struct ContentView: View
                     Image(systemName: "list.dash")
                     Text("Países")
                 })
-            WhatsNew()
+            GraficoView()
                 .tabItem({
                     Image(systemName: "chart.bar.xaxis")
                     Text("Gráficos")
                 })
-            OnboardingView()
+            ArtigoView()
                 .tabItem({
                     Image(systemName: "newspaper")
                     Text("Notícias")
