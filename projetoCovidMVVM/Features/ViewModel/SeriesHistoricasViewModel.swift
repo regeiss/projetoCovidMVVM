@@ -47,7 +47,7 @@ final class SeriesHistoricasViewModelImpl: SeriesHistoricasViewModel
         let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
         logger.trace("Iniciando fetch")
         
-        let result = await service.getSeries14dias()
+        let result = await service.getSerieHistorica()
         switch result
         {
         case .success(let data):

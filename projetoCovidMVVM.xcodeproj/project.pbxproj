@@ -32,7 +32,6 @@
 		E16160D629C88DF80081813F /* GraficoMundialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160D529C88DF80081813F /* GraficoMundialView.swift */; };
 		E16160D829C925EE0081813F /* MundialSeriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160D729C925EE0081813F /* MundialSeriesModel.swift */; };
 		E16160DA29C931C50081813F /* SeriesHistoricasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160D929C931C50081813F /* SeriesHistoricasViewModel.swift */; };
-		E1730B3829E32FCF00A32099 /* SwiftNEW in Frameworks */ = {isa = PBXBuildFile; productRef = E1730B3729E32FCF00A32099 /* SwiftNEW */; };
 		E1730B3B29E3323500A32099 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B3A29E3323500A32099 /* WhatsNew.swift */; };
 		E1730B3E29E37A7A00A32099 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = E1730B3C29E372C400A32099 /* data.json */; };
 		E1730B4129E3861B00A32099 /* AppleCloudIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1730B4029E3861B00A32099 /* AppleCloudIdentifier.swift */; };
@@ -47,6 +46,8 @@
 		E19E1EED29EDC5C200A7D1B0 /* AjustesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E1EEC29EDC5C200A7D1B0 /* AjustesStruct.swift */; };
 		E19E1EEF29EDC6C900A7D1B0 /* AjustesMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E1EEE29EDC6C900A7D1B0 /* AjustesMail.swift */; };
 		E19E1EF129EDCBC000A7D1B0 /* Enums+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E1EF029EDCBC000A7D1B0 /* Enums+Extension.swift */; };
+		E19E1EF329EF5BD200A7D1B0 /* WhatsNewStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E1EF229EF5BD200A7D1B0 /* WhatsNewStruct.swift */; };
+		E19E1EF629EF606500A7D1B0 /* Drops in Frameworks */ = {isa = PBXBuildFile; productRef = E19E1EF529EF606500A7D1B0 /* Drops */; };
 		E19F52F429D0BCEB00146465 /* SeriesHistoricasPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52F329D0BCEB00146465 /* SeriesHistoricasPublisher.swift */; };
 		E19F52F629D10E8500146465 /* ErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52F529D10E8500146465 /* ErrorEnum.swift */; };
 		E19F52F929D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F52F729D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift */; };
@@ -121,6 +122,7 @@
 		E19E1EEC29EDC5C200A7D1B0 /* AjustesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustesStruct.swift; sourceTree = "<group>"; };
 		E19E1EEE29EDC6C900A7D1B0 /* AjustesMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustesMail.swift; sourceTree = "<group>"; };
 		E19E1EF029EDCBC000A7D1B0 /* Enums+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums+Extension.swift"; sourceTree = "<group>"; };
+		E19E1EF229EF5BD200A7D1B0 /* WhatsNewStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewStruct.swift; sourceTree = "<group>"; };
 		E19F52F329D0BCEB00146465 /* SeriesHistoricasPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesHistoricasPublisher.swift; sourceTree = "<group>"; };
 		E19F52F529D10E8500146465 /* ErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEnum.swift; sourceTree = "<group>"; };
 		E19F52F729D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeriesHistoricas+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -160,8 +162,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1730B3829E32FCF00A32099 /* SwiftNEW in Frameworks */,
 				E1730B4729E4D27000A32099 /* ConcentricOnboarding in Frameworks */,
+				E19E1EF629EF606500A7D1B0 /* Drops in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +314,7 @@
 			children = (
 				E1730B3C29E372C400A32099 /* data.json */,
 				E1730B3A29E3323500A32099 /* WhatsNew.swift */,
+				E19E1EF229EF5BD200A7D1B0 /* WhatsNewStruct.swift */,
 			);
 			path = WhatsNew;
 			sourceTree = "<group>";
@@ -487,8 +490,8 @@
 			);
 			name = projetoCovidMVVM;
 			packageProductDependencies = (
-				E1730B3729E32FCF00A32099 /* SwiftNEW */,
 				E1730B4629E4D27000A32099 /* ConcentricOnboarding */,
+				E19E1EF529EF606500A7D1B0 /* Drops */,
 			);
 			productName = projetoCovidMVVM;
 			productReference = E1099EFC2997D6CE00A098BF /* projetoCovidMVVM.app */;
@@ -519,8 +522,8 @@
 			);
 			mainGroup = E1099EF32997D6CE00A098BF;
 			packageReferences = (
-				E1730B3629E32FCF00A32099 /* XCRemoteSwiftPackageReference "SwiftNEWKit" */,
 				E1730B4529E4D27000A32099 /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */,
+				E19E1EF429EF606500A7D1B0 /* XCRemoteSwiftPackageReference "Drops" */,
 			);
 			productRefGroup = E1099EFD2997D6CE00A098BF /* Products */;
 			projectDirPath = "";
@@ -587,6 +590,7 @@
 				E1099F33299DB45100A098BF /* COVIDEndpoint.swift in Sources */,
 				E1C5390A29B8093E00707035 /* ArtigosViewModel.swift in Sources */,
 				E1099F1E2997DC5000A098BF /* NetworkService.swift in Sources */,
+				E19E1EF329EF5BD200A7D1B0 /* WhatsNewStruct.swift in Sources */,
 				E1099F1C2997DB7D00A098BF /* MundialModel.swift in Sources */,
 				E1099F26299A7ACA00A098BF /* LoadingView.swift in Sources */,
 				E1A7FA2629A98B86006A4B97 /* LinhaDetalheView.swift in Sources */,
@@ -817,14 +821,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E1730B3629E32FCF00A32099 /* XCRemoteSwiftPackageReference "SwiftNEWKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/1998code/SwiftNEWKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		E1730B4529E4D27000A32099 /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/ConcentricOnboarding.git";
@@ -833,18 +829,26 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		E19E1EF429EF606500A7D1B0 /* XCRemoteSwiftPackageReference "Drops" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/1998code/Drops.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E1730B3729E32FCF00A32099 /* SwiftNEW */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E1730B3629E32FCF00A32099 /* XCRemoteSwiftPackageReference "SwiftNEWKit" */;
-			productName = SwiftNEW;
-		};
 		E1730B4629E4D27000A32099 /* ConcentricOnboarding */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E1730B4529E4D27000A32099 /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */;
 			productName = ConcentricOnboarding;
+		};
+		E19E1EF529EF606500A7D1B0 /* Drops */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E19E1EF429EF606500A7D1B0 /* XCRemoteSwiftPackageReference "Drops" */;
+			productName = Drops;
 		};
 /* End XCSwiftPackageProductDependency section */
 

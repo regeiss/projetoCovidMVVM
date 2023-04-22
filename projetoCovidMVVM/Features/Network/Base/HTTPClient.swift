@@ -11,7 +11,7 @@ protocol HTTPClientProtocol
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
 }
 
-class HTTPClient: NSObject //: HTTPClientProtocol
+class HTTPClient: NSObject 
 {
     private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -31,27 +31,13 @@ class HTTPClient: NSObject //: HTTPClientProtocol
         urlComponents.path = endpoint.path
     
         if endpoint.host == "newsapi.org"
-        {   
-            //urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b")]
+        {
             urlComponents.queryItems = [URLQueryItem(name: "q", value: "COVID")]
-            //urlComponents.queryItems?.append(URLQueryItem(name: "q", value: "COVID"))
-            //urlComponents.queryItems?.append(URLQueryItem(name: "apiKey", value: "26995ba0201c407da84ab37262254c9b"))
-            
         }
         
         if endpoint.host == "disease.sh"
         {
-            switch endpoint.series
-            {
-            case 14:
-                urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "14"))
-            case 30:
-                urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "30"))
-            case 90:
-                urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "90"))
-            default:
-                urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "all"))
-            }
+            urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "90"))
         }
         
         print(urlComponents.url as Any)
@@ -72,7 +58,6 @@ class HTTPClient: NSObject //: HTTPClientProtocol
         
         do 
         {
-            //var session = URLSession.shared
             let (data, response) = try await session.data(for: request, delegate: nil)
             guard let response = response as? HTTPURLResponse 
             else 
@@ -92,17 +77,17 @@ class HTTPClient: NSObject //: HTTPClientProtocol
                         return .failure(.decode)
                     }
  
-                    print("Decode com sucesso")
-                    print(decodedResponse)
-                    //Important
-                    // Calling this method on the session returned by the shared method has no effect.
-                    //session.finishTasksAndInvalidate(self)
+//                    print("Decode com sucesso")
+//                    print(decodedResponse)
+                    session.finishTasksAndInvalidate()
                     return .success(decodedResponse)
 
                 case 401:
+                    session.finishTasksAndInvalidate()
                     return .failure(.unauthorized)
 
                 default:
+                    session.finishTasksAndInvalidate()
                     return .failure(.unexpectedStatusCode)
             }
         } 
@@ -118,9 +103,9 @@ extension HTTPClient: URLSessionTaskDelegate
     public func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge,
             completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
     {
-        print("in delegate" )
         if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodDefault ||
-            challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic {
+            challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic
+        {
             
             let credential = URLCredential(user: self.basicAuthUserName,
                                            password: self.basicAuthPassword,

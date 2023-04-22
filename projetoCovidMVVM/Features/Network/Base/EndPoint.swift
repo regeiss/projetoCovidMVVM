@@ -21,7 +21,6 @@ protocol Endpoint
     var method: RequestMethod { get }
     var header: [String: String]? { get }
     var body: [String: String]? { get }
-    var series: Int { get }
 }
 
 extension Endpoint

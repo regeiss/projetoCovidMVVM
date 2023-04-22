@@ -132,7 +132,7 @@ public struct AppVersionRow: View
     ///   - imageName: The icon for the app version row. The default is `info.circle`.
     ///   - title: The tile for the app version row. The default is `App version`.
     ///   - version: The version of your app.
-    public init(imageName: String = "info.circle", title: String = "App version", version: String, addOverlay: Bool = true)
+    public init(imageName: String = "info.circle", title: String = "Versão do app", version: String, addOverlay: Bool = true)
     {
         self.imageName = imageName
         self.title = title
@@ -184,15 +184,6 @@ public struct SettingsToggleRow: View
         Toggle(isOn: $value, label: { // 1
             Label("title", systemImage: "gear") // 2
         })
-//        {
-//            Image(systemName: imageName)
-//                .font(.headline)
-//                .frame(minWidth: 25, alignment: .leading)
-//                .accessibility(hidden: true)
-//
-//            Text(title)
-//                .font(type: .poppins, weight: .regular, style: .body)
-//        }
         .padding(.vertical, 1)
         .toggleStyle(SwitchToggleStyle(tint: .accentColor))
         .settingsBackground(addOverlay: addOverlay)

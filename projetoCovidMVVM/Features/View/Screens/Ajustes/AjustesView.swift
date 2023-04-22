@@ -6,47 +6,49 @@
 //
 
 import SwiftUI
-import SwiftVB
 
 struct AjustesView: View
 {
+    @State var ligado: Bool = false
+    
     var body: some View
     {
-        @State var ligado: Bool = false
         let version = Bundle.version + Bundle.build + Bundle.versionBuild
         
-        NavigationView
+        VStack(alignment: .leading)
         {
-            List
+            NavigationView
             {
-                Section(header: Text("mm"))
-                {
-                    //AboutRow(title: "Love the game? share!", accessibilityTitle: "Love the game? share!")
-                    SettingsRow(imageName: "square.and.arrow.up", title: "Share1", addOverlay: false)
-//                    SettingsActionRow(imageName: "square.and.arrow.up", title: "Share", addOverlay: false)
-//                    {
-//                        // Add share action here
-//                    }
+            Form
+            {
+                    Section(header: Text("Seção"))
+                    {
+                        //AboutRow(title: "Love the game? share!", accessibilityTitle: "Love the game? share!")
+                        SettingsRow(imageName: "square.and.arrow.up", title: "Compartilhe", addOverlay: false, showDisclosure: false)
+                    }
+                    
+                    Section(header: Text("Seção"))
+                    {
+                        SettingsNavigationRow(imageName: "rectangle.3.group.fill", title: "Onboarding", addOverlay: false, destination: OnboardingView())
+                        SettingsNavigationRow(imageName: "newspaper", title: "Novidades", addOverlay: false, destination: WhatsNew())
+                        WriteReviewRow(appURL: "https://apps.apple.com/us/app/gradient-game/id1479784361", addOverlay: false)
+                        TwitterRow(title: "Tweet about it", twitterAppURL: "twitter://user?screen_name=gradientsgame", twitterWebURL: "https://www.twitter.com/gradientsgame", addOverlay: false)
+                        SettingsToggleRow(imageName: "gear", title: "Teste", value: $ligado, addOverlay: false)
+                    }
+                    
+                    Section(header: Text("Seção"))
+                    {
+                        AppVersionRow(version: version, addOverlay: false)
+                    }
                 }
-                
-                Section
-                {
-                    SettingsNavigationRow(imageName: "rectangle.3.group.fill", title: "Onboarding", addOverlay: false, destination: OnboardingView())
-                    SettingsNavigationRow(imageName: "newspaper", title: "What's new", addOverlay: false, destination: WhatsNew())
-                    WriteReviewRow(appURL: "https://apps.apple.com/us/app/gradient-game/id1479784361", addOverlay: false)
-                    TwitterRow(title: "Tweet about it", twitterAppURL: "twitter://user?screen_name=gradientsgame", twitterWebURL: "https://www.twitter.com/gradientsgame", addOverlay: false)
-                    SettingsToggleRow(imageName: "gear", title: "Teste", value: $ligado, addOverlay: false)
-                }
-                
-                Section
-                {
-                    AppVersionRow(version: version, addOverlay: false)
-                }
+                .listStyle(.insetGrouped)
+                //.accentColor(.black)
+                .navigationTitle("Ajustes")
+                .navigationBarHidden(true)
+                Spacer()
             }
-            .listStyle(.insetGrouped)
-            .accentColor(.black)
-            .navigationTitle("Ajustes")
         }
+        
     }
 }
 
