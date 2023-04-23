@@ -27,7 +27,8 @@ struct MundialPainelDetalheCasosView: View
 {
     var covidData: MundialModel
     var defaultLang: String?
-    var localeIdentifier: String {
+    var localeIdentifier: String
+    {
         defaultLang!.replacingOccurrences(of: "-", with: "_")
     }
     
@@ -42,16 +43,20 @@ struct MundialPainelDetalheCasosView: View
     @State var dailyGrowth: String = "N/A"
     @State var fourteenGrowth: String = "N/A"
     
-    var period: String {
-        switch loadingPeriod {
+    var period: String
+    {
+        switch loadingPeriod
+        {
         case .week: return "in the past week"
         case .month: return "in the past month"
         case .threeMonth: return "in the past three months"
         }
     }
     
-    var days: Int {
-        switch loadingPeriod {
+    var days: Int
+    {
+        switch loadingPeriod
+        {
         case .week: return 7
         case .month: return 30
         case .threeMonth: return 90
@@ -152,12 +157,11 @@ struct MundialPainelDetalheCasosView: View
                             .frame(height: 2)
                     }
                 }
-                VStack{
+                VStack
+                {
                     GraficoMundialView(loadingPeriod: $loadingPeriod, dataCategory: .constant(.cases), cumulativeOrNew: $cumulativeOrNew, logOrValue: $logOrValue,
                                        covidData: covidData)
                     .frame(height: 130)
-                    //                .padding(.top, 30)
-                    //                .padding(.bottom, 27)
                 }
                 
                 HStack
@@ -201,6 +205,14 @@ struct MundialPainelDetalheCasosView: View
         }
         .padding()
         .background(LinearGradient(gradient: Gradient(colors: [Color(.systemBackground),Color(.systemBackground), Color(.systemGray6)]), startPoint: .top, endPoint: .bottom))
+        .onAppear()
+        {
+            total = covidData.cases.numberFormat()
+            new = covidData.todayCases.numberFormat()
+            dailyGrowth = "N/A"
+            fourteenGrowth = "N/A"
+
+        }
         
     }
 }
@@ -239,35 +251,6 @@ struct MundialPainelDetalheMortesView: View
         case .threeMonth: return 90
         }
     }
-    
-    //        func updateView(num: Double?=nil, day: Double?=nil)
-    //        {
-    //            if let _ = num, let safe_day = day {
-    //                let modifiedDate = Calendar.current.date(byAdding: .day, value: -days + Int (safe_day), to: Date())!
-    //                let dateFormatter = DateFormatter()
-    //                dateFormatter.dateStyle = .medium
-    //                dateFormatter.timeStyle = .none
-    //                dateFormatter.locale = Locale(identifier: localeIdentifier)
-    //                updated = dateFormatter.string(from: modifiedDate)
-    //
-    //                total = String(covidData.getTodayCases(offset: days-Int(safe_day)))
-    //                new = String(covidData.getTodayNewCases(offset: days-Int(safe_day)))
-    //                dailyGrowth = covidData.getDailyGrowthRate(offset: days-Int(safe_day))
-    //                fourteenGrowth = covidData.get14DaysGrowthRate(offset: days-Int(safe_day))
-    //                return
-    //            }
-    //            let dateFormatter = DateFormatter()
-    //            dateFormatter.dateStyle = .medium
-    //            dateFormatter.timeStyle = .none
-    //            dateFormatter.locale = Locale(identifier: localeIdentifier)
-    //            updated = dateFormatter.string(from: Date())
-    //
-    //            total = String(covidData.getTodayCases())
-    //            new = String(covidData.getTodayNewCases())
-    //            dailyGrowth = covidData.getDailyGrowthRate()
-    //            fourteenGrowth = covidData.get14DaysGrowthRate()
-    //        }
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -391,6 +374,14 @@ struct MundialPainelDetalheMortesView: View
         }
         .padding()
         .background(LinearGradient(gradient: Gradient(colors: [Color(.systemBackground),Color(.systemBackground), Color(.systemGray6)]), startPoint: .top, endPoint: .bottom))
+        .onAppear()
+        {
+            total = covidData.deaths.numberFormat()
+            new = covidData.deaths.numberFormat()
+            dailyGrowth = "N/A"
+            fourteenGrowth = "N/A"
+
+        }
         
     }
 }
@@ -429,35 +420,6 @@ struct MundialPainelDetalheRecuperadosView: View
         case .threeMonth: return 90
         }
     }
-    
-    //        func updateView(num: Double?=nil, day: Double?=nil)
-    //        {
-    //            if let _ = num, let safe_day = day {
-    //                let modifiedDate = Calendar.current.date(byAdding: .day, value: -days + Int (safe_day), to: Date())!
-    //                let dateFormatter = DateFormatter()
-    //                dateFormatter.dateStyle = .medium
-    //                dateFormatter.timeStyle = .none
-    //                dateFormatter.locale = Locale(identifier: localeIdentifier)
-    //                updated = dateFormatter.string(from: modifiedDate)
-    //
-    //                total = String(covidData.getTodayCases(offset: days-Int(safe_day)))
-    //                new = String(covidData.getTodayNewCases(offset: days-Int(safe_day)))
-    //                dailyGrowth = covidData.getDailyGrowthRate(offset: days-Int(safe_day))
-    //                fourteenGrowth = covidData.get14DaysGrowthRate(offset: days-Int(safe_day))
-    //                return
-    //            }
-    //            let dateFormatter = DateFormatter()
-    //            dateFormatter.dateStyle = .medium
-    //            dateFormatter.timeStyle = .none
-    //            dateFormatter.locale = Locale(identifier: localeIdentifier)
-    //            updated = dateFormatter.string(from: Date())
-    //
-    //            total = String(covidData.getTodayCases())
-    //            new = String(covidData.getTodayNewCases())
-    //            dailyGrowth = covidData.getDailyGrowthRate()
-    //            fourteenGrowth = covidData.get14DaysGrowthRate()
-    //        }
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -581,6 +543,13 @@ struct MundialPainelDetalheRecuperadosView: View
         }
         .padding()
         .background(LinearGradient(gradient: Gradient(colors: [Color(.systemBackground),Color(.systemBackground), Color(.systemGray6)]), startPoint: .top, endPoint: .bottom))
+        .onAppear()
+        {
+            total = covidData.recovered.numberFormat()
+            new = covidData.todayRecovered.numberFormat()
+            dailyGrowth = "N/A"
+            fourteenGrowth = "N/A"
+        }
         
     }
 }

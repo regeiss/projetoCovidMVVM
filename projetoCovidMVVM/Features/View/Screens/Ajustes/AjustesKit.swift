@@ -182,7 +182,7 @@ public struct SettingsToggleRow: View
     public var body: some View
     {
         Toggle(isOn: $value, label: { // 1
-            Label("title", systemImage: "gear") // 2
+            Label(title, systemImage: "gear") // 2
         })
         .padding(.vertical, 1)
         .toggleStyle(SwitchToggleStyle(tint: .accentColor))
@@ -211,7 +211,7 @@ extension View
             .accessibility(hidden: true)
     }
     
-    func settingsBackground(cornerRadius: CGFloat = 16, innerPadding: CGFloat = 1, outerBottomPadding: CGFloat = 1, addOverlay: Bool = true) -> some View
+    func settingsBackground(cornerRadius: CGFloat = 16, innerPadding: CGFloat = 1, outerBottomPadding: CGFloat = 1, addOverlay: Bool = false) -> some View
     {
         let gradient = Gradient(colors: [.accentColor, .accentColor.opacity(0.5)])
         
@@ -224,6 +224,6 @@ extension View
             .overlay(addOverlay ? RoundedRectangle(cornerRadius: cornerRadius)
             .stroke(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom), lineWidth: 1) : nil)
             .padding(.bottom, outerBottomPadding)
-            .padding(.horizontal)
+           // .padding(.horizontal)
     }
 }

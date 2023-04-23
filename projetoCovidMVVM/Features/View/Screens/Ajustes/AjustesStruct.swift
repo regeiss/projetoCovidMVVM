@@ -90,7 +90,7 @@ public struct SettingsRow: View
     
     public var body: some View
     {
-        HStack(spacing: 8)
+        HStack(spacing: 2)
         {
             Image(systemName: imageName)
                 .customIconImage()

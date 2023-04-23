@@ -79,15 +79,15 @@ class HTTPClient: NSObject
  
 //                    print("Decode com sucesso")
 //                    print(decodedResponse)
-                    session.finishTasksAndInvalidate()
+                      //session.finishTasksAndInvalidate()
                     return .success(decodedResponse)
 
                 case 401:
-                    session.finishTasksAndInvalidate()
+                    //session.finishTasksAndInvalidate()
                     return .failure(.unauthorized)
 
                 default:
-                    session.finishTasksAndInvalidate()
+                    //session.finishTasksAndInvalidate()
                     return .failure(.unexpectedStatusCode)
             }
         } 
