@@ -10,10 +10,10 @@ import SwiftUI
 struct MundialView: View
 {
     @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
-    @StateObject private var viewModel14dias = SeriesHistoricasViewModelImpl(service: NetworkService())
+    @StateObject private var viewModel90dias = SeriesHistoricasViewModelImpl(service: NetworkService())
     
     @State var mundialData: MundialModel?
-    @State var series14Data: MundialSeriesModel?
+    @State var series90Data: MundialSeriesModel?
     @State private var goToSettings = false
     
     var body: some View
@@ -43,7 +43,7 @@ struct MundialView: View
                 default: BaseView()
                 }
             }.task { await viewModel.getAllEstatisticas()
-                     await viewModel14dias.getSeries14Dias()
+                     await viewModel90dias.getSeries90Dias()
             }
              .alert("Error", isPresented: ($viewModel.hasError), presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                     { Task { await viewModel.getAllEstatisticas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}

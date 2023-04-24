@@ -11,7 +11,8 @@ import CoreData
 
 protocol SeriesHistoricasViewModel: ObservableObject
 {
-    func getSeries14Dias() async
+    func getSeries90Dias() async
+    //func getDailyGrowthRate(offset: Int) async -> String
 }
 
 @MainActor
@@ -25,7 +26,6 @@ final class SeriesHistoricasViewModelImpl: SeriesHistoricasViewModel
         case failed(error: Error)
     }
 
-    //@Published private(set) var series: [MundialSeriesModel] = []
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
     @Published var carregando: Bool = false
@@ -38,7 +38,7 @@ final class SeriesHistoricasViewModelImpl: SeriesHistoricasViewModel
         self.service = service
     }
     
-    func getSeries14Dias() async
+    func getSeries90Dias() async
     {
         self.state = .loading
         self.hasError = false
@@ -65,25 +65,4 @@ final class SeriesHistoricasViewModelImpl: SeriesHistoricasViewModel
         
         logger.trace("Finalizando fetch")
     }
-    
-
-//    func getFatality(offset: Int = 1) -> String {
-//        let fatality = Float (self.getTodayDeaths(offset: offset)) / Float (self.getTodayCases(offset: offset)) * Float (100)
-//        return String(format: "%.2f", fatality) + "%"
-//    }
-//
-//    func getDailyGrowthRate(offset: Int = 1) -> String {
-//        let dailyGrowthRate = Float (self.getTodayNewCases(offset: offset)) / Float(self.getTodayNewCases(offset: offset+1))  * Float (100)
-//        return String(format: "%.2f", dailyGrowthRate) + "%"
-//    }
-//
-//    func get14DaysGrowthRate(offset: Int = 1) -> String {
-//        if CovidDataModel.dataLength-offset-26 > 0 {
-//            let growth = self.cases![CovidDataModel.dataLength-(offset+13)...CovidDataModel.dataLength-offset].reduce(0, +)
-//            let base = self.cases![CovidDataModel.dataLength-(offset+28)...CovidDataModel.dataLength-(offset+15)].reduce(0, +)
-//            let fourteenDaysGrowthRate = Float (growth) / Float(base)  * Float (100)
-//            return String(format: "%.2f", fourteenDaysGrowthRate) + "%"
-//        }
-//        return "N/A"
-//    }
 }

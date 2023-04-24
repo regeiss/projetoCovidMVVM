@@ -67,7 +67,6 @@ struct MundialPainelDetalheCasosView: View
     {
         VStack(alignment: .leading)
         {
-            
             VStack(alignment: .leading)
             {
                 VStack(alignment: .leading)
@@ -382,7 +381,6 @@ struct MundialPainelDetalheMortesView: View
             fourteenGrowth = "N/A"
 
         }
-        
     }
 }
 
