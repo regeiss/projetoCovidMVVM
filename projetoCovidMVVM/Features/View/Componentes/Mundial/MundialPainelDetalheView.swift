@@ -210,10 +210,35 @@ struct MundialPainelDetalheCasosView: View
             new = covidData.todayCases.numberFormat()
             dailyGrowth = "N/A"
             fourteenGrowth = "N/A"
-
         }
-        
     }
+    //    func getFatality(offset: Int = 1) -> String {
+    //        let fatality = Float (self.getTodayDeaths(offset: offset)) / Float (self.getTodayCases(offset: offset)) * Float (100)
+    //        return String(format: "%.2f", fatality) + "%"
+    //    }
+    
+    //
+//        func getTodayCases(offset: Int) -> String
+//        {
+//            let date = self.covidData[active].first(where: {$0 == ""})
+//            return date
+//        }
+//        
+//        func getDailyGrowthRate(offset: Int)  -> String
+//        {
+//            let dailyGrowthRate = Float (self.getTodayNewCases(offset: offset)) / Float(self.getTodayNewCases(offset: offset+1))  * Float (100)
+//            return String(format: "%.2f", dailyGrowthRate) + "%"
+//        }
+    //
+    //    func get14DaysGrowthRate(offset: Int = 1) -> String {
+    //        if CovidDataModel.dataLength-offset-26 > 0 {
+    //            let growth = self.cases![CovidDataModel.dataLength-(offset+13)...CovidDataModel.dataLength-offset].reduce(0, +)
+    //            let base = self.cases![CovidDataModel.dataLength-(offset+28)...CovidDataModel.dataLength-(offset+15)].reduce(0, +)
+    //            let fourteenDaysGrowthRate = Float (growth) / Float(base)  * Float (100)
+    //            return String(format: "%.2f", fourteenDaysGrowthRate) + "%"
+    //        }
+    //        return "N/A"
+    //    }
 }
 
 struct MundialPainelDetalheMortesView: View

@@ -164,10 +164,13 @@ extension Double
     }
 }
 
-extension Optional where Wrapped == String {
+extension Optional where Wrapped == String
+{
     
-    public var defaulted: String {
-        if let uSelf = self {
+    public var defaulted: String
+    {
+        if let uSelf = self
+        {
             return uSelf
         }
         return "---"
