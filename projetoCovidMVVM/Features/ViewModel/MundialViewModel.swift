@@ -20,11 +20,11 @@ final class MundialViewModelImpl: MundialViewModel
     {
         case na
         case loading
-        case success(data: MundialModel)
+        case success(data: EstatisticasMundialModel)
         case failed(error: Error)
     }
 
-    @Published private(set) var mundial: [MundialModel] = []
+    @Published private(set) var mundial: [EstatisticasMundialModel] = []
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
     @Published var carregando: Bool = false

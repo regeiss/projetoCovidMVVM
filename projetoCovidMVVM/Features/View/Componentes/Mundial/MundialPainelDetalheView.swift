@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MundialPainelDetalheView: View
 {
-    var mundialData: MundialModel
+    var mundialData: EstatisticasMundialModel
     var updated: String
     
     var body: some View
@@ -25,7 +25,7 @@ struct MundialPainelDetalheView: View
 
 struct MundialPainelDetalheCasosView: View
 {
-    var covidData: MundialModel
+    var covidData: EstatisticasMundialModel
     var defaultLang: String?
     var localeIdentifier: String
     {
@@ -223,7 +223,7 @@ struct MundialPainelDetalheCasosView: View
 //            let date = self.covidData[active].first(where: {$0 == ""})
 //            return date
 //        }
-//        
+//
 //        func getDailyGrowthRate(offset: Int)  -> String
 //        {
 //            let dailyGrowthRate = Float (self.getTodayNewCases(offset: offset)) / Float(self.getTodayNewCases(offset: offset+1))  * Float (100)
@@ -243,7 +243,7 @@ struct MundialPainelDetalheCasosView: View
 
 struct MundialPainelDetalheMortesView: View
 {
-    var covidData: MundialModel
+    var covidData: EstatisticasMundialModel
     var defaultLang: String?
     var localeIdentifier: String {
         defaultLang!.replacingOccurrences(of: "-", with: "_")
@@ -411,7 +411,7 @@ struct MundialPainelDetalheMortesView: View
 
 struct MundialPainelDetalheRecuperadosView: View
 {
-    var covidData: MundialModel
+    var covidData: EstatisticasMundialModel
     var defaultLang: String?
     var localeIdentifier: String {
         defaultLang!.replacingOccurrences(of: "-", with: "_")

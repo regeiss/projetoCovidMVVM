@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MundialModel: Codable, Hashable
+struct EstatisticasMundialModel: Codable, Hashable
 {
     init(updated: Double, cases: Int, todayCases: Int, deaths: Int, recovered: Int, todayRecovered: Int, active: Int, critical: Int, casesPerOneMillion: Int,
         deathsPerOneMillion: Double, tests: Int, testsPerOneMillion: Double, population: Int, oneCasePerPeople: Int, oneDeathPerPeople: Int, oneTestPerPeople: Int,
@@ -57,7 +57,7 @@ struct MundialModel: Codable, Hashable
     let affectedCountries: Int
 }
 
-extension MundialModel {
+extension EstatisticasMundialModel {
     
     func getTodayCases(offset: Int = 1) -> Int {
         return self.cases

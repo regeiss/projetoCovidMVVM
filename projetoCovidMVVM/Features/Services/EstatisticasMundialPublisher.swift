@@ -1,8 +1,8 @@
 //
-//  SeriesHistoricasPublisher.swift
+//  EstatisticasMundialPublisher.swift
 //  projetoCovidMVVM
 //
-//  Created by Roberto Edgar Geiss on 26/03/23.
+//  Created by Roberto Edgar Geiss on 25/04/23.
 //
 
 import Foundation
@@ -10,8 +10,7 @@ import CoreData
 import Combine
 import OSLog
 
-
-class SeriesHistoricasPublisher: NSObject
+class EstatisticasMundialPublisher
 {
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
     
@@ -22,33 +21,11 @@ class SeriesHistoricasPublisher: NSObject
         return context
     }()
     
-    func add(series: MundialSeriesModel)
+    func add(mundial: EstatisticasMundialModel)
     {
         deleteAll()
         
-        series.cases.forEach({ (casos) in
-            let newSerie = SeriesHistoricas(context: publisherContext)
-            newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
-            newSerie.qtd = Int32(casos.value)
-            newSerie.tipo = "casos14"
-            save()
-        })
-        
-        series.deaths.forEach({ (casos) in
-            let newSerie = SeriesHistoricas(context: publisherContext)
-            newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
-            newSerie.qtd = Int32(casos.value)
-            newSerie.tipo = "mortes"
-            save()
-        })
-        
-        series.recovered.forEach({ (casos) in
-            let newSerie = SeriesHistoricas(context: publisherContext)
-            newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
-            newSerie.qtd = Int32(casos.value)
-            newSerie.tipo = "recuperados"
-            save()
-        })
+ 
     }
     
     func save()
@@ -66,10 +43,39 @@ class SeriesHistoricasPublisher: NSObject
         }
     }
     
+    private func newBatchInsertRequest(with estatisticas: [EstatisticasMundial]) -> NSBatchInsertRequest
+    {
+        // 1
+        var index = 0
+        let total = estatisticas.count
+        
+        // 2
+        let batchInsert = NSBatchInsertRequest(
+            entity: EstatisticasMundial.entity()) { (managedObject: NSManagedObject) -> Bool in
+                // 3
+                guard index < total else { return true }
+                
+                if let estatisticas = managedObject as? EstatisticasMundial
+                {
+                    // 4
+                    let data = estatisticas[index]
+                    estatisticas.updated =
+                    estatisticas.radiatedEnergy = data.radiatedEnergy
+                    estatisticas.impactEnergy = data.impactEnergy
+ 
+                }
+                
+                // 5
+                index += 1
+                return false
+            }
+        return batchInsert
+    }
+    
     func deleteAll()
     {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-        fetchRequest = NSFetchRequest(entityName: "SeriesHistoricas")
+        fetchRequest = NSFetchRequest(entityName: "Mundial")
 
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         deleteRequest.resultType = .resultTypeObjectIDs
@@ -93,5 +99,6 @@ class SeriesHistoricasPublisher: NSObject
         }
     }
 }
+
 
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MundialPainelView: View
 {
-    var mundialData: MundialModel
+    var mundialData: EstatisticasMundialModel
     var updated: String
     
     var body: some View

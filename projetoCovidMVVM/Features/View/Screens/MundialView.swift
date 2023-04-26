@@ -12,7 +12,7 @@ struct MundialView: View
     @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
     @StateObject private var viewModel90dias = SeriesHistoricasViewModelImpl(service: NetworkService())
     
-    @State var mundialData: MundialModel?
+    @State var mundialData: EstatisticasMundialModel?
     @State var series90Data: MundialSeriesModel?
     @State private var goToSettings = false
     

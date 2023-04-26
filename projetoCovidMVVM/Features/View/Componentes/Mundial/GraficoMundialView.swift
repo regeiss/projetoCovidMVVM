@@ -15,7 +15,7 @@ struct GraficoMundialView: View
     @Binding var cumulativeOrNew: CumulativeOrNew
     @Binding var logOrValue: LogOrValue
     
-    var covidData: MundialModel
+    var covidData: EstatisticasMundialModel
     
     var title: String
     {
