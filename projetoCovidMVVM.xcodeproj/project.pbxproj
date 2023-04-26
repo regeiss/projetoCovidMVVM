@@ -27,7 +27,9 @@
 		E1099F33299DB45100A098BF /* COVIDEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F32299DB45100A098BF /* COVIDEndpoint.swift */; };
 		E1099F3529A1041700A098BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1099F3429A1041700A098BF /* Extensions.swift */; };
 		E128227D29F89A2200A37CA4 /* EstatisticasMundialPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128227C29F89A2200A37CA4 /* EstatisticasMundialPublisher.swift */; };
-		E151955A29CE646800F8C382 /* CovidDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E151955829CE646800F8C382 /* CovidDataModel.xcdatamodeld */; };
+		E128228029F9D9F800A37CA4 /* EstatisticasMundial+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128227E29F9D9F800A37CA4 /* EstatisticasMundial+CoreDataClass.swift */; };
+		E128228129F9D9F800A37CA4 /* EstatisticasMundial+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128227F29F9D9F800A37CA4 /* EstatisticasMundial+CoreDataProperties.swift */; };
+		E128228229F9DA7D00A37CA4 /* CovidDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E151955829CE646800F8C382 /* CovidDataModel.xcdatamodeld */; };
 		E151955C29CE68A800F8C382 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E151955B29CE68A800F8C382 /* Persistence.swift */; };
 		E16160D429C775710081813F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160D329C775710081813F /* Enums.swift */; };
 		E16160D629C88DF80081813F /* GraficoMundialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16160D529C88DF80081813F /* GraficoMundialView.swift */; };
@@ -104,6 +106,8 @@
 		E1099F32299DB45100A098BF /* COVIDEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVIDEndpoint.swift; sourceTree = "<group>"; };
 		E1099F3429A1041700A098BF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E128227C29F89A2200A37CA4 /* EstatisticasMundialPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstatisticasMundialPublisher.swift; sourceTree = "<group>"; };
+		E128227E29F9D9F800A37CA4 /* EstatisticasMundial+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EstatisticasMundial+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E128227F29F9D9F800A37CA4 /* EstatisticasMundial+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EstatisticasMundial+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E151955929CE646800F8C382 /* CovidDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CovidDataModel.xcdatamodel; sourceTree = "<group>"; };
 		E151955B29CE68A800F8C382 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E16160D329C775710081813F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 		E1099EF32997D6CE00A098BF = {
 			isa = PBXGroup;
 			children = (
+				E128227E29F9D9F800A37CA4 /* EstatisticasMundial+CoreDataClass.swift */,
+				E128227F29F9D9F800A37CA4 /* EstatisticasMundial+CoreDataProperties.swift */,
 				E1730B3D29E372EC00A32099 /* README.md */,
 				E19F52F729D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift */,
 				E19F52F829D1170B00146465 /* SeriesHistoricas+CoreDataProperties.swift */,
@@ -564,6 +570,7 @@
 				E1099F29299DB1BD00A098BF /* EndPoint.swift in Sources */,
 				E1730B4929E63C3F00A32099 /* OnboardingData.swift in Sources */,
 				E16160D629C88DF80081813F /* GraficoMundialView.swift in Sources */,
+				E128228229F9DA7D00A37CA4 /* CovidDataModel.xcdatamodeld in Sources */,
 				E1A7FA2E29AC2CDB006A4B97 /* Botao.swift in Sources */,
 				E1C5390F29B9562800707035 /* ArtigoViewStyle.swift in Sources */,
 				E1A7FA2129A837F8006A4B97 /* ListaPaisesViewModel.swift in Sources */,
@@ -581,6 +588,7 @@
 				E19F52F929D1170B00146465 /* SeriesHistoricas+CoreDataClass.swift in Sources */,
 				E19E1EF129EDCBC000A7D1B0 /* Enums+Extension.swift in Sources */,
 				E18762B329B1682B009B75F7 /* ContinenteModel.swift in Sources */,
+				E128228029F9D9F800A37CA4 /* EstatisticasMundial+CoreDataClass.swift in Sources */,
 				E1C5391129B958CE00707035 /* ArtigoPainelCompactoView.swift in Sources */,
 				E1C5391829BBA21800707035 /* ArtigoHeaderView.swift in Sources */,
 				E1C5393329C2218000707035 /* AjustesView.swift in Sources */,
@@ -603,6 +611,7 @@
 				E1C5392329BD30FE00707035 /* HeaderView.swift in Sources */,
 				E1099F2D299DB1E900A098BF /* HTTPMethod.swift in Sources */,
 				E1099F202997DE8D00A098BF /* APIConstants.swift in Sources */,
+				E128228129F9D9F800A37CA4 /* EstatisticasMundial+CoreDataProperties.swift in Sources */,
 				E1C5390D29B90AA900707035 /* ErroView.swift in Sources */,
 				E1C5392629BE418400707035 /* PaisPainelExtensoView.swift in Sources */,
 				E16160DA29C931C50081813F /* SeriesHistoricasViewModel.swift in Sources */,
@@ -620,7 +629,6 @@
 				E1A7FA2929A98D89006A4B97 /* BarraBuscaView.swift in Sources */,
 				E1099F162997D91200A098BF /* PaisListaView.swift in Sources */,
 				E1A7FA2C29AC27C9006A4B97 /* Formas.swift in Sources */,
-				E151955A29CE646800F8C382 /* CovidDataModel.xcdatamodeld in Sources */,
 				E16160D429C775710081813F /* Enums.swift in Sources */,
 				E18762B529B16CFA009B75F7 /* ContinenteViewModel.swift in Sources */,
 			);
