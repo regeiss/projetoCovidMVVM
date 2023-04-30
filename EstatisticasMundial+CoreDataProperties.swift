@@ -2,22 +2,21 @@
 //  EstatisticasMundial+CoreDataProperties.swift
 //  projetoCovidMVVM
 //
-//  Created by Roberto Edgar Geiss on 26/04/23.
+//  Created by Roberto Edgar Geiss on 27/04/23.
 //
 //
 
 import Foundation
 import CoreData
 
-extension EstatisticasMundial
-{
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<EstatisticasMundial>
-    {
+extension EstatisticasMundial {
+
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<EstatisticasMundial> {
         return NSFetchRequest<EstatisticasMundial>(entityName: "EstatisticasMundial")
     }
 
-    @NSManaged public var updatedDate: Date?
+    @NSManaged public var updatedDate: Int16
     @NSManaged public var cases: Int32
     @NSManaged public var deaths: Int32
     @NSManaged public var recovered: Int32
@@ -29,7 +28,6 @@ extension EstatisticasMundial
 
 }
 
-extension EstatisticasMundial : Identifiable
-{
+extension EstatisticasMundial : Identifiable {
 
 }

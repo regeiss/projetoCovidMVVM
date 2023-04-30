@@ -12,22 +12,23 @@ struct MundialView: View
     @StateObject private var viewModel = MundialViewModelImpl(service: NetworkService())
     @StateObject private var viewModel90dias = SeriesHistoricasViewModelImpl(service: NetworkService())
     
-    @State var mundialData: EstatisticasMundialModel?
-    @State var series90Data: MundialSeriesModel?
+//    @State var mundialData: EstatisticasMundialModel?
+//    @State var series90Data: MundialSeriesModel?
     @State private var goToSettings = false
     
     var body: some View
     {
         NavigationStack
         {
-            Group
-            {
+//            Group
+//            {
                 switch viewModel.state
                 {
                 case .loading:
                     LoadingView(text: "Buscando")
-                    
+
                 case .success(let data):
+                    
                     VStack
                     {
                         MundialPainelView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
@@ -43,17 +44,13 @@ struct MundialView: View
                 default: BaseView()
                 }
             }.task { await viewModel.getAllEstatisticas()
-                     await viewModel90dias.getSeries90Dias()
-            }
+                     await viewModel90dias.getSeries90Dias()}
              .alert("Error", isPresented: ($viewModel.hasError), presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
                     { Task { await viewModel.getAllEstatisticas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
              .navigationBarTitle("Dados COVID mundo")
-             .toolbar {
-                Button(role: .destructive, action: { goToSettings = true})
+             .toolbar { Button(role: .destructive, action: { goToSettings = true})
                  { Label("Settings", systemImage: "gearshape.fill").foregroundColor(.blue)}
-             }
-             .navigationDestination(isPresented: $goToSettings, destination: { AjustesView()})
-        }
+             }.navigationDestination(isPresented: $goToSettings, destination: { AjustesView()})
     }
+    //}
 }
-

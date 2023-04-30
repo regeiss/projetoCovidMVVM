@@ -22,4 +22,3 @@ struct LoadingView: View
         }
     }
 }
-

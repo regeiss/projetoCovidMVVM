@@ -21,12 +21,11 @@ class EstatisticasMundialPublisher
         return context
     }()
     
-    func add(mundial: EstatisticasMundialModel)
-    {
-        deleteAll()
-        
- 
-    }
+//    func add(mundial: EstatisticasMundialModel)
+//    {
+//        deleteAll()
+//
+//    }
     
     func save()
     {
@@ -43,39 +42,12 @@ class EstatisticasMundialPublisher
         }
     }
     
-    private func newBatchInsertRequest(with estatisticas: [EstatisticasMundial]) -> NSBatchInsertRequest
-    {
-        // 1
-        var index = 0
-        let total = estatisticas.count
-        
-        // 2
-        let batchInsert = NSBatchInsertRequest(
-            entity: EstatisticasMundial.entity()) { (managedObject: NSManagedObject) -> Bool in
-                // 3
-                guard index < total else { return true }
-                
-                if let estatisticas = managedObject as? EstatisticasMundial
-                {
-                    // 4
-                    let data = estatisticas[index]
-                    estatisticas.updated =
-                    estatisticas.radiatedEnergy = data.radiatedEnergy
-                    estatisticas.impactEnergy = data.impactEnergy
- 
-                }
-                
-                // 5
-                index += 1
-                return false
-            }
-        return batchInsert
-    }
+
     
     func deleteAll()
     {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-        fetchRequest = NSFetchRequest(entityName: "Mundial")
+        fetchRequest = NSFetchRequest(entityName: "EstatisticasMundial")
 
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         deleteRequest.resultType = .resultTypeObjectIDs
