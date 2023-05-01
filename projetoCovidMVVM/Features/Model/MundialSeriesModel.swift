@@ -9,24 +9,30 @@ import Foundation
 
 struct MundialSeriesModel: Codable
 {
+    static let dataLength = 91
+    
     let cases: [String: Int]
     let deaths: [String: Int]
     let recovered: [String: Int]
 }
 
-//extension MundialSeriesModel {
-//
-//    func getTodayCases(offset: Int = 1) -> Int {
-//        return self.cases
-//    }
-//
-//    func getTodayDeaths(offset: Int = 1) -> Int {
-//        return self.deaths
-//    }
-//
-//    func hasRecoveredData() -> Bool {
-//        return self.recovered != 0
-//    }
+extension MundialSeriesModel
+{
+
+    func getTodayCases(offset: Int = 1) -> [String: Int]
+    {
+        return self.cases
+    }
+
+    func getTodayDeaths(offset: Int = 1) -> [String: Int]
+    {
+        return self.deaths
+    }
+
+    func hasRecoveredData() -> Bool
+    {
+        return self.recovered.count != 0
+    }
 //
 //    func getTodayRecovered(offset: Int = 1) -> Int? {
 //        return self.recovered
@@ -59,4 +65,4 @@ struct MundialSeriesModel: Codable
 ////        }
 //        return "N/A"
 //    }
-//}
+}

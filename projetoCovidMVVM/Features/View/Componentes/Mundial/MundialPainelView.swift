@@ -34,7 +34,7 @@ struct MundialPainelView: View
                                 Text("Taxa cresc. diária")
                                     .font(.system(size: 14))
                                     .fontWeight(.light)
-                                Text(String(mundialData.activePerOneMillion).toNumberFormat())
+                                Text(String(mundialData.cases).toNumberFormat())
                                     .font(.system(size: 14))
                                     .fontWeight(.regular)
                             }
@@ -44,7 +44,7 @@ struct MundialPainelView: View
                                 Text("Taxa cresc. 14 dias")
                                     .font(.system(size: 14))
                                     .fontWeight(.light)
-                                Text(String(mundialData.casesPerOneMillion).toNumberFormat())
+                                Text(String(mundialData.deaths).toNumberFormat())
                                     .font(.system(size: 14))
                                     .fontWeight(.regular)
                             }
@@ -83,69 +83,46 @@ struct MundialPainelView: View
                 
                 HStack
                 {
-                    VStack
-                    {
-                        HStack
-                        {
-                            Text("Casos")
-                                .font(.system(size: 12))
-                                .fontWeight(.light)
-                                .lineLimit(1)
-                            Spacer()
-                            Text("\(mundialData.cases)")
-                                .font(.system(size: 12))
-                                .fontWeight(.light)
-                                .lineLimit(1)
-                        }
-                        Rectangle()
-                            .foregroundColor(Color("casesColor"))
-                            .frame(height: 2)
-                    }
-                    
-                    VStack
-                    {
-                        HStack
-                        {
-                            Text("Mortes")
-                                .font(.system(size: 12))
-                                .fontWeight(.light)
-                                .lineLimit(1)
-                            Spacer()
-                            Text("\(mundialData.deaths)")
-                                .font(.system(size: 12))
-                                .fontWeight(.light)
-                                .lineLimit(1)
-                        }
-                        Rectangle()
-                            .foregroundColor(Color("deathsColor"))
-                            .frame(height: 2)
-                    }
-                    
-                    VStack
-                    {
-                        HStack
-                        {
-                            Text("Recuperados")
-                                .font(.system(size: 12))
-                                .fontWeight(.light)
-                                .lineLimit(1)
-                            Spacer()
-                            
-                            Text("\(mundialData.recovered)")
-                                .font(.system(size: 12))
-                                .fontWeight(.light)
-                                .lineLimit(1)
-                            
-                        }
-                        Rectangle()
-                            .foregroundColor(Color("recoveredColor"))
-                            .frame(height: 2)
-                    }
+                    RodapeGeral(texto: "Casos", qtd: mundialData.cases, cor: "casesColor")
+                    RodapeGeral(texto: "Mortes", qtd: mundialData.deaths, cor: "deathsColor")
+                    RodapeGeral(texto: "Recuperados", qtd: mundialData.recovered, cor: "recoveredColor")
                 }
             }
             .padding()
-            Text(updated).font(.footnote)
+            
+            Text(updated)
+                .font(.footnote)
                 .padding()
+            
         }.placeCardStyle()
+    }
+}
+
+struct RodapeGeral: View
+{
+    var texto: String
+    var qtd: Int
+    var cor: String
+    
+    var body: some View
+    {
+        VStack()
+        {
+            HStack
+            {
+                Text(texto)
+                    .font(.system(size: 12))
+                    .fontWeight(.light)
+                    .lineLimit(1)
+                Spacer()
+                Text("\(qtd)")
+                    .font(.system(size: 12))
+                    .fontWeight(.light)
+                    .lineLimit(1)
+            }
+            Rectangle()
+                .foregroundColor(Color(cor))
+                .frame(height: 2)
+        }
     }
 }

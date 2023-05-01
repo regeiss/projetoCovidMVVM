@@ -10,7 +10,6 @@ import CoreData
 import Combine
 import OSLog
 
-
 class SeriesHistoricasPublisher: NSObject
 {
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
