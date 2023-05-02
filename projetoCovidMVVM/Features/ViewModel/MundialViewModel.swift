@@ -28,6 +28,7 @@ final class MundialViewModelImpl: MundialViewModel
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
     @Published var carregando: Bool = false
+    var publisher = EstatisticasMundialPublisher()
     
     private let service: NetworkService
 
@@ -51,6 +52,7 @@ final class MundialViewModelImpl: MundialViewModel
         case .success(let data):
             self.state = .success(data: data)
             self.carregando = false
+            publisher.add(mundial: data)
         case .failure(let error):
             self.state = .failed(error: error)
             self.hasError = true

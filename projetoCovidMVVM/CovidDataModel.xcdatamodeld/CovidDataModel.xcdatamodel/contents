@@ -7,10 +7,9 @@
         <attribute name="deaths" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="population" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="recovered" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="serieCasos" optional="YES" attributeType="Transformable" customClassName=".[Int]"/>
         <attribute name="todayCases" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="todayRecovered" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="updatedDate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedDate" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="SeriesHistoricas" representedClassName=".SeriesHistoricas" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

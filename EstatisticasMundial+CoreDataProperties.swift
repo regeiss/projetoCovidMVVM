@@ -24,8 +24,7 @@ extension EstatisticasMundial {
     @NSManaged public var recovered: Int32
     @NSManaged public var todayCases: Int32
     @NSManaged public var todayRecovered: Int32
-    @NSManaged public var updatedDate: Int16
-    @NSManaged public var serieCasos: [Int]
+    @NSManaged public var updatedDate: Double
 
 }
 

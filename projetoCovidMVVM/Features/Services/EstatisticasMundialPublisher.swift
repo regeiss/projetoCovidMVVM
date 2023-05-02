@@ -21,11 +21,16 @@ class EstatisticasMundialPublisher
         return context
     }()
     
-//    func add(mundial: EstatisticasMundialModel)
-//    {
-//        deleteAll()
-//
-//    }
+    func add(mundial: EstatisticasMundialModel)
+    {
+        deleteAll()
+
+        let newMundial = EstatisticasMundial(context: publisherContext)
+        newMundial.updatedDate = mundial.updated
+        newMundial.active = Int32(mundial.active)
+        newMundial.cases = Int32(mundial.cases)
+        save()
+    }
     
     func save()
     {
@@ -41,8 +46,6 @@ class EstatisticasMundialPublisher
             }
         }
     }
-    
-
     
     func deleteAll()
     {
