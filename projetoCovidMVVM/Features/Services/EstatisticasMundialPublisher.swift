@@ -27,8 +27,26 @@ class EstatisticasMundialPublisher
 
         let newMundial = EstatisticasMundial(context: publisherContext)
         newMundial.updatedDate = mundial.updated
-        newMundial.active = Int32(mundial.active)
-        newMundial.cases = Int32(mundial.cases)
+        newMundial.cases = mundial.cases
+        newMundial.todayCases = mundial.todayCases
+        newMundial.deaths = mundial.deaths
+        newMundial.recovered = mundial.recovered
+        newMundial.todayRecovered = mundial.todayRecovered
+        newMundial.active = mundial.active
+        newMundial.critical = mundial.critical
+        newMundial.casesPerOneMillion = mundial.casesPerOneMillion
+        newMundial.deathsPerOneMillion = mundial.deathsPerOneMillion
+        newMundial.tests = mundial.tests
+        newMundial.testsPerOneMillion = mundial.testsPerOneMillion
+        newMundial.population = mundial.population
+        newMundial.oneCasePerPeople = mundial.oneCasePerPeople
+        newMundial.oneDeathPerPeople = mundial.oneDeathPerPeople
+        newMundial.oneTestPerPeople = mundial.oneTestPerPeople
+        newMundial.activePerOneMillion = mundial.activePerOneMillion
+        newMundial.recoveredPerOneMillion = mundial.recoveredPerOneMillion
+        newMundial.criticalPerOneMillion = mundial.criticalPerOneMillion
+        newMundial.affectedCountries = mundial.affectedCountries
+
         save()
     }
     
@@ -38,7 +56,7 @@ class EstatisticasMundialPublisher
         {
             do
             {
-                try self.publisherContext.save()
+                try newMundial.publisherContext.save()
             }
             catch
             {
