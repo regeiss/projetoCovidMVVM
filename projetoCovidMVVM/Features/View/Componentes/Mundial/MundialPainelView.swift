@@ -10,11 +10,13 @@ import SwiftUI
 
 struct MundialPainelView: View
 {
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.data, order: .forward)], predicate: NSPredicate(format: "tipo == %@", "casos"))
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.data, order: .reverse)], predicate: NSPredicate(format: "tipo == %@", "casos"))
     private var seriesCasos: FetchedResults<SeriesHistoricas>
     
     var mundialData: EstatisticasMundialModel
     var updated: String
+    @State var dailyGrowthRate: Float = 0.0
+    @State var dailyGrowthRate14: Float = 0.0
     
     var body: some View
     {
@@ -33,8 +35,8 @@ struct MundialPainelView: View
                                 .fontWeight(.regular)
                                 .padding(.bottom, 6)
                             
-                            TaxasView(texto: "Taxa cresc. diária", valor: String(mundialData.cases))
-                            TaxasView(texto: "Taxa cresc. 14 dias", valor: String(mundialData.cases))
+                            TaxasCrescimentoView(texto: "Taxa cresc. diária", valor: String(format: "%.2f", dailyGrowthRate))
+                            TaxasCrescimentoView(texto: "Taxa cresc. 14 dias", valor: String(format: "%.2f", dailyGrowthRate14))
                             TaxasView(texto: "Fatalidades", valor: String(mundialData.cases))
                         }
                     }
@@ -78,18 +80,34 @@ struct MundialPainelView: View
     
     func AjustaSeries()
     {
-        let data = Date()
-        let casosHoje = self.seriesCasos[data]
-        
-        let dailyGrowthRate = Float (self.seriesCasos.index(0, offsetBy: 1)) / Float(self.seriesCasos.index(0, offsetBy: 2))  * Float (100)
+        if self.seriesCasos.count > 0
+        {
+            let casosHoje = self.seriesCasos.first?.qtd ?? 0
+            
+            let casosOntemIndex = self.seriesCasos.index(0, offsetBy: 1)
+            let casosOntem = self.seriesCasos[casosOntemIndex].qtd
+            
+            let casos14DiasIndex = self.seriesCasos.index(0, offsetBy: 15)
+            let casos14Dias = self.seriesCasos[casos14DiasIndex].qtd
+            
+            let casos30DiasIndex = self.seriesCasos.index(0, offsetBy: 15)
+            let casos30Dias = self.seriesCasos[casos30DiasIndex].qtd
+            
+            let casos90dias = self.seriesCasos.last?.qtd ?? 0
+            
+            dailyGrowthRate = (Float (casosOntem) / Float(casosHoje))  //* Float (100)
+            dailyGrowthRate14 = (Float (casos14Dias) / Float(casosHoje))  //* Float (100)
+            print(String(dailyGrowthRate14))
+        }
+        else
+        {
+            print ("Casos igual a zero")
+            dailyGrowthRate = 0.0
+        }
     }
 }
 
-extension Dictionary {
-    subscript(i: Int) -> (key: Key, value: Value) {
-        return self[index(startIndex, offsetBy: i)]
-    }
-}
+
 
 struct TaxasView: View
 {
@@ -109,6 +127,26 @@ struct TaxasView: View
         }
     }
 }
+
+struct TaxasCrescimentoView: View
+{
+    var texto: String
+    var valor: String
+    
+    var body: some View
+    {
+        HStack
+        {
+            Text(texto)
+                .font(.system(size: 14))
+                .fontWeight(.light)
+            Text(valor)
+                .font(.system(size: 14))
+                .fontWeight(.regular)
+        }
+    }
+}
+
 
 struct RodapeGeral: View
 {

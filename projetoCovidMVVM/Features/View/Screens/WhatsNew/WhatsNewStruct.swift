@@ -88,60 +88,59 @@ public struct SwiftNEW: View
     }
     
     // MARK: - Current Version Changes View
-    public var sheetCurrent: some View {
-        VStack(alignment: align) {
+    public var sheetCurrent: some View
+    {
+        VStack(alignment: align)
+        {
+        
             Spacer()
             
-            headings
-            
-            Spacer()
-            
-            if loading {
-                VStack {
-                    Text("Loading...").padding(.bottom)
-                    ProgressView()
-                }
-            }
-            else {
-                ScrollView(showsIndicators: false) {
-                    ForEach(items, id: \.self) { item in
-                        if item.version == Bundle.version {
-                            ForEach(item.new, id: \.self) { new in
-                                HStack {
-                                    ZStack {
-                                        color
-                                        Image(systemName: new.icon)
-                                            .foregroundColor(.white)
-                                    }
-                                    .frame(width: 50, height:50)
-                                    .cornerRadius(15)
-                                    .padding(.trailing)
-                                    VStack(alignment: .leading) {
-                                        Text(new.title).font(.headline).lineLimit(1)
-                                        Text(new.subtitle).font(.subheadline).foregroundColor(.secondary).lineLimit(1)
-                                        Text(new.body).font(.caption).foregroundColor(.secondary).lineLimit(2)
-                                    }
-                                    Spacer()
-                                }.padding(.bottom)
-                            }
-                        }
-                    }
-                }.frame(width: 300)
-                    .frame(maxHeight: 450)
-            }
-            
-            Spacer()
-            
-            if history {
-                showHistoryButton
-            }
-            
-            closeCurrentButton
-                .padding(.bottom)
+//            if loading {
+//                VStack {
+//                    Text("Loading...").padding(.bottom)
+//                    ProgressView()
+//                }
+//            }
+//            else {
+//                ScrollView(showsIndicators: false) {
+//                    ForEach(items, id: \.self) { item in
+//                        if item.version == Bundle.version {
+//                            ForEach(item.new, id: \.self) { new in
+//                                HStack {
+//                                    ZStack {
+//                                        color
+//                                        Image(systemName: new.icon)
+//                                            .foregroundColor(.white)
+//                                    }
+//                                    .frame(width: 50, height:50)
+//                                    .cornerRadius(15)
+//                                    .padding(.trailing)
+//                                    VStack(alignment: .leading) {
+//                                        Text(new.title).font(.headline).lineLimit(1)
+//                                        Text(new.subtitle).font(.subheadline).foregroundColor(.secondary).lineLimit(1)
+//                                        Text(new.body).font(.caption).foregroundColor(.secondary).lineLimit(2)
+//                                    }
+//                                    Spacer()
+//                                }.padding(.bottom)
+//                            }
+//                        }
+//                    }
+//                }.frame(width: 300)
+//                    .frame(maxHeight: 450)
+//            }
+//
+//            Spacer()
+//
+//            if history {
+//                showHistoryButton
+//            }
+//
+//            closeCurrentButton
+//                .padding(.bottom)
         }
-        .onAppear {
-            loadData()
-        }
+//        .onAppear {
+//            loadData()
+//        }
 #if os(macOS)
         .padding(25)
         .frame(width: 600, height: 600)

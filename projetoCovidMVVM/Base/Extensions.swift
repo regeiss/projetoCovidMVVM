@@ -125,9 +125,9 @@ extension String
 {
     func replaceSpace(with: String) -> String
     {
-        let strWithoutSpace = self.replacingOccurrences(of: " ", with: "\(with)")
+        let stringWithoutSpace = self.replacingOccurrences(of: " ", with: "\(with)")
         
-        return strWithoutSpace
+        return stringWithoutSpace
     }
 }
 
@@ -192,5 +192,13 @@ public extension Bundle
     static var versionBuild: String
     {
         return "\(version) (\(build))"
+    }
+}
+
+extension Dictionary
+{
+    subscript(i: Int) -> (key: Key, value: Value)
+    {
+        return self[index(startIndex, offsetBy: i)]
     }
 }
