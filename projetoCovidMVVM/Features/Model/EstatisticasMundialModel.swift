@@ -10,7 +10,7 @@ import Foundation
 struct EstatisticasMundialModel: Codable, Hashable
 {
     init(updated: Double, cases: Int, todayCases: Int, deaths: Int, recovered: Int, todayRecovered: Int, active: Int, critical: Int, casesPerOneMillion: Int,
-        deathsPerOneMillion: Double, tests: Int, testsPerOneMillion: Double, population: Int, oneCasePerPeople: Int, oneDeathPerPeople: Int, oneTestPerPeople: Int,
+        deathsPerOneMillion: Double, tests: Int, testsPerOneMillion: Double, population: Int64, oneCasePerPeople: Int, oneDeathPerPeople: Int, oneTestPerPeople: Int,
         activePerOneMillion: Double, recoveredPerOneMillion: Double, criticalPerOneMillion: Double, affectedCountries: Int)
     {
         self.updated = updated
@@ -48,7 +48,7 @@ struct EstatisticasMundialModel: Codable, Hashable
     let deathsPerOneMillion: Double
     let tests: Int
     let testsPerOneMillion: Double
-    let population: Int
+    let population: Int64
     let oneCasePerPeople: Int
     let oneDeathPerPeople: Int
     let oneTestPerPeople: Int

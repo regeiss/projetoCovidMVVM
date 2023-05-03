@@ -29,7 +29,7 @@ class SeriesHistoricasPublisher: NSObject
             let newSerie = SeriesHistoricas(context: publisherContext)
             newSerie.data = casos.key.toDate(withFormat: "MM-dd-yyyy")
             newSerie.qtd = Int32(casos.value)
-            newSerie.tipo = "casos14"
+            newSerie.tipo = "casos"
             save()
         })
         

@@ -5,7 +5,7 @@
         <attribute name="cases" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="critical" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="deaths" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="population" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="population" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="recovered" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="todayCases" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="todayRecovered" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>

@@ -26,26 +26,26 @@ class EstatisticasMundialPublisher
         deleteAll()
 
         let newMundial = EstatisticasMundial(context: publisherContext)
-        newMundial.updatedDate = mundial.updated
-        newMundial.cases = mundial.cases
-        newMundial.todayCases = mundial.todayCases
-        newMundial.deaths = mundial.deaths
-        newMundial.recovered = mundial.recovered
-        newMundial.todayRecovered = mundial.todayRecovered
-        newMundial.active = mundial.active
-        newMundial.critical = mundial.critical
-        newMundial.casesPerOneMillion = mundial.casesPerOneMillion
-        newMundial.deathsPerOneMillion = mundial.deathsPerOneMillion
-        newMundial.tests = mundial.tests
-        newMundial.testsPerOneMillion = mundial.testsPerOneMillion
-        newMundial.population = mundial.population
-        newMundial.oneCasePerPeople = mundial.oneCasePerPeople
-        newMundial.oneDeathPerPeople = mundial.oneDeathPerPeople
-        newMundial.oneTestPerPeople = mundial.oneTestPerPeople
-        newMundial.activePerOneMillion = mundial.activePerOneMillion
-        newMundial.recoveredPerOneMillion = mundial.recoveredPerOneMillion
-        newMundial.criticalPerOneMillion = mundial.criticalPerOneMillion
-        newMundial.affectedCountries = mundial.affectedCountries
+        newMundial.updatedDate = Double(mundial.updated)
+        newMundial.cases = Int32(mundial.cases)
+        newMundial.todayCases = Int32(mundial.todayCases)
+        newMundial.deaths = Int32(mundial.deaths)
+        newMundial.recovered = Int32(mundial.recovered)
+        newMundial.todayRecovered = Int32(mundial.todayRecovered)
+        newMundial.active = Int32(mundial.active)
+        newMundial.critical = Int32(mundial.critical)
+//        newMundial.casesPerOneMillion = mundial.casesPerOneMillion
+//        newMundial.deathsPerOneMillion = mundial.deathsPerOneMillion
+//        newMundial.tests = mundial.tests
+//        newMundial.testsPerOneMillion = mundial.testsPerOneMillion
+        newMundial.population = Int64(mundial.population)
+//        newMundial.oneCasePerPeople = mundial.oneCasePerPeople
+//        newMundial.oneDeathPerPeople = mundial.oneDeathPerPeople
+//        newMundial.oneTestPerPeople = mundial.oneTestPerPeople
+//        newMundial.activePerOneMillion = mundial.activePerOneMillion
+//        newMundial.recoveredPerOneMillion = mundial.recoveredPerOneMillion
+//        newMundial.criticalPerOneMillion = mundial.criticalPerOneMillion
+//        newMundial.affectedCountries = mundial.affectedCountries
 
         save()
     }
@@ -56,7 +56,7 @@ class EstatisticasMundialPublisher
         {
             do
             {
-                try newMundial.publisherContext.save()
+                try self.publisherContext.save()
             }
             catch
             {

@@ -5,10 +5,14 @@
 //  Created by Roberto Edgar Geiss on 13/03/23.
 //
 
+import CoreData
 import SwiftUI
 
 struct MundialPainelView: View
 {
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.data, order: .forward)], predicate: NSPredicate(format: "tipo == %@", "casos"))
+    private var seriesCasos: FetchedResults<SeriesHistoricas>
+    
     var mundialData: EstatisticasMundialModel
     var updated: String
     
@@ -29,35 +33,9 @@ struct MundialPainelView: View
                                 .fontWeight(.regular)
                                 .padding(.bottom, 6)
                             
-                            HStack
-                            {
-                                Text("Taxa cresc. diária")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.light)
-                                Text(String(mundialData.cases).toNumberFormat())
-                                    .font(.system(size: 14))
-                                    .fontWeight(.regular)
-                            }
-                            
-                            HStack
-                            {
-                                Text("Taxa cresc. 14 dias")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.light)
-                                Text(String(mundialData.deaths).toNumberFormat())
-                                    .font(.system(size: 14))
-                                    .fontWeight(.regular)
-                            }
-                            
-                            HStack
-                            {
-                                Text("Fatalidades")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.light)
-                                Text(String(mundialData.deaths).toNumberFormat())
-                                    .font(.system(size: 14))
-                                    .fontWeight(.regular)
-                            }
+                            TaxasView(texto: "Taxa cresc. diária", valor: String(mundialData.cases))
+                            TaxasView(texto: "Taxa cresc. 14 dias", valor: String(mundialData.cases))
+                            TaxasView(texto: "Fatalidades", valor: String(mundialData.cases))
                         }
                     }
                     
@@ -89,12 +67,46 @@ struct MundialPainelView: View
                 }
             }
             .padding()
+            .onAppear(){ AjustaSeries() }
             
             Text(updated)
                 .font(.footnote)
                 .padding()
             
         }.placeCardStyle()
+    }
+    
+    func AjustaSeries()
+    {
+        let data = Date()
+        let casosHoje = self.seriesCasos[data]
+        
+        let dailyGrowthRate = Float (self.seriesCasos.index(0, offsetBy: 1)) / Float(self.seriesCasos.index(0, offsetBy: 2))  * Float (100)
+    }
+}
+
+extension Dictionary {
+    subscript(i: Int) -> (key: Key, value: Value) {
+        return self[index(startIndex, offsetBy: i)]
+    }
+}
+
+struct TaxasView: View
+{
+    var texto: String
+    var valor: String
+    
+    var body: some View
+    {
+        HStack
+        {
+            Text(texto)
+                .font(.system(size: 14))
+                .fontWeight(.light)
+            Text(valor.toNumberFormat())
+                .font(.system(size: 14))
+                .fontWeight(.regular)
+        }
     }
 }
 
