@@ -49,34 +49,35 @@ public struct SwiftNEW: View
     
     public var body: some View
     {
-        Button(action: {
-            if showDrop
-            {
-#if os(iOS)
-                drop()
-#endif
-            }
-            else
-            {
-                show = true
-            }
-        })
-        {
-            if size == "mini"
-            {
-                Label(label, systemImage: labelImage)
-            }
-            else if size == "normal"
-            {
-                Label(label, systemImage: labelImage)
-                    .frame(width: 300, height: 50)
-#if os(iOS)
-                    .foregroundColor(labelColor)
-                    .background(color)
-                    .cornerRadius(15)
-#endif
-            }
-        }
+//        Button(action: {
+//            if showDrop
+//            {
+//#if os(iOS)
+//                drop()
+//#endif
+//            }
+//            else
+//            {
+//                show = true
+//            }
+//        })
+//        {
+//            if size == "mini"
+//            {
+//                Label(label, systemImage: labelImage)
+//            }
+//            else if size == "normal"
+//            {
+//                Label(label, systemImage: labelImage)
+//                    .frame(width: 300, height: 50)
+//#if os(iOS)
+//                    .foregroundColor(labelColor)
+//                    .background(color)
+//                    .cornerRadius(15)
+//#endif
+//            }
+//        }
+        EmptyView()
         .sheet(isPresented: $show)
         {
             sheetCurrent

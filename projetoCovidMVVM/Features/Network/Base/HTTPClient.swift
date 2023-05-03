@@ -37,7 +37,7 @@ class HTTPClient: NSObject
         
         if endpoint.host == "disease.sh"
         {
-            urlComponents.queryItems?.append(URLQueryItem(name: "lastdays", value: "90"))
+            urlComponents.queryItems = [URLQueryItem(name: "lastdays", value: "90")]
         }
         
         print(urlComponents.url as Any)
