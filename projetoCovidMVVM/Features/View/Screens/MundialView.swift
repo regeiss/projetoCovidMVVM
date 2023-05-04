@@ -20,34 +20,39 @@ struct MundialView: View
     {
         NavigationStack
         {
-            switch viewModel.state
+            VStack
             {
-            case .loading:
-                LoadingView(text: "Buscando")
-                
-            case .success(let data):
-                
-                VStack
+                switch viewModel.state
                 {
-                    MundialPainelView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
-                    Divider()
-                    ScrollView
+                case .loading:
+                    LoadingView(text: "Buscando")
+                    
+                case .success(let data):
+                    
+                    VStack
                     {
-                        MundialPainelDetalheView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
+                        MundialPainelView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
+                        Divider()
+                        ScrollView
+                        {
+                            MundialPainelDetalheView(mundialData: data, updated: String(data.updated.getDateFromTimeStamp()))
+                        }
                     }
+                case .failed(let error):
+                    ErroView(erro: error)
+                    
+                default: BaseView()
                 }
-            case .failed(let error):
-                ErroView(erro: error)
                 
-            default: BaseView()
-            }
-        }.task { await viewModel.getAllEstatisticas()
-            await viewModel90dias.getSeries90Dias()}
+            }.navigationBarTitle("Dados COVID mundo")
+                .toolbar { Button(role: .destructive, action: { goToSettings = true})
+                    { Label("Settings", systemImage: "gearshape.fill").foregroundColor(.blue)}
+                }.navigationDestination(isPresented: $goToSettings, destination: { AjustesView()})
+        }
+        .task { await viewModel.getAllEstatisticas()
+                 await viewModel90dias.getSeries90Dias()}
         .alert("Error", isPresented: ($viewModel.hasError), presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
             { Task { await viewModel.getAllEstatisticas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-            .navigationBarTitle("Dados COVID mundo")
-            .toolbar { Button(role: .destructive, action: { goToSettings = true})
-                { Label("Settings", systemImage: "gearshape.fill").foregroundColor(.blue)}
-            }.navigationDestination(isPresented: $goToSettings, destination: { AjustesView()})
+            
     }
 }

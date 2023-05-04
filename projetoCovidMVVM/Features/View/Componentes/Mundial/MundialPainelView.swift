@@ -90,7 +90,7 @@ struct MundialPainelView: View
             let casos14DiasIndex = self.seriesCasos.index(0, offsetBy: 15)
             let casos14Dias = self.seriesCasos[casos14DiasIndex].qtd
             
-            let casos30DiasIndex = self.seriesCasos.index(0, offsetBy: 59)
+//            let casos30DiasIndex = self.seriesCasos.index(0, offsetBy: 59)
 //            let casos30Dias = self.seriesCasos[casos30DiasIndex].qtd
 //
 //            let casos90dias = self.seriesCasos.last?.qtd ?? 0
